@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Stackly Sports Academy — Our story, vision, mission, and commitment to shaping elite athletes.">
+  <meta name="theme-color" content="#0F172A">
+  <title>About Us — Stackly Sports Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== SVG ICON SPRITE ===== -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="icon-trophy" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6m12 5h1.5a2.5 2.5 0 0 0 0-5H18M6 9v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9M6 9h12m-6 9v3m-4 0h8"/></symbol>
+      <symbol id="icon-medal" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 0v6m-4 0h8M8 3l8 9m0-9L8 12"/></symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2m8-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></symbol>
+      <symbol id="icon-brain" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.5 2A2.5 2.5 0 0 1 12 4.5v0a2.5 2.5 0 0 0 2.5 2.5v0a2.5 2.5 0 0 1 2.5 2.5v0a2.5 2.5 0 0 0 2.5 2.5v0c.9 0 1.7.5 2.1 1.3M8 22a2 2 0 0 1-2-2m2 2a2 2 0 0 0 2-2m-2 2v-4m-2 2a2 2 0 0 1-2-2m2 2a2 2 0 0 0 2-2m-2 2v-4m-2 2a2 2 0 0 1-2-2m2 2a2 2 0 0 0 2-2m-2 2v-4"/></symbol>
+      <symbol id="icon-dumbbell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.5 6.5h11M6.5 17.5h11M6 20v-5M18 20v-5M6 9V4M18 9V4M3 9h18M3 15h18M2 12h20"/></symbol>
+      <symbol id="icon-apple" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 20.94c1.5 1.25 3.75 1.25 5.5-.25 3-2.25 3.75-7.5 1.25-10.75-1.25-1.5-3-2-4.5-1.5-.75.25-1.75.25-2.5 0-1.5-.5-3.25 0-4.5 1.5-2.5 3.25-1.75 8.5 1.25 10.75 1.75 1.5 4 1.5 5.5.25zM15 4a2.5 2.5 0 0 0-3 2 2.5 2.5 0 0 0 3-2z"/></symbol>
+      <symbol id="icon-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 20V10M12 20V4M6 20v-6"/></symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></symbol>
+      <symbol id="icon-eye" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-bullseye" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
+      <symbol id="icon-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor"/></symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M2 12h20"/><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="icon-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-location" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.56 12.56 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.56 12.56 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.4c0-1.5-.5-2.5-2-2.5-1 0-1.6.6-1.9 1.1v-1H12v8.3h2.1v-4.9c0-.9.4-1.5 1.2-1.5s1.1.6 1.1 1.5v4.9h2.1M6.5 9H9v8.5H6.5V9m1.2-4a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-twitter" viewBox="0 0 24 24"><path fill="currentColor" d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 12 8v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></symbol>
+      <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon fill="#fff" points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></symbol>
+      <symbol id="icon-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></symbol>
+      <symbol id="icon-quote" viewBox="0 0 24 24"><path fill="currentColor" d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zm-14 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H.017z"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 6L6 18M6 6l12 12"/></symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="icon-login" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/></symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-logout" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+      <symbol id="icon-graduation" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 10l-10-5-10 5 10 5 10-5zM6 12v5l6 3 6-3v-5M2 10v6"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader" role="status" aria-label="Loading">
+    <div class="preloader__content">
+      <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="preloader__logo" width="108" height="72">
+      <div class="preloader__bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo" aria-label="Stackly Sports Academy Home">
+        <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="logo-img" width="120" height="80">
+      </a>
+      <nav class="header__nav" id="headerNav" aria-label="Main navigation">
+        <ul class="header__menu">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="about.html" class="nav__link active">About</a></li>
+          <li><a href="programs.html" class="nav__link">Programs</a></li>
+          <li><a href="coaches.html" class="nav__link">Coaches</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="header__actions header__actions--mobile">
+          <a href="login.html" class="btn btn--ghost btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
+          <a href="signup.html" class="btn btn--primary btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+        </div>
+      </nav>
+      <div class="header__actions header__actions--desktop">
+        <a href="login.html" class="btn btn--ghost btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
+        <a href="signup.html" class="btn btn--primary btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+      </div>
+      <button class="header__toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ===== PREMIUM HERO BANNER ===== -->
+    <section class="page-hero" id="about-hero" aria-label="About Stackly Sports Academy">
+      <div class="page-hero__bg">
+        <img src="assets/about-hero.webp" alt="Stackly Sports Academy athletes training" loading="eager" decoding="async" width="1600" height="580">
+        <div class="page-hero__overlay"></div>
+        <div class="page-hero__gradient"></div>
+      </div>
+      <div class="container page-hero__container">
+        <div class="page-hero__content" data-reveal="fade-up">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li aria-current="page">About</li>
+            </ol>
+          </nav>
+          <h1 class="page-hero__title">Building Champions <span class="text-gradient">Since 2012</span></h1>
+          <p class="page-hero__desc">Where passion meets performance, and potential becomes legacy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OUR STORY ===== -->
+    <section class="section story" id="story" aria-labelledby="story-title">
+      <div class="container">
+        <div class="story__layout">
+          <div class="story__visual" data-reveal="reveal-left">
+            <div class="story__frame">
+              <img src="assets/about-campus.webp" alt="Stackly Sports Academy campus" loading="lazy" decoding="async" width="800" height="560">
+            </div>
+            <div class="story__badge glass-card" data-reveal="scale-in" data-delay="0.3">
+              <span class="story__badge-num counter" data-target="12">0</span>
+              <span class="story__badge-label">Years of<br>Excellence</span>
+            </div>
+          </div>
+          <div class="story__content" data-reveal="reveal-right">
+            <span class="section__tag">Our Story</span>
+            <h2 id="story-title" class="section__title">From a Local Dream to a <span class="text-gradient">National Legacy</span></h2>
+            <p class="story__text">Stackly Sports Academy began with a simple belief: every athlete deserves world-class coaching, elite facilities, and a pathway to greatness. Founded in 2012 by former national champions, we started as a small training ground and have grown into one of the most respected sports academies in the region.</p>
+            <p class="story__text">Over the past decade, we have trained thousands of athletes across 15+ disciplines, produced national team representatives, and helped hundreds secure college scholarships. Our journey is defined by relentless dedication, innovation, and an unwavering commitment to excellence.</p>
+            <div class="story__stats">
+              <div class="story__stat">
+                <span class="story__stat-num counter" data-target="15">0</span>
+                <span class="story__stat-label">Elite Sports</span>
+              </div>
+              <div class="story__stat">
+                <span class="story__stat-num"><span class="counter" data-target="3500">0</span>+</span>
+                <span class="story__stat-label">Athletes Trained</span>
+              </div>
+              <div class="story__stat">
+                <span class="story__stat-num counter" data-target="50">0</span>
+                <span class="story__stat-label">Expert Coaches</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VISION & MISSION ===== -->
+    <section class="section vision" id="vision" aria-labelledby="vision-title">
+      <div class="vision__bg" aria-hidden="true">
+        <div class="vision__gradient"></div>
+        <div class="vision__pattern"></div>
+      </div>
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Vision & Mission</span>
+          <h2 id="vision-title" class="section__title">What Drives Us <span class="text-gradient">Every Day</span></h2>
+          <p class="section__desc">Our purpose extends beyond winning trophies. We exist to transform lives through sport.</p>
+        </div>
+        <div class="vision__grid">
+          <article class="vision-card" data-reveal="fade-up">
+            <div class="vision-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg></div>
+            <h3 class="vision-card__title">Our Vision</h3>
+            <p>To become the leading sports academy in Asia, recognized for producing world-class athletes who inspire generations and redefine the standards of excellence in sports.</p>
+          </article>
+          <article class="vision-card vision-card--featured" data-reveal="scale-in" data-delay="0.1">
+            <div class="vision-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-target"/></svg></div>
+            <h3 class="vision-card__title">Our Mission</h3>
+            <p>To provide holistic athletic development through elite coaching, cutting-edge sports science, and character-building programs that prepare athletes for success on and off the field.</p>
+          </article>
+          <article class="vision-card" data-reveal="fade-up" data-delay="0.2">
+            <div class="vision-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-heart"/></svg></div>
+            <h3 class="vision-card__title">Our Values</h3>
+            <p>Discipline, integrity, resilience, teamwork, and respect. We believe champions are built not just by talent, but by character, work ethic, and an unshakeable mindset.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY STACKLY SPORTS ACADEMY ===== -->
+    <section class="section why-stackly" id="why-stackly" aria-labelledby="why-stackly-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Why Stackly Sports Academy</span>
+          <h2 id="why-stackly-title" class="section__title">The Stackly <span class="text-gradient">Advantage</span></h2>
+          <p class="section__desc">We combine the best of athletic training, education, and personal development to create an environment where champions thrive.</p>
+        </div>
+        <div class="why-stackly__grid">
+          <article class="why-stackly-card" data-reveal="fade-up">
+            <div class="why-stackly-card__num">01</div>
+            <div class="why-stackly-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg></div>
+            <h3>Proven Track Record</h3>
+            <p>156 championship titles, 280 college scholarships, and 12+ national team representatives trained by our academy.</p>
+          </article>
+          <article class="why-stackly-card" data-reveal="fade-up" data-delay="0.05">
+            <div class="why-stackly-card__num">02</div>
+            <div class="why-stackly-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg></div>
+            <h3>World-Class Coaches</h3>
+            <p>Our coaching staff includes Olympic trainers, national champions, and certified specialists across every discipline.</p>
+          </article>
+          <article class="why-stackly-card" data-reveal="fade-up" data-delay="0.1">
+            <div class="why-stackly-card__num">03</div>
+            <div class="why-stackly-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-dumbbell"/></svg></div>
+            <h3>Elite Facilities</h3>
+            <p>A 15-acre campus featuring Olympic pools, indoor arenas, synthetic tracks, recovery centers, and performance labs.</p>
+          </article>
+          <article class="why-stackly-card" data-reveal="fade-up" data-delay="0.15">
+            <div class="why-stackly-card__num">04</div>
+            <div class="why-stackly-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-brain"/></svg></div>
+            <h3>Sports Science Focus</h3>
+            <p>Data-driven performance analytics, biomechanics labs, nutrition planning, and mental conditioning programs.</p>
+          </article>
+          <article class="why-stackly-card" data-reveal="fade-up" data-delay="0.2">
+            <div class="why-stackly-card__num">05</div>
+            <div class="why-stackly-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-graduation"/></svg></div>
+            <h3>Academic Balance</h3>
+            <p>We ensure every athlete excels academically with tutoring, flexible schedules, and scholarship placement support.</p>
+          </article>
+          <article class="why-stackly-card" data-reveal="fade-up" data-delay="0.25">
+            <div class="why-stackly-card__num">06</div>
+            <div class="why-stackly-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-shield"/></svg></div>
+            <h3>Character First</h3>
+            <p>We build leaders. Discipline, teamwork, and integrity are at the core of everything we teach.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRAINING PHILOSOPHY ===== -->
+    <section class="section philosophy" id="philosophy" aria-labelledby="philosophy-title">
+      <div class="container">
+        <div class="philosophy__layout">
+          <div class="philosophy__content" data-reveal="reveal-left">
+            <span class="section__tag">Training Philosophy</span>
+            <h2 id="philosophy-title" class="section__title">The Science of <span class="text-gradient">Championship Performance</span></h2>
+            <p class="philosophy__text">Our training philosophy is built on four interconnected pillars that develop the complete athlete. Every session, every drill, and every decision is guided by this framework.</p>
+            <div class="philosophy__pillars">
+              <div class="philosophy__pillar">
+                <span class="philosophy__pillar-icon"><svg class="icon" aria-hidden="true"><use href="#icon-brain"/></svg></span>
+                <div>
+                  <h3>Mental Conditioning</h3>
+                  <p>Sports psychology, visualization, and pressure management to build an unshakeable competitive mindset.</p>
+                </div>
+              </div>
+              <div class="philosophy__pillar">
+                <span class="philosophy__pillar-icon"><svg class="icon" aria-hidden="true"><use href="#icon-dumbbell"/></svg></span>
+                <div>
+                  <h3>Physical Development</h3>
+                  <p>Sport-specific strength, speed, agility, and endurance training tailored to each athlete's needs.</p>
+                </div>
+              </div>
+              <div class="philosophy__pillar">
+                <span class="philosophy__pillar-icon"><svg class="icon" aria-hidden="true"><use href="#icon-apple"/></svg></span>
+                <div>
+                  <h3>Nutrition & Recovery</h3>
+                  <p>Personalized meal plans, recovery protocols, sleep optimization, and injury prevention strategies.</p>
+                </div>
+              </div>
+              <div class="philosophy__pillar">
+                <span class="philosophy__pillar-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chart"/></svg></span>
+                <div>
+                  <h3>Performance Analytics</h3>
+                  <p>Biometric tracking, video analysis, and data-driven insights to continuously optimize training.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="philosophy__visual" data-reveal="reveal-right">
+            <div class="philosophy__frame">
+              <img src="assets/about-philosophy.webp" alt="Athlete training at Stackly" loading="lazy" decoding="async" width="900" height="600">
+            </div>
+            <div class="philosophy__float glass-card" data-parallax="-15">
+              <div class="philosophy__float-icon"><svg class="icon" aria-hidden="true"><use href="#icon-zap"/></svg></div>
+              <div>
+                <strong>Peak Performance</strong>
+                <span>Data-Driven Training</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FACILITIES OVERVIEW ===== -->
+    <section class="section facilities-overview" id="facilities-overview" aria-labelledby="facilities-overview-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Facilities Overview</span>
+          <h2 id="facilities-overview-title" class="section__title">A Campus Built for <span class="text-gradient">Greatness</span></h2>
+          <p class="section__desc">Every facility is designed to give our athletes the competitive edge they need to perform at their best.</p>
+        </div>
+        <div class="facilities-overview__grid">
+          <article class="facility-card" data-reveal="fade-up">
+            <div class="facility-card__media">
+              <img src="assets/facility-stadium.webp" alt="Main stadium" loading="lazy" decoding="async" width="900" height="600">
+            </div>
+            <div class="facility-card__content">
+              <h3>Main Stadium</h3>
+              <p>5,000-seat competition-grade stadium with floodlights and broadcast capabilities.</p>
+            </div>
+          </article>
+          <article class="facility-card" data-reveal="fade-up" data-delay="0.05">
+            <div class="facility-card__media">
+              <img src="assets/facility-pool.webp" alt="Olympic pool" loading="lazy" decoding="async" width="700" height="460">
+            </div>
+            <div class="facility-card__content">
+              <h3>Olympic Pool</h3>
+              <p>10-lane FINA-certified pool with underwater analysis and climate control.</p>
+            </div>
+          </article>
+          <article class="facility-card" data-reveal="fade-up" data-delay="0.1">
+            <div class="facility-card__media">
+              <img src="assets/facility-gym.webp" alt="Performance gym" loading="lazy" decoding="async" width="900" height="600">
+            </div>
+            <div class="facility-card__content">
+              <h3>Performance Gym</h3>
+              <p>2,000 sq ft strength center with Olympic platforms and force plate analysis.</p>
+            </div>
+          </article>
+          <article class="facility-card" data-reveal="fade-up" data-delay="0.15">
+            <div class="facility-card__media">
+              <img src="assets/facility-recovery.webp" alt="Recovery center" loading="lazy" decoding="async" width="700" height="460">
+            </div>
+            <div class="facility-card__content">
+              <h3>Recovery Center</h3>
+              <p>Cryotherapy, hydrotherapy, massage suites, and sleep optimization labs.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AWARDS & RECOGNITION ===== -->
+    <section class="section awards" id="awards" aria-labelledby="awards-title">
+      <div class="awards__bg" aria-hidden="true">
+        <div class="awards__gradient"></div>
+        <div class="awards__pattern"></div>
+      </div>
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Awards & Recognition</span>
+          <h2 id="awards-title" class="section__title">A Legacy of <span class="text-gradient">Excellence</span></h2>
+          <p class="section__desc">Our trophy cabinet tells the story of dedication, teamwork, and an unstoppable pursuit of victory.</p>
+        </div>
+        <div class="awards__layout">
+          <div class="awards__visual" data-reveal="reveal-left">
+            <div class="awards__frame">
+              <img src="assets/about-awards.webp" alt="Championship celebration" loading="lazy" decoding="async" width="900" height="600">
+            </div>
+          </div>
+          <div class="awards__content" data-reveal="reveal-right">
+            <div class="awards__list">
+              <div class="award-item">
+                <div class="award-item__icon"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg></div>
+                <div>
+                  <h3>National Champions 2025</h3>
+                  <p>Recognized as the top academy across all age categories in national competition.</p>
+                </div>
+              </div>
+              <div class="award-item">
+                <div class="award-item__icon"><svg class="icon" aria-hidden="true"><use href="#icon-medal"/></svg></div>
+                <div>
+                  <h3>State Games Gold Medalists</h3>
+                  <p>Multiple gold medals earned by our athletes at the State Games championships.</p>
+                </div>
+              </div>
+              <div class="award-item">
+                <div class="award-item__icon"><svg class="icon" aria-hidden="true"><use href="#icon-award"/></svg></div>
+                <div>
+                  <h3>Excellence in Coaching Award</h3>
+                  <p>Honored for our innovative coaching methodology and athlete development programs.</p>
+                </div>
+              </div>
+              <div class="award-item">
+                <div class="award-item__icon"><svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg></div>
+                <div>
+                  <h3>#1 Rated Sports Academy</h3>
+                  <p>Voted the top-rated academy in the region for three consecutive years.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="section cta-banner" id="cta" aria-labelledby="cta-title">
+      <div class="cta-banner__bg" aria-hidden="true">
+        <div class="cta-banner__gradient"></div>
+        <div class="cta-banner__shape"></div>
+      </div>
+      <div class="container">
+        <div class="cta-banner__content" data-reveal="fade-up">
+          <h2 id="cta-title" class="cta-banner__title">Ready to Start Your <span class="text-gradient">Champion Journey?</span></h2>
+          <p class="cta-banner__desc">Join Stackly Sports Academy today and train with the coaches, facilities, and community that turn potential into greatness.</p>
+          <div class="cta-banner__actions">
+            <a href="contact.html" class="btn btn--primary btn--lg">
+              Enroll Now
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+            </a>
+            <a href="programs.html" class="btn btn--ghost btn--lg">
+              Explore Programs
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__bg" aria-hidden="true">
+      <div class="footer__gradient"></div>
+      <div class="footer__pattern"></div>
+      <div class="footer__shape footer__shape--1"></div>
+      <div class="footer__shape footer__shape--2"></div>
+    </div>
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" aria-label="Stackly Sports Academy Home">
+            <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="footer__logo" width="135" height="90">
+          </a>
+          <p>Elite performance training for the next generation of champions. Join the academy that produces winners on the field and in life.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="#icon-twitter"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="#icon-tiktok"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col footer__col--card">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="coaches.html">Coaches</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--card">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html">Football</a></li>
+            <li><a href="programs.html">Basketball</a></li>
+            <li><a href="programs.html">Cricket</a></li>
+            <li><a href="programs.html">Swimming</a></li>
+            <li><a href="programs.html">Athletics</a></li>
+            <li><a href="programs.html">Strength & Conditioning</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--card">
+          <h4>Contact</h4>
+          <ul class="footer__contact">
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-location"/></svg>123 Sports Ave, CA 90210</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>+1 (555) 123-4567</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>info@stacklysports.com</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>Mon-Sat: 6AM - 9PM</li>
+          </ul>
+          <form class="footer__newsletter" id="newsletterForm" novalidate>
+            <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+            <button type="submit" aria-label="Subscribe"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Stackly Sports Academy. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+  </button>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

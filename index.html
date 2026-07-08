@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SportAcadem — Elite performance academy shaping the next generation of champions through world-class coaching, facilities, and athletic development.">
+  <meta name="theme-color" content="#0F172A">
+  <title>SportAcadem — Elite Performance Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== SVG ICON SPRITE ===== -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
+      <symbol id="icon-trophy" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6m12 5h1.5a2.5 2.5 0 0 0 0-5H18M6 9v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9M6 9h12m-6 9v3m-4 0h8"/></symbol>
+      <symbol id="icon-medal" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 0v6m-4 0h8M8 3l8 9m0-9L8 12"/></symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2m8-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></symbol>
+      <symbol id="icon-brain" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.5 2A2.5 2.5 0 0 1 12 4.5v0a2.5 2.5 0 0 0 2.5 2.5v0a2.5 2.5 0 0 1 2.5 2.5v0a2.5 2.5 0 0 0 2.5 2.5v0c.9 0 1.7.5 2.1 1.3M8 22a2 2 0 0 1-2-2m2 2a2 2 0 0 0 2-2m-2 2v-4m-2 2a2 2 0 0 1-2-2m2 2a2 2 0 0 0 2-2m-2 2v-4m-2 2a2 2 0 0 1-2-2m2 2a2 2 0 0 0 2-2m-2 2v-4"/></symbol>
+      <symbol id="icon-dumbbell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.5 6.5h11M6.5 17.5h11M6 20v-5M18 20v-5M6 9V4M18 9V4M3 9h18M3 15h18M2 12h20"/></symbol>
+      <symbol id="icon-apple" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 20.94c1.5 1.25 3.75 1.25 5.5-.25 3-2.25 3.75-7.5 1.25-10.75-1.25-1.5-3-2-4.5-1.5-.75.25-1.75.25-2.5 0-1.5-.5-3.25 0-4.5 1.5-2.5 3.25-1.75 8.5 1.25 10.75 1.75 1.5 4 1.5 5.5.25zM15 4a2.5 2.5 0 0 0-3 2 2.5 2.5 0 0 0 3-2z"/></symbol>
+      <symbol id="icon-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 20V10M12 20V4M6 20v-6"/></symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+      <symbol id="icon-location" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.56 12.56 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.56 12.56 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.4c0-1.5-.5-2.5-2-2.5-1 0-1.6.6-1.9 1.1v-1H12v8.3h2.1v-4.9c0-.9.4-1.5 1.2-1.5s1.1.6 1.1 1.5v4.9h2.1M6.5 9H9v8.5H6.5V9m1.2-4a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-twitter" viewBox="0 0 24 24"><path fill="currentColor" d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 12 8v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></symbol>
+      <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon fill="#fff" points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></symbol>
+      <symbol id="icon-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></symbol>
+      <symbol id="icon-quote" viewBox="0 0 24 24"><path fill="currentColor" d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zm-14 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H.017z"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 6L6 18M6 6l12 12"/></symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="icon-login" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/></symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-logout" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M2 12h20"/><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="icon-graduation" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 10l-10-5-10 5 10 5 10-5zM6 12v5l6 3 6-3v-5M2 10v6"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35"/></symbol>
+      <symbol id="icon-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor"/></symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader" role="status" aria-label="Loading">
+    <div class="preloader__content">
+      <img src="assets/logo-stackly.webp" alt="SportAcadem" class="preloader__logo" width="108" height="72">
+      <div class="preloader__bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo" aria-label="SportAcadem Home">
+        <img src="assets/logo-stackly.webp" alt="SportAcadem" class="logo-img" width="120" height="80">
+      </a>
+      <nav class="header__nav" id="headerNav" aria-label="Main navigation">
+        <ul class="header__menu">
+          <li><a href="index.html" class="nav__link active">Home</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="programs.html" class="nav__link">Programs</a></li>
+          <li><a href="coaches.html" class="nav__link">Coaches</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="header__actions header__actions--mobile">
+          <a href="login.html" class="btn btn--ghost btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
+          <a href="signup.html" class="btn btn--primary btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+        </div>
+      </nav>
+      <div class="header__actions header__actions--desktop">
+        <a href="login.html" class="btn btn--ghost btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
+        <a href="signup.html" class="btn btn--primary btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+      </div>
+      <button class="header__toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__gradient"></div>
+        <div class="hero__shape hero__shape--1"></div>
+        <div class="hero__shape hero__shape--2"></div>
+        <div class="hero__shape hero__shape--3"></div>
+        <div class="hero__grid"></div>
+      </div>
+      <div class="container hero__container">
+        <div class="hero__layout">
+          <div class="hero__content">
+            <div class="hero__badge" data-reveal="fade-up">
+              <span class="hero__badge-dot" aria-hidden="true"></span>
+              Elite Performance Academy
+            </div>
+            <h1 class="hero__title" data-reveal="fade-up" data-delay="0.1">
+              <span class="hero__line">Train Without</span>
+              <span class="hero__line">Limits.</span>
+              <span class="hero__line hero__line--accent">Rise Above.</span>
+            </h1>
+            <p class="hero__desc" data-reveal="fade-up" data-delay="0.2">World-class coaching, elite facilities, and a proven pathway to greatness for athletes ready to become champions.</p>
+            <div class="hero__actions" data-reveal="fade-up" data-delay="0.3">
+              <a href="#contact" class="btn btn--primary btn--lg">
+                Start Your Journey
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+              </a>
+              <button class="btn btn--play" id="watchVideo" aria-label="Watch video">
+                <span class="btn__play-icon"><svg class="icon" aria-hidden="true"><use href="#icon-play"/></svg></span>
+                Watch Video
+              </button>
+            </div>
+            <div class="hero__stats-row" data-reveal="fade-up" data-delay="0.4">
+              <div class="hero__stat">
+                <span class="hero__stat-num"><span class="counter" data-target="15">0</span></span>
+                <span class="hero__stat-label">Elite Sports</span>
+              </div>
+              <div class="hero__stat">
+                <span class="hero__stat-num"><span class="counter" data-target="500">0</span>+</span>
+                <span class="hero__stat-label">Athletes Trained</span>
+              </div>
+              <div class="hero__stat">
+                <span class="hero__stat-num"><span class="counter" data-target="50">0</span></span>
+                <span class="hero__stat-label">Pro Coaches</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero__visual" data-reveal="scale-in" data-delay="0.2">
+            <div class="hero__image-frame">
+              <div class="hero__image-reveal">
+                <img src="assets/hero-athlete.webp" alt="Elite athlete training" class="hero__image" width="900" height="1100" decoding="async">
+              </div>
+            </div>
+            <div class="hero__floating hero__floating--1" data-parallax="-30">
+              <div class="glass-card">
+                <div class="glass-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg></div>
+                <div class="glass-card__text">
+                  <strong>National Champions</strong>
+                  <span>2025 Title Winners</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero__floating hero__floating--2" data-parallax="20">
+              <div class="glass-card glass-card--gold">
+                <div class="glass-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-medal"/></svg></div>
+                <div class="glass-card__text">
+                  <strong>Gold Medalists</strong>
+                  <span>State Games 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero__floating hero__floating--3" data-parallax="-15">
+              <div class="glass-card">
+                <div class="glass-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg></div>
+                <div class="glass-card__text">
+                  <strong>50+ Athletes</strong>
+                  <span>Turned Professional</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="hero__scroll" aria-label="Scroll to content">
+        <span class="hero__scroll-text">Scroll</span>
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ===== ABOUT ACADEMY ===== -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about__layout">
+          <div class="about__visual">
+            <div class="about__collage" data-reveal="reveal-left">
+              <div class="about__img about__img--main">
+                <img src="assets/about-campus.webp" alt="Academy campus" loading="lazy" decoding="async" width="800" height="560">
+              </div>
+              <div class="about__img about__img--small">
+                <img src="assets/about-training.webp" alt="Athletes training" loading="lazy" decoding="async" width="500" height="500">
+              </div>
+              <div class="about__img about__img--small">
+                <img src="assets/about-coaching.webp" alt="Coach instruction" loading="lazy" decoding="async" width="500" height="500">
+              </div>
+            </div>
+            <div class="about__exp glass-card" data-reveal="scale-in" data-delay="0.3">
+              <span class="about__exp-num counter" data-target="12">0</span>
+              <span class="about__exp-label">Years of<br>Excellence</span>
+            </div>
+          </div>
+          <div class="about__content" data-reveal="reveal-right">
+            <span class="section__tag">About Academy</span>
+            <h2 id="about-title" class="section__title">Shaping the Next Generation of <span class="text-gradient">Elite Athletes</span></h2>
+            <p class="about__text">Founded in 2012, SportAcadem has become a premier destination for athletic development. Our holistic approach fuses technical mastery, sports science, and character building to create complete athletes.</p>
+            <p class="about__text">Our 15-acre campus houses Olympic pools, indoor arenas, synthetic tracks, and recovery centers — every facility designed to give our athletes the competitive edge they need.</p>
+            <ul class="about__features">
+              <li><span class="about__check"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span>International coaching staff with Olympic experience</li>
+              <li><span class="about__check"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span>Data-driven performance analytics & biomechanics lab</li>
+              <li><span class="about__check"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span>College scholarship placement with 80% success rate</li>
+            </ul>
+            <a href="#programs" class="btn btn--primary">
+              Explore Programs
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SPORTS PROGRAMS ===== -->
+    <section class="section programs" id="programs" aria-labelledby="programs-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Sports Programs</span>
+          <h2 id="programs-title" class="section__title">Elite Training Across <span class="text-gradient">15+ Disciplines</span></h2>
+          <p class="section__desc">Every program is built by expert coaches and tailored to develop technical skill, tactical intelligence, and physical conditioning.</p>
+        </div>
+        <div class="programs__grid">
+          <article class="program-card" data-reveal="fade-up">
+            <div class="program-card__media">
+              <img src="assets/program-football.webp" alt="Football training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Football</h3>
+              <p class="program-card__desc">Technical mastery, tactical intelligence, and game-readiness at every position.</p>
+              <a href="#contact" class="program-card__link">Learn More <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.05">
+            <div class="program-card__media">
+              <img src="assets/program-basketball.webp" alt="Basketball training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Basketball</h3>
+              <p class="program-card__desc">Shooting mechanics, ball handling, defensive principles, and team systems.</p>
+              <a href="#contact" class="program-card__link">Learn More <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.1">
+            <div class="program-card__media">
+              <img src="assets/program-cricket.webp" alt="Cricket training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Cricket</h3>
+              <p class="program-card__desc">Batting technique, bowling accuracy, fielding drills, and match simulation.</p>
+              <a href="#contact" class="program-card__link">Learn More <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.15">
+            <div class="program-card__media">
+              <img src="assets/program-athletics.webp" alt="Athletics training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Athletics</h3>
+              <p class="program-card__desc">Sprints, distance, jumps, and throws across all track & field events.</p>
+              <a href="#contact" class="program-card__link">Learn More <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.2">
+            <div class="program-card__media">
+              <img src="assets/program-swimming.webp" alt="Swimming training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Swimming</h3>
+              <p class="program-card__desc">All four competitive strokes, starts & turns, endurance, and race tactics.</p>
+              <a href="#contact" class="program-card__link">Learn More <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.25">
+            <div class="program-card__media">
+              <img src="assets/program-volleyball.webp" alt="Volleyball training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Volleyball</h3>
+              <p class="program-card__desc">Serving, spiking, blocking, and team coordination at elite levels.</p>
+              <a href="#contact" class="program-card__link">Learn More <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.3">
+            <div class="program-card__media">
+              <img src="assets/program-gym.webp" alt="Strength and conditioning" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Strength & Conditioning</h3>
+              <p class="program-card__desc">Sport-specific S&C, injury prevention, mobility, and recovery protocols.</p>
+              <a href="#contact" class="program-card__link">Learn More <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.35">
+            <div class="program-card__media">
+              <img src="assets/program-running.webp" alt="Running training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Marathon & Running</h3>
+              <p class="program-card__desc">Endurance building, pacing strategy, and race-day mental conditioning.</p>
+              <a href="#contact" class="program-card__link">Learn More <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="section why" id="why" aria-labelledby="why-title">
+      <div class="why__bg" aria-hidden="true">
+        <div class="why__gradient"></div>
+        <div class="why__pattern"></div>
+      </div>
+      <div class="container">
+        <div class="why__layout">
+          <div class="why__content" data-reveal="reveal-left">
+            <span class="section__tag">Why Choose Us</span>
+            <h2 id="why-title" class="section__title">Built for <span class="text-gradient">Excellence</span></h2>
+            <p class="why__lead">Every detail of SportAcadem is engineered to create the best environment for athletic development. Here is what separates us from the rest.</p>
+            <div class="why__timeline">
+              <div class="why__step">
+                <span class="why__num">01</span>
+                <div class="why__step-body">
+                  <h3>Olympic-Level Coaching</h3>
+                  <p>Our coaches have trained national teams, Olympic athletes, and world champions across multiple disciplines.</p>
+                </div>
+              </div>
+              <div class="why__step">
+                <span class="why__num">02</span>
+                <div class="why__step-body">
+                  <h3>15-Acre Elite Campus</h3>
+                  <p>Indoor arenas, Olympic pool, synthetic track, recovery center, and advanced sports science labs.</p>
+                </div>
+              </div>
+              <div class="why__step">
+                <span class="why__num">03</span>
+                <div class="why__step-body">
+                  <h3>Pro Pathway Program</h3>
+                  <p>Direct pathways to professional teams, college scholarships, and national team selections.</p>
+                </div>
+              </div>
+              <div class="why__step">
+                <span class="why__num">04</span>
+                <div class="why__step-body">
+                  <h3>Performance Analytics</h3>
+                  <p>Biometric tracking, video analysis, and data-driven insights to optimize every training session.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="why__visual" data-reveal="reveal-right">
+            <div class="why__stats">
+              <div class="why__stat-card">
+                <span class="why__stat-num"><span class="counter" data-target="98">0</span>%</span>
+                <span class="why__stat-label">Scholarship Success</span>
+              </div>
+              <div class="why__stat-card">
+                <span class="why__stat-num"><span class="counter" data-target="24">0</span>/7</span>
+                <span class="why__stat-label">Facility Access</span>
+              </div>
+              <div class="why__stat-card">
+                <span class="why__stat-num">1:<span class="counter" data-target="6">0</span></span>
+                <span class="why__stat-label">Coach Ratio</span>
+              </div>
+              <div class="why__stat-card why__stat-card--accent">
+                <svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg>
+                <span class="why__stat-label">#1 Rated Academy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROFESSIONAL COACHES ===== -->
+    <section class="section coaches" id="coaches" aria-labelledby="coaches-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Professional Coaches</span>
+          <h2 id="coaches-title" class="section__title">Learn From the <span class="text-gradient">Best</span></h2>
+          <p class="section__desc">World-class mentors dedicated to unlocking every athlete's full potential on and off the field.</p>
+        </div>
+        <div class="coaches__grid">
+          <article class="coach-card" data-reveal="fade-up">
+            <div class="coach-card__media">
+              <img src="assets/coach-david.webp" alt="Coach David" loading="lazy" decoding="async" width="600" height="720">
+              <div class="coach-card__overlay">
+                <div class="coach-card__social">
+                  <a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+                  <a href="#" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="#icon-twitter"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="coach-card__info">
+              <h3 class="coach-card__name">David Rodriguez</h3>
+              <span class="coach-card__role">Head Football Coach</span>
+              <div class="coach-card__tags">
+                <span>15 yrs exp</span>
+                <span>UEFA Licensed</span>
+                <span>National Player</span>
+              </div>
+            </div>
+          </article>
+          <article class="coach-card" data-reveal="fade-up" data-delay="0.1">
+            <div class="coach-card__media">
+              <img src="assets/coach-priya.webp" alt="Coach Priya" loading="lazy" decoding="async" width="600" height="720">
+              <div class="coach-card__overlay">
+                <div class="coach-card__social">
+                  <a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+                  <a href="#" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="#icon-twitter"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="coach-card__info">
+              <h3 class="coach-card__name">Priya Sharma</h3>
+              <span class="coach-card__role">Head Basketball Coach</span>
+              <div class="coach-card__tags">
+                <span>12 yrs exp</span>
+                <span>FIBA Certified</span>
+                <span>Asian Games Bronze</span>
+              </div>
+            </div>
+          </article>
+          <article class="coach-card" data-reveal="fade-up" data-delay="0.2">
+            <div class="coach-card__media">
+              <img src="assets/coach-mike.webp" alt="Coach Mike" loading="lazy" decoding="async" width="600" height="720">
+              <div class="coach-card__overlay">
+                <div class="coach-card__social">
+                  <a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+                  <a href="#" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="#icon-twitter"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="coach-card__info">
+              <h3 class="coach-card__name">Mike Thompson</h3>
+              <span class="coach-card__role">Track & Field Director</span>
+              <div class="coach-card__tags">
+                <span>18 yrs exp</span>
+                <span>Olympic Coach</span>
+                <span>USATF Level 3</span>
+              </div>
+            </div>
+          </article>
+          <article class="coach-card" data-reveal="fade-up" data-delay="0.3">
+            <div class="coach-card__media">
+              <img src="assets/coach-emma.webp" alt="Coach Emma" loading="lazy" decoding="async" width="600" height="720">
+              <div class="coach-card__overlay">
+                <div class="coach-card__social">
+                  <a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+                  <a href="#" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="#icon-twitter"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="coach-card__info">
+              <h3 class="coach-card__name">Emma Collins</h3>
+              <span class="coach-card__role">Strength & Conditioning</span>
+              <div class="coach-card__tags">
+                <span>10 yrs exp</span>
+                <span>CSCS Certified</span>
+                <span>PhD Sports Sci</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FACILITIES ===== -->
+    <section class="section facilities" id="facilities" aria-labelledby="facilities-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Our Campus</span>
+          <h2 id="facilities-title" class="section__title">World-Class <span class="text-gradient">Facilities</span></h2>
+          <p class="section__desc">A 15-acre performance campus designed for training, recovery, and holistic athlete development.</p>
+        </div>
+        <div class="facilities__list">
+          <article class="facility facility--left" data-reveal="reveal-left">
+            <div class="facility__media">
+              <img src="assets/facility-stadium.webp" alt="Main stadium" loading="lazy" decoding="async" width="900" height="600">
+            </div>
+            <div class="facility__content">
+              <span class="facility__num">01</span>
+              <h3 class="facility__title">Main Stadium</h3>
+              <p class="facility__desc">A 5,000-seat competition-grade stadium with floodlights, broadcast capabilities, and premium athlete facilities.</p>
+              <ul class="facility__features">
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>FIFA-standard pitch</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>5,000 spectator seats</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Professional broadcast suite</li>
+              </ul>
+            </div>
+          </article>
+          <article class="facility facility--right" data-reveal="reveal-right">
+            <div class="facility__content">
+              <span class="facility__num">02</span>
+              <h3 class="facility__title">Olympic Swimming Pool</h3>
+              <p class="facility__desc">A 10-lane, FINA-certified pool with underwater cameras, starting blocks, and temperature-controlled training lanes.</p>
+              <ul class="facility__features">
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>10 competition lanes</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Underwater analysis</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Climate controlled</li>
+              </ul>
+            </div>
+            <div class="facility__media">
+              <img src="assets/facility-pool.webp" alt="Olympic pool" loading="lazy" decoding="async" width="700" height="460">
+            </div>
+          </article>
+          <article class="facility facility--left" data-reveal="reveal-left">
+            <div class="facility__media">
+              <img src="assets/facility-gym.webp" alt="Performance gym" loading="lazy" decoding="async" width="900" height="600">
+            </div>
+            <div class="facility__content">
+              <span class="facility__num">03</span>
+              <h3 class="facility__title">Performance Gym</h3>
+              <p class="facility__desc">A 2,000 sq ft strength and conditioning center with Olympic lifting platforms, force plates, and sport-specific equipment.</p>
+              <ul class="facility__features">
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Olympic lifting zones</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Force plate analysis</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Recovery stations</li>
+              </ul>
+            </div>
+          </article>
+          <article class="facility facility--right" data-reveal="reveal-right">
+            <div class="facility__content">
+              <span class="facility__num">04</span>
+              <h3 class="facility__title">Recovery Center</h3>
+              <p class="facility__desc">Cryotherapy, hydrotherapy, massage suites, and sleep pods to keep athletes performing at their peak.</p>
+              <ul class="facility__features">
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Cryo & hydrotherapy</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Sports massage suites</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Sleep optimization lab</li>
+              </ul>
+            </div>
+            <div class="facility__media">
+              <img src="assets/facility-recovery.webp" alt="Recovery center" loading="lazy" decoding="async" width="700" height="460">
+            </div>
+          </article>
+        </div>
+        <div class="facilities__mini" data-reveal="fade-up">
+          <div class="facility-mini">
+            <img src="assets/facility-arena.webp" alt="Indoor arena" loading="lazy" decoding="async" width="700" height="460">
+            <span>Indoor Arena</span>
+          </div>
+          <div class="facility-mini">
+            <img src="assets/facility-track.webp" alt="Synthetic track" loading="lazy" decoding="async" width="700" height="460">
+            <span>Synthetic Track</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ACHIEVEMENTS ===== -->
+    <section class="section achievements" id="achievements" aria-labelledby="achievements-title">
+      <div class="achievements__bg" aria-hidden="true">
+        <div class="achievements__gradient"></div>
+        <div class="achievements__pattern"></div>
+      </div>
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Achievements</span>
+          <h2 id="achievements-title" class="section__title">A Legacy of <span class="text-gradient">Victory</span></h2>
+          <p class="section__desc">Years of dedication, thousands of athletes trained, and a trophy cabinet that speaks for itself.</p>
+        </div>
+        <div class="achievements__grid">
+          <div class="achievement-card" data-reveal="scale-in">
+            <div class="achievement-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg></div>
+            <span class="achievement-card__num counter" data-target="156">0</span>
+            <span class="achievement-card__label">Championship Titles</span>
+          </div>
+          <div class="achievement-card" data-reveal="scale-in" data-delay="0.1">
+            <div class="achievement-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg></div>
+            <span class="achievement-card__num"><span class="counter" data-target="3500">0</span>+</span>
+            <span class="achievement-card__label">Athletes Trained</span>
+          </div>
+          <div class="achievement-card" data-reveal="scale-in" data-delay="0.2">
+            <div class="achievement-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-graduation"/></svg></div>
+            <span class="achievement-card__num counter" data-target="280">0</span>
+            <span class="achievement-card__label">College Scholarships</span>
+          </div>
+          <div class="achievement-card" data-reveal="scale-in" data-delay="0.3">
+            <div class="achievement-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-globe"/></svg></div>
+            <span class="achievement-card__num counter" data-target="12">0</span>
+            <span class="achievement-card__label">National Teams Represented</span>
+          </div>
+        </div>
+        <div class="achievements__awards" data-reveal="fade-up">
+          <div class="award"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg><span>National Champions 2025</span></div>
+          <div class="award"><svg class="icon" aria-hidden="true"><use href="#icon-medal"/></svg><span>State Games Gold</span></div>
+          <div class="award"><svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg><span>Top Rated Academy</span></div>
+          <div class="award"><svg class="icon" aria-hidden="true"><use href="#icon-target"/></svg><span>Excellence in Coaching</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Gallery</span>
+          <h2 id="gallery-title" class="section__title">Life at <span class="text-gradient">SportAcadem</span></h2>
+          <p class="section__desc">A glimpse into the energy, dedication, and unforgettable moments that define our academy culture.</p>
+        </div>
+      </div>
+      <div class="gallery__masonry">
+        <figure class="gallery__item gallery__item--tall" data-reveal="scale-in">
+          <img src="assets/gallery-3.webp" alt="Training intensity" loading="lazy" decoding="async" width="700" height="900">
+          <figcaption class="gallery__overlay"><span>Intensity</span></figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="fade-up">
+          <img src="assets/gallery-1.webp" alt="Team practice" loading="lazy" decoding="async" width="700" height="500">
+          <figcaption class="gallery__overlay"><span>Teamwork</span></figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="fade-up" data-delay="0.1">
+          <img src="assets/gallery-2.webp" alt="Athlete focus" loading="lazy" decoding="async" width="700" height="500">
+          <figcaption class="gallery__overlay"><span>Focus</span></figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--wide" data-reveal="fade-up">
+          <img src="assets/gallery-4.webp" alt="Campus training" loading="lazy" decoding="async" width="700" height="500">
+          <figcaption class="gallery__overlay"><span>Discipline</span></figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="fade-up" data-delay="0.1">
+          <img src="assets/gallery-5.webp" alt="Strength session" loading="lazy" decoding="async" width="700" height="500">
+          <figcaption class="gallery__overlay"><span>Power</span></figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--tall" data-reveal="scale-in" data-delay="0.1">
+          <img src="assets/gallery-6.webp" alt="Gym session" loading="lazy" decoding="async" width="700" height="900">
+          <figcaption class="gallery__overlay"><span>Strength</span></figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="fade-up">
+          <img src="assets/gallery-7.webp" alt="Championship moment" loading="lazy" decoding="async" width="700" height="500">
+          <figcaption class="gallery__overlay"><span>Victory</span></figcaption>
+        </figure>
+        <figure class="gallery__item" data-reveal="fade-up" data-delay="0.1">
+          <img src="assets/gallery-8.webp" alt="Competition" loading="lazy" decoding="async" width="700" height="500">
+          <figcaption class="gallery__overlay"><span>Compete</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="testimonials__bg" aria-hidden="true">
+        <div class="testimonials__gradient"></div>
+      </div>
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Testimonials</span>
+          <h2 id="testimonials-title" class="section__title">What Our Community <span class="text-gradient">Says</span></h2>
+          <p class="section__desc">Hear from athletes, parents, and alumni about their transformative SportAcadem experience.</p>
+        </div>
+        <div class="testimonials__slider" data-reveal="fade-up" data-delay="0.1">
+          <div class="testimonials__track" id="testimonialTrack">
+            <blockquote class="testimonial-card">
+              <div class="testimonial-card__quote"><svg class="icon" aria-hidden="true"><use href="#icon-quote"/></svg></div>
+              <p>"SportAcadem didn't just improve my game — it changed my life. The coaches believed in me when I didn't believe in myself. I went from being cut from my high school team to earning a Division 1 scholarship."</p>
+              <footer class="testimonial-card__author">
+                <img src="assets/testimonial-1.webp" alt="Marcus Johnson" loading="lazy" decoding="async" width="64" height="64">
+                <div>
+                  <strong>Marcus Johnson</strong>
+                  <span>Football, Class of 2025</span>
+                </div>
+              </footer>
+            </blockquote>
+            <blockquote class="testimonial-card">
+              <div class="testimonial-card__quote"><svg class="icon" aria-hidden="true"><use href="#icon-quote"/></svg></div>
+              <p>"The transformation in my daughter since joining SportAcadem has been remarkable. Not just in her sport, but in her confidence, discipline, and outlook on life. This isn't just an academy — it's a family."</p>
+              <footer class="testimonial-card__author">
+                <img src="assets/testimonial-2.webp" alt="Sarah Chen" loading="lazy" decoding="async" width="64" height="64">
+                <div>
+                  <strong>Sarah Chen</strong>
+                  <span>Parent of Basketball Athlete</span>
+                </div>
+              </footer>
+            </blockquote>
+            <blockquote class="testimonial-card">
+              <div class="testimonial-card__quote"><svg class="icon" aria-hidden="true"><use href="#icon-quote"/></svg></div>
+              <p>"Training at SportAcadem gave me the edge I needed to compete at the international level. The sports science support, world-class facilities, and expert coaching created the perfect environment for growth."</p>
+              <footer class="testimonial-card__author">
+                <img src="assets/testimonial-3.webp" alt="David Okafor" loading="lazy" decoding="async" width="64" height="64">
+                <div>
+                  <strong>David Okafor</strong>
+                  <span>Swimming, National Team</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+          <div class="testimonials__controls">
+            <button class="testimonial-btn" id="prevBtn" aria-label="Previous testimonial"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></button>
+            <div class="testimonial-dots" id="testimonialDots"></div>
+            <button class="testimonial-btn" id="nextBtn" aria-label="Next testimonial"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MEMBERSHIP PLANS ===== -->
+    <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Membership Plans</span>
+          <h2 id="pricing-title" class="section__title">Choose Your <span class="text-gradient">Path</span></h2>
+          <p class="section__desc">Flexible membership options designed to fit every athlete's goals and commitment level.</p>
+        </div>
+        <div class="pricing__grid">
+          <article class="pricing-card" data-reveal="fade-up">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__name">Basic</h3>
+              <div class="pricing-card__price"><span class="pricing-card__currency">$</span>199<span class="pricing-card__period">/mo</span></div>
+              <p class="pricing-card__lead">Perfect for beginners building foundational skills.</p>
+            </div>
+            <ul class="pricing-card__features">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>3 training sessions per week</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Access to all facilities</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Group coaching sessions</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Basic performance assessment</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Locker & equipment storage</li>
+            </ul>
+            <a href="#contact" class="btn btn--outline pricing-card__btn">Get Started</a>
+          </article>
+          <article class="pricing-card pricing-card--featured" data-reveal="scale-in" data-delay="0.1">
+            <span class="pricing-card__badge">Best Value</span>
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__name">Pro</h3>
+              <div class="pricing-card__price"><span class="pricing-card__currency">$</span>399<span class="pricing-card__period">/mo</span></div>
+              <p class="pricing-card__lead">Ideal for competitive athletes aiming for the next level.</p>
+            </div>
+            <ul class="pricing-card__features">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>6 training sessions per week</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Unlimited facility access</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Personal coach assigned</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Full performance analytics</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Nutrition planning</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Recovery & physio support</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Video analysis sessions</li>
+            </ul>
+            <a href="#contact" class="btn btn--primary pricing-card__btn">Get Started</a>
+          </article>
+          <article class="pricing-card" data-reveal="fade-up" data-delay="0.2">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__name">Elite</h3>
+              <div class="pricing-card__price"><span class="pricing-card__currency">$</span>699<span class="pricing-card__period">/mo</span></div>
+              <p class="pricing-card__lead">For elite athletes pursuing professional or collegiate careers.</p>
+            </div>
+            <ul class="pricing-card__features">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Unlimited training sessions</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Priority facility booking</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Dedicated performance team</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Biomechanics lab access</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>College recruitment support</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>1-on-1 mental coaching</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Family consultation sessions</li>
+            </ul>
+            <a href="#contact" class="btn btn--outline pricing-card__btn">Get Started</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact__layout">
+          <div class="contact__info" data-reveal="reveal-left">
+            <span class="section__tag">Get In Touch</span>
+            <h2 id="contact-title" class="section__title">Ready to Start Your <span class="text-gradient">Journey?</span></h2>
+            <p class="contact__lead">Whether you are ready to enroll, want to schedule a visit, or have questions — our team is here to help.</p>
+            <div class="contact__details">
+              <div class="contact__detail">
+                <div class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#icon-location"/></svg></div>
+                <div>
+                  <h3>Visit Us</h3>
+                  <p>123 Sports Avenue, Stadium District, CA 90210</p>
+                </div>
+              </div>
+              <div class="contact__detail">
+                <div class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg></div>
+                <div>
+                  <h3>Call Us</h3>
+                  <p>+1 (555) 123-4567</p>
+                </div>
+              </div>
+              <div class="contact__detail">
+                <div class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg></div>
+                <div>
+                  <h3>Email Us</h3>
+                  <p>info@sportacadem.com</p>
+                </div>
+              </div>
+              <div class="contact__detail">
+                <div class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg></div>
+                <div>
+                  <h3>Training Hours</h3>
+                  <p>Mon - Sat: 6:00 AM - 9:00 PM</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact__social">
+              <a href="#" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+              <a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+              <a href="#" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="#icon-twitter"/></svg></a>
+              <a href="#" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"/></svg></a>
+              <a href="#" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="#icon-tiktok"/></svg></a>
+            </div>
+          </div>
+          <div class="contact__form-wrap" data-reveal="reveal-right">
+            <form class="contact__form" id="contactForm" novalidate>
+              <div class="form__row">
+                <div class="form__group">
+                  <label for="contactName">Full Name</label>
+                  <input type="text" id="contactName" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form__group">
+                  <label for="contactEmail">Email Address</label>
+                  <input type="email" id="contactEmail" name="email" placeholder="Enter your email" required>
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="form__group">
+                  <label for="contactPhone">Phone Number</label>
+                  <input type="tel" id="contactPhone" name="phone" placeholder="Enter your phone">
+                </div>
+                <div class="form__group">
+                  <label for="contactSport">Sport Interest</label>
+                  <select id="contactSport" name="sport">
+                    <option value="" selected>Select a sport</option>
+                    <option value="football">Football</option>
+                    <option value="basketball">Basketball</option>
+                    <option value="cricket">Cricket</option>
+                    <option value="athletics">Athletics</option>
+                    <option value="swimming">Swimming</option>
+                    <option value="volleyball">Volleyball</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form__group">
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" name="message" rows="4" placeholder="Tell us about your athletic background and goals..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">
+                Send Message
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+              </button>
+            </form>
+            <div class="contact__map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.715220363292!2d-118.245318684986!3d34.05223418060606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAzJzA4LjAiTiAxMTjCsDE0JzM1LjIiVw!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" width="100%" height="220" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SportAcadem Location"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__bg" aria-hidden="true">
+      <div class="footer__gradient"></div>
+      <div class="footer__pattern"></div>
+      <div class="footer__shape footer__shape--1"></div>
+      <div class="footer__shape footer__shape--2"></div>
+    </div>
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" aria-label="SportAcadem Home">
+            <img src="assets/logo-stackly.webp" alt="SportAcadem" class="footer__logo" width="135" height="90">
+          </a>
+          <p>Elite performance training for the next generation of champions. Join the academy that produces winners on the field and in life.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="#icon-twitter"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="#icon-tiktok"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col footer__col--card">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="coaches.html">Coaches</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--card">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="#programs">Football</a></li>
+            <li><a href="#programs">Basketball</a></li>
+            <li><a href="#programs">Cricket</a></li>
+            <li><a href="#programs">Swimming</a></li>
+            <li><a href="#programs">Athletics</a></li>
+            <li><a href="#programs">Strength & Conditioning</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--card">
+          <h4>Contact</h4>
+          <ul class="footer__contact">
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-location"/></svg>123 Sports Ave, CA 90210</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>+1 (555) 123-4567</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>info@sportacadem.com</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>Mon-Sat: 6AM - 9PM</li>
+          </ul>
+          <form class="footer__newsletter" id="newsletterForm" novalidate>
+            <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+            <button type="submit" aria-label="Subscribe"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 SportAcadem. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+  </button>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close lightbox"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button>
+    <img src="" alt="" class="lightbox__img" id="lightboxImg">
+    <span class="lightbox__caption" id="lightboxCaption"></span>
+  </div>
+
+  <!-- ===== VIDEO MODAL ===== -->
+  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+    <button class="video-modal__close" id="videoClose" aria-label="Close video"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button>
+    <div class="video-modal__wrap">
+      <iframe id="videoFrame" width="100%" height="100%" src="" title="SportAcadem promotional video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

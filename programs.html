@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Programs at Stackly Sports Academy — Elite training programs across 15+ sports for every age and skill level.">
+  <meta name="theme-color" content="#0F172A">
+  <title>Programs — Stackly Sports Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== SVG ICON SPRITE ===== -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="icon-football" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2v20M2 12h20"/></symbol>
+      <symbol id="icon-basketball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M4.93 4.93c4.66 4.66 10.48 4.66 15.14 0M19.07 19.07c-4.66-4.66-10.48-4.66-15.14 0M12 2a15 15 0 0 1 0 20"/></symbol>
+      <symbol id="icon-cricket" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 3l-9 9M7 17l-4 4m0 0l4-4m-4 4l2-2"/><circle cx="17" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-athletics" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 2L4.09 10.91a2 2 0 0 0 0 2.83L8.26 17.9a2 2 0 0 0 2.83 0L20 9M17 2l5 5M7 22l5-5"/></symbol>
+      <symbol id="icon-swimming" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2 12h20M2 16h20M2 8h20M6 4a2 2 0 0 1 2 2 2 2 0 0 1-2 2"/></symbol>
+      <symbol id="icon-volleyball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M2 12h20M12 2c-3 3-3 17 0 20M12 2c3 3 3 17 0 20"/></symbol>
+      <symbol id="icon-gym" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.5 6.5h11M6.5 17.5h11M6 20v-5M18 20v-5M6 9V4M18 9V4M3 9h18M3 15h18M2 12h20"/></symbol>
+      <symbol id="icon-running" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 2L8 7l3 3-3 7 5 5M17 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></symbol>
+      <symbol id="icon-tennis" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2c-3 3-3 17 0 20M12 2c3 3 3 17 0 20"/></symbol>
+      <symbol id="icon-kids" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 22c0-5 4-9 8-9s8 4 8 9"/></symbol>
+      <symbol id="icon-youth" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2m8-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="icon-adult" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></symbol>
+      <symbol id="icon-brain" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.5 2A2.5 2.5 0 0 1 12 4.5v0a2.5 2.5 0 0 0 2.5 2.5v0a2.5 2.5 0 0 1 2.5 2.5v0a2.5 2.5 0 0 0 2.5 2.5v0c.9 0 1.7.5 2.1 1.3M8 22a2 2 0 0 1-2-2m2 2a2 2 0 0 0 2-2m-2 2v-4m-2 2a2 2 0 0 1-2-2m2 2a2 2 0 0 0 2-2m-2 2v-4m-2 2a2 2 0 0 1-2-2m2 2a2 2 0 0 0 2-2m-2 2v-4"/></symbol>
+      <symbol id="icon-dumbbell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.5 6.5h11M6.5 17.5h11M6 20v-5M18 20v-5M6 9V4M18 9V4M3 9h18M3 15h18M2 12h20"/></symbol>
+      <symbol id="icon-apple" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 20.94c1.5 1.25 3.75 1.25 5.5-.25 3-2.25 3.75-7.5 1.25-10.75-1.25-1.5-3-2-4.5-1.5-.75.25-1.75.25-2.5 0-1.5-.5-3.25 0-4.5 1.5-2.5 3.25-1.75 8.5 1.25 10.75 1.75 1.5 4 1.5 5.5.25zM15 4a2.5 2.5 0 0 0-3 2 2.5 2.5 0 0 0 3-2z"/></symbol>
+      <symbol id="icon-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 20V10M12 20V4M6 20v-6"/></symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+      <symbol id="icon-login" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/></symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-logout" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.4c0-1.5-.5-2.5-2-2.5-1 0-1.6.6-1.9 1.1v-1H12v8.3h2.1v-4.9c0-.9.4-1.5 1.2-1.5s1.1.6 1.1 1.5v4.9h2.1M6.5 9H9v8.5H6.5V9m1.2-4a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-twitter" viewBox="0 0 24 24"><path fill="currentColor" d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 12 8v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></symbol>
+      <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon fill="#fff" points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></symbol>
+      <symbol id="icon-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 6L6 18M6 6l12 12"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader" role="status" aria-label="Loading">
+    <div class="preloader__content">
+      <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="preloader__logo" width="108" height="72">
+      <div class="preloader__bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo" aria-label="Stackly Sports Academy Home">
+        <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="logo-img" width="120" height="80">
+      </a>
+      <nav class="header__nav" id="headerNav" aria-label="Main navigation">
+        <ul class="header__menu">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="programs.html" class="nav__link active">Programs</a></li>
+          <li><a href="coaches.html" class="nav__link">Coaches</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="header__actions header__actions--mobile">
+          <a href="login.html" class="btn btn--ghost btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
+          <a href="signup.html" class="btn btn--primary btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+        </div>
+      </nav>
+      <div class="header__actions header__actions--desktop">
+        <a href="login.html" class="btn btn--ghost btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
+        <a href="signup.html" class="btn btn--primary btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+      </div>
+      <button class="header__toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ===== HERO ===== -->
+    <section class="page-hero" id="programs-hero" aria-label="Programs at Stackly Sports Academy">
+      <div class="page-hero__bg">
+        <img src="assets/programs-hero.webp" alt="Athletes on the field" loading="eager" decoding="async" width="1600" height="580">
+        <div class="page-hero__overlay"></div>
+        <div class="page-hero__gradient"></div>
+      </div>
+      <div class="container page-hero__container">
+        <div class="page-hero__content" data-reveal="fade-up">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li aria-current="page">Programs</li>
+            </ol>
+          </nav>
+          <h1 class="page-hero__title">Elite Training <span class="text-gradient">For Every Athlete</span></h1>
+          <p class="page-hero__desc">World-class programs across 15+ sports, designed for every age, skill level, and competitive goal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SPORTS PROGRAMS GRID ===== -->
+    <section class="section programs" id="sports-programs" aria-labelledby="sports-programs-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Sports Programs</span>
+          <h2 id="sports-programs-title" class="section__title">Discover Your <span class="text-gradient">Sport</span></h2>
+          <p class="section__desc">From team sports to individual disciplines, find the program that matches your passion and ambition.</p>
+        </div>
+        <div class="programs__grid">
+          <article class="program-card" data-reveal="fade-up">
+            <div class="program-card__media">
+              <img src="assets/program-football.webp" alt="Football training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Football</h3>
+              <p class="program-card__desc">Technical mastery, tactical intelligence, and game-readiness at every position.</p>
+              <a href="contact.html" class="program-card__link">Enroll Now <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.05">
+            <div class="program-card__media">
+              <img src="assets/program-basketball.webp" alt="Basketball training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Basketball</h3>
+              <p class="program-card__desc">Shooting mechanics, ball handling, defensive principles, and team systems.</p>
+              <a href="contact.html" class="program-card__link">Enroll Now <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.1">
+            <div class="program-card__media">
+              <img src="assets/program-cricket.webp" alt="Cricket training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Cricket</h3>
+              <p class="program-card__desc">Batting technique, bowling accuracy, fielding drills, and match simulation.</p>
+              <a href="contact.html" class="program-card__link">Enroll Now <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.15">
+            <div class="program-card__media">
+              <img src="assets/program-athletics.webp" alt="Athletics training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Athletics</h3>
+              <p class="program-card__desc">Sprints, distance, jumps, and throws across all track & field events.</p>
+              <a href="contact.html" class="program-card__link">Enroll Now <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.2">
+            <div class="program-card__media">
+              <img src="assets/program-swimming.webp" alt="Swimming training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Swimming</h3>
+              <p class="program-card__desc">All four competitive strokes, starts & turns, endurance, and race tactics.</p>
+              <a href="contact.html" class="program-card__link">Enroll Now <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.25">
+            <div class="program-card__media">
+              <img src="assets/program-volleyball.webp" alt="Volleyball training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Volleyball</h3>
+              <p class="program-card__desc">Serving, spiking, blocking, and team coordination at elite levels.</p>
+              <a href="contact.html" class="program-card__link">Enroll Now <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.3">
+            <div class="program-card__media">
+              <img src="assets/program-gym.webp" alt="Strength and conditioning" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Strength & Conditioning</h3>
+              <p class="program-card__desc">Sport-specific S&C, injury prevention, mobility, and recovery protocols.</p>
+              <a href="contact.html" class="program-card__link">Enroll Now <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+          <article class="program-card" data-reveal="fade-up" data-delay="0.35">
+            <div class="program-card__media">
+              <img src="assets/program-running.webp" alt="Running training" loading="lazy" decoding="async" width="700" height="460">
+              <div class="program-card__overlay"></div>
+            </div>
+            <div class="program-card__content">
+              <h3 class="program-card__title">Marathon & Running</h3>
+              <p class="program-card__desc">Endurance building, pacing strategy, and race-day mental conditioning.</p>
+              <a href="contact.html" class="program-card__link">Enroll Now <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AGE CATEGORIES ===== -->
+    <section class="section age-categories" id="age-categories" aria-labelledby="age-categories-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Age Categories</span>
+          <h2 id="age-categories-title" class="section__title">Programs For Every <span class="text-gradient">Stage</span></h2>
+          <p class="section__desc">Age-appropriate training pathways designed to develop skills, confidence, and competitive readiness at every level.</p>
+        </div>
+        <div class="age-categories__grid">
+          <article class="age-card" data-reveal="fade-up">
+            <div class="age-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-kids"/></svg></div>
+            <span class="age-card__range">Ages 6 - 10</span>
+            <h3 class="age-card__title">Youth Foundation</h3>
+            <p>Fun, movement-based sessions that build coordination, agility, and a lifelong love for sport.</p>
+            <ul class="age-card__features">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Fundamental movement skills</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Multi-sport exposure</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Teamwork & discipline</li>
+            </ul>
+          </article>
+          <article class="age-card age-card--featured" data-reveal="scale-in" data-delay="0.1">
+            <div class="age-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-youth"/></svg></div>
+            <span class="age-card__range">Ages 11 - 16</span>
+            <h3 class="age-card__title">Junior Development</h3>
+            <p>Sport-specific skill development with structured training, competition exposure, and athletic education.</p>
+            <ul class="age-card__features">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Position-specific coaching</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Strength & conditioning intro</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Local tournament play</li>
+            </ul>
+          </article>
+          <article class="age-card" data-reveal="fade-up" data-delay="0.2">
+            <div class="age-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-adult"/></svg></div>
+            <span class="age-card__range">Ages 17+</span>
+            <h3 class="age-card__title">Elite Performance</h3>
+            <p>High-performance training for competitive athletes pursuing scholarships, professional contracts, and national teams.</p>
+            <ul class="age-card__features">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Advanced tactics & strategy</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Performance analytics</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>College & pro pathways</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRAINING SCHEDULE ===== -->
+    <section class="section schedule" id="schedule" aria-labelledby="schedule-title">
+      <div class="schedule__bg" aria-hidden="true">
+        <div class="schedule__gradient"></div>
+        <div class="schedule__pattern"></div>
+      </div>
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Training Schedule</span>
+          <h2 id="schedule-title" class="section__title">A Week at <span class="text-gradient">Stackly</span></h2>
+          <p class="section__desc">Structured training sessions throughout the week, balancing skill work, strength, recovery, and competition prep.</p>
+        </div>
+        <div class="schedule__grid" data-reveal="fade-up" data-delay="0.1">
+          <div class="schedule__day">
+            <div class="schedule__day-header">
+              <span class="schedule__day-name">Monday</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+            </div>
+            <ul class="schedule__sessions">
+              <li><span class="schedule__time">6:00 AM</span> Morning Conditioning</li>
+              <li><span class="schedule__time">4:00 PM</span> Sport-Specific Skills</li>
+              <li><span class="schedule__time">6:30 PM</span> Strength Training</li>
+            </ul>
+          </div>
+          <div class="schedule__day">
+            <div class="schedule__day-header">
+              <span class="schedule__day-name">Tuesday</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+            </div>
+            <ul class="schedule__sessions">
+              <li><span class="schedule__time">6:00 AM</span> Speed & Agility</li>
+              <li><span class="schedule__time">4:00 PM</span> Tactical Sessions</li>
+              <li><span class="schedule__time">6:30 PM</span> Recovery & Yoga</li>
+            </ul>
+          </div>
+          <div class="schedule__day">
+            <div class="schedule__day-header">
+              <span class="schedule__day-name">Wednesday</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+            </div>
+            <ul class="schedule__sessions">
+              <li><span class="schedule__time">6:00 AM</span> Endurance Training</li>
+              <li><span class="schedule__time">4:00 PM</span> Technical Drills</li>
+              <li><span class="schedule__time">6:30 PM</span> Match Simulation</li>
+            </ul>
+          </div>
+          <div class="schedule__day">
+            <div class="schedule__day-header">
+              <span class="schedule__day-name">Thursday</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+            </div>
+            <ul class="schedule__sessions">
+              <li><span class="schedule__time">6:00 AM</span> Strength & Power</li>
+              <li><span class="schedule__time">4:00 PM</span> Position Training</li>
+              <li><span class="schedule__time">6:30 PM</span> Video Analysis</li>
+            </ul>
+          </div>
+          <div class="schedule__day">
+            <div class="schedule__day-header">
+              <span class="schedule__day-name">Friday</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+            </div>
+            <ul class="schedule__sessions">
+              <li><span class="schedule__time">6:00 AM</span> Conditioning</li>
+              <li><span class="schedule__time">4:00 PM</span> Scrimmages</li>
+              <li><span class="schedule__time">6:30 PM</span> Team Building</li>
+            </ul>
+          </div>
+          <div class="schedule__day schedule__day--highlight">
+            <div class="schedule__day-header">
+              <span class="schedule__day-name">Saturday</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+            </div>
+            <ul class="schedule__sessions">
+              <li><span class="schedule__time">7:00 AM</span> Competition Day</li>
+              <li><span class="schedule__time">12:00 PM</span> Recovery Sessions</li>
+              <li><span class="schedule__time">3:00 PM</span> Workshops</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MEMBERSHIP PACKAGES ===== -->
+    <section class="section pricing" id="membership" aria-labelledby="membership-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Membership Packages</span>
+          <h2 id="membership-title" class="section__title">Choose Your <span class="text-gradient">Training Plan</span></h2>
+          <p class="section__desc">Flexible membership options designed to fit every athlete's goals and commitment level.</p>
+        </div>
+        <div class="pricing__grid">
+          <article class="pricing-card" data-reveal="fade-up">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__name">Basic</h3>
+              <div class="pricing-card__price"><span class="pricing-card__currency">$</span>199<span class="pricing-card__period">/mo</span></div>
+              <p class="pricing-card__lead">Perfect for beginners building foundational skills.</p>
+            </div>
+            <ul class="pricing-card__features">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>3 training sessions per week</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Access to all facilities</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Group coaching sessions</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Basic performance assessment</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Locker & equipment storage</li>
+            </ul>
+            <a href="contact.html" class="btn btn--outline pricing-card__btn">Get Started</a>
+          </article>
+          <article class="pricing-card pricing-card--featured" data-reveal="scale-in" data-delay="0.1">
+            <span class="pricing-card__badge">Best Value</span>
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__name">Pro</h3>
+              <div class="pricing-card__price"><span class="pricing-card__currency">$</span>399<span class="pricing-card__period">/mo</span></div>
+              <p class="pricing-card__lead">Ideal for competitive athletes aiming for the next level.</p>
+            </div>
+            <ul class="pricing-card__features">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>6 training sessions per week</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Unlimited facility access</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Personal coach assigned</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Full performance analytics</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Nutrition planning</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Recovery & physio support</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Video analysis sessions</li>
+            </ul>
+            <a href="contact.html" class="btn btn--primary pricing-card__btn">Get Started</a>
+          </article>
+          <article class="pricing-card" data-reveal="fade-up" data-delay="0.2">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__name">Elite</h3>
+              <div class="pricing-card__price"><span class="pricing-card__currency">$</span>699<span class="pricing-card__period">/mo</span></div>
+              <p class="pricing-card__lead">For elite athletes pursuing professional or collegiate careers.</p>
+            </div>
+            <ul class="pricing-card__features">
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Unlimited training sessions</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Priority facility booking</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Dedicated performance team</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Biomechanics lab access</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>College recruitment support</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>1-on-1 mental coaching</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>Family consultation sessions</li>
+            </ul>
+            <a href="contact.html" class="btn btn--outline pricing-card__btn">Get Started</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRAINING METHODOLOGY ===== -->
+    <section class="section methodology" id="methodology" aria-labelledby="methodology-title">
+      <div class="container">
+        <div class="section__header" data-reveal="fade-up">
+          <span class="section__tag">Training Methodology</span>
+          <h2 id="methodology-title" class="section__title">The Stackly <span class="text-gradient">Method</span></h2>
+          <p class="section__desc">A proven four-pillar system that develops complete athletes ready to compete at the highest level.</p>
+        </div>
+        <div class="methodology__grid">
+          <article class="methodology-card" data-reveal="fade-up">
+            <div class="methodology-card__num">01</div>
+            <div class="methodology-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-brain"/></svg></div>
+            <h3>Mental Conditioning</h3>
+            <p>Sports psychology, visualization techniques, and pressure management to build an unshakeable mindset.</p>
+          </article>
+          <article class="methodology-card" data-reveal="fade-up" data-delay="0.1">
+            <div class="methodology-card__num">02</div>
+            <div class="methodology-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-dumbbell"/></svg></div>
+            <h3>Physical Training</h3>
+            <p>Sport-specific strength, speed, agility, and endurance programs designed by certified S&C coaches.</p>
+          </article>
+          <article class="methodology-card" data-reveal="fade-up" data-delay="0.2">
+            <div class="methodology-card__num">03</div>
+            <div class="methodology-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-apple"/></svg></div>
+            <h3>Nutrition & Recovery</h3>
+            <p>Individualized meal plans, supplementation strategies, sleep optimization, and recovery protocols.</p>
+          </article>
+          <article class="methodology-card" data-reveal="fade-up" data-delay="0.3">
+            <div class="methodology-card__num">04</div>
+            <div class="methodology-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-chart"/></svg></div>
+            <h3>Performance Analytics</h3>
+            <p>Video analysis, biometric tracking, and data-driven insights to continuously optimize training.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section cta-banner" id="cta" aria-labelledby="cta-title">
+      <div class="cta-banner__bg" aria-hidden="true">
+        <div class="cta-banner__gradient"></div>
+        <div class="cta-banner__shape"></div>
+      </div>
+      <div class="container">
+        <div class="cta-banner__content" data-reveal="fade-up">
+          <h2 id="cta-title" class="cta-banner__title">Find the Right Program <span class="text-gradient">For You</span></h2>
+          <p class="cta-banner__desc">Schedule a free trial session and experience the Stackly difference firsthand.</p>
+          <div class="cta-banner__actions">
+            <a href="contact.html" class="btn btn--primary btn--lg">
+              Book a Free Trial
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+            </a>
+            <a href="coaches.html" class="btn btn--ghost btn--lg">
+              Meet Our Coaches
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__bg" aria-hidden="true">
+      <div class="footer__gradient"></div>
+      <div class="footer__pattern"></div>
+      <div class="footer__shape footer__shape--1"></div>
+      <div class="footer__shape footer__shape--2"></div>
+    </div>
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" aria-label="Stackly Sports Academy Home">
+            <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="footer__logo" width="135" height="90">
+          </a>
+          <p>Elite performance training for the next generation of champions. Join the academy that produces winners on the field and in life.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg class="icon" aria-hidden="true"><use href="#icon-twitter"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="#icon-tiktok"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col footer__col--card">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="coaches.html">Coaches</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--card">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html">Football</a></li>
+            <li><a href="programs.html">Basketball</a></li>
+            <li><a href="programs.html">Cricket</a></li>
+            <li><a href="programs.html">Swimming</a></li>
+            <li><a href="programs.html">Athletics</a></li>
+            <li><a href="programs.html">Strength & Conditioning</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--card">
+          <h4>Contact</h4>
+          <ul class="footer__contact">
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-location"/></svg>123 Sports Ave, CA 90210</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>+1 (555) 123-4567</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>info@stacklysports.com</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>Mon-Sat: 6AM - 9PM</li>
+          </ul>
+          <form class="footer__newsletter" id="newsletterForm" novalidate>
+            <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+            <button type="submit" aria-label="Subscribe"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Stackly Sports Academy. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+  </button>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
