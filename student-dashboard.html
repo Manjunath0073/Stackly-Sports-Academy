@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Dashboard — Stackly Sports Academy">
+  <meta name="theme-color" content="#0F172A">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Student Dashboard — Stackly Sports Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    /* ===== Student Welcome Hero — page-specific additions ===== */
+    .s-hero {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 4vw, 52px);
+      color: var(--white);
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .s-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(135deg, #0b1120 0%, #0f172a 50%, #0b1120 100%);
+    }
+
+    .s-hero__bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(239, 68, 68, 0.38), transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.28), transparent 45%),
+        linear-gradient(45deg, rgba(239, 68, 68, 0.65), rgba(245, 158, 11, 0.55), rgba(6, 182, 212, 0.55), rgba(239, 68, 68, 0.65));
+      background-size: 200% 200%;
+      animation: sGradientMove 8s ease infinite;
+    }
+
+    .s-hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.35);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .s-hero__grid {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.12;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    }
+
+    @keyframes sGradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .s-hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+    }
+
+    .s-hero__top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .s-hero__date {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .s-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--white);
+    }
+
+    .s-badge--gold {
+      background: rgba(245, 158, 11, 0.18);
+      border-color: rgba(245, 158, 11, 0.35);
+      color: #fbbf24;
+    }
+
+    .s-hero__title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    .s-hero__title .text-gradient {
+      background: linear-gradient(135deg, #fff 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .s-hero__quote {
+      font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+      color: rgba(255, 255, 255, 0.78);
+      font-style: italic;
+      line-height: 1.65;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .s-hero__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .s-glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .s-glass-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .s-glass-card__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--hover-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .s-glass-card__icon svg { width: 20px; height: 20px; }
+
+    .s-glass-card__text strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .s-glass-card__text span {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .s-hero__media {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .s-hero__profile {
+      position: relative;
+      width: 220px;
+      height: 280px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    .s-hero__profile::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      z-index: -1;
+      background: var(--hover-gradient);
+      border-radius: calc(var(--radius-lg) + 3px);
+    }
+
+    .s-hero__profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 1100px) {
+      .s-hero__profile { width: 180px; height: 230px; }
+    }
+
+    @media (max-width: 768px) {
+      .s-hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 28px;
+      }
+      .s-hero__content { max-width: 100%; }
+      .s-hero__top { justify-content: center; }
+      .s-hero__quote { margin-left: auto; margin-right: auto; }
+      .s-hero__cards { grid-template-columns: 1fr; }
+      .s-hero__media { width: 100%; display: flex; justify-content: center; }
+      .s-hero__profile { width: 160px; height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="dash-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="13" y="3" width="8" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="13" width="8" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="13" y="13" width="8" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="dash-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="dash-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="dash-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="dash-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></symbol>
+      <symbol id="dash-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 9v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="20" x2="16" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-card" viewBox="0 0 24 24"><rect x="1" y="6" width="22" height="14" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/><line x1="5" y1="16" x2="9" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="7 10 12 15 17 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="dash-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="dash-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="16 17 21 12 16 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-bell" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13.73 21a2 2 0 0 1-3.46 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="dash-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor"/></symbol>
+      <symbol id="dash-chart" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="20" x2="6" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-check" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 14l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="dash-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-map" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="dash-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></symbol>
+      <symbol id="dash-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="dash-droplet" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="dash-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="dash-trending" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 6 23 6 23 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="dash-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="dash-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="dash-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="dash-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="dash-bolt" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="dashboard" id="dashboard">
+    <div class="dashboard__overlay" id="dashboardOverlay"></div>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="dashboard__sidebar" id="dashboardSidebar">
+      <div class="dashboard__sidebar-brand">
+        <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy">
+      </div>
+      <nav class="dashboard__sidebar-nav" aria-label="Student dashboard navigation">
+        <span class="dashboard__sidebar-label">Main Menu</span>
+        <a href="#/" class="dashboard__sidebar-link dashboard__sidebar-link--active">
+          <svg aria-hidden="true"><use href="#dash-dashboard"/></svg>
+          <span>Overview</span>
+        </a>
+        <a href="#/profile" class="dashboard__sidebar-link">
+          <svg aria-hidden="true"><use href="#dash-user"/></svg>
+          <span>My Profile</span>
+        </a>
+        <a href="#/programs" class="dashboard__sidebar-link">
+          <svg aria-hidden="true"><use href="#dash-book"/></svg>
+          <span>Training Programs</span>
+        </a>
+        <a href="#/schedule" class="dashboard__sidebar-link">
+          <svg aria-hidden="true"><use href="#dash-calendar"/></svg>
+          <span>Training Schedule</span>
+        </a>
+        <span class="dashboard__sidebar-label">Performance</span>
+        <a href="#/goals" class="dashboard__sidebar-link">
+          <svg aria-hidden="true"><use href="#dash-target"/></svg>
+          <span>Performance Goals</span>
+        </a>
+        <a href="#/achievements" class="dashboard__sidebar-link">
+          <svg aria-hidden="true"><use href="#dash-trophy"/></svg>
+          <span>Achievements</span>
+        </a>
+        <a href="#/membership" class="dashboard__sidebar-link">
+          <svg aria-hidden="true"><use href="#dash-card"/></svg>
+          <span>Membership</span>
+        </a>
+        <span class="dashboard__sidebar-label">Resources</span>
+        <a href="#/resources" class="dashboard__sidebar-link">
+          <svg aria-hidden="true"><use href="#dash-download"/></svg>
+          <span>Resource Center</span>
+        </a>
+        <a href="#/messages" class="dashboard__sidebar-link">
+          <svg aria-hidden="true"><use href="#dash-mail"/></svg>
+          <span>Messages</span>
+        </a>
+        <a href="#/settings" class="dashboard__sidebar-link">
+          <svg aria-hidden="true"><use href="#dash-settings"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+      <div class="dashboard__sidebar-footer">
+        <a href="index.html" class="dashboard__sidebar-link">
+          <svg aria-hidden="true"><use href="#dash-logout"/></svg>
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ===== HEADER ===== -->
+    <header class="dashboard__header" id="dashboardHeader">
+      <div class="dashboard__header-left">
+        <button class="dashboard__header-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+          <svg aria-hidden="true"><use href="#dash-menu"/></svg>
+        </button>
+        <h1 class="dashboard__header-title" id="pageTitle">Dashboard</h1>
+      </div>
+      <div class="dashboard__header-center">
+        <div class="dashboard__search">
+          <svg aria-hidden="true"><use href="#dash-search"/></svg>
+          <input type="search" placeholder="Search students, programs, drills..." aria-label="Search dashboard">
+        </div>
+      </div>
+      <div class="dashboard__header-right">
+        <button class="dashboard__header-btn" id="themeToggle" aria-label="Switch to dark mode">
+          <svg aria-hidden="true"><use href="#dash-moon"/></svg>
+        </button>
+        <button class="dashboard__header-btn" id="panelToggle" aria-label="Toggle notifications">
+          <svg aria-hidden="true"><use href="#dash-bell"/></svg>
+          <span class="dashboard__header-badge"></span>
+        </button>
+        <div class="dashboard__profile" id="profileSection">
+          <button class="dashboard__profile-btn" id="profileBtn" aria-label="Profile menu" aria-expanded="false">
+            <div class="dashboard__profile-avatar">JD</div>
+            <svg aria-hidden="true"><use href="#dash-chevron"/></svg>
+          </button>
+          <div class="dashboard__profile-dropdown" id="profileDropdown">
+            <div class="dashboard__dropdown-header">
+              <div class="dashboard__dropdown-avatar">JD</div>
+              <div class="dashboard__dropdown-info">
+                <strong>John Doe</strong>
+                <span>Student Athlete</span>
+              </div>
+            </div>
+            <div class="dashboard__dropdown-body">
+              <a href="#" class="dashboard__dropdown-link">
+                <svg aria-hidden="true"><use href="#dash-user"/></svg>
+                Profile
+              </a>
+              <a href="#" class="dashboard__dropdown-link">
+                <svg aria-hidden="true"><use href="#dash-settings"/></svg>
+                Settings
+              </a>
+              <div class="dashboard__dropdown-divider"></div>
+              <a href="index.html" class="dashboard__dropdown-link dashboard__dropdown-link--danger">
+                <svg aria-hidden="true"><use href="#dash-logout"/></svg>
+                Logout
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="dashboard__body">
+      <main class="dashboard__main" id="dashboardMain">
+
+        <div id="app-content"></div>
+      </main>
+      <aside class="dashboard__panel" id="dashboardPanel">
+        <div class="dashboard__panel-header">
+          <h3>Notifications</h3>
+          <button class="dashboard__panel-close" id="panelClose" aria-label="Close notifications">
+            <svg aria-hidden="true"><use href="#dash-close"/></svg>
+          </button>
+        </div>
+        <div class="dashboard__panel-body">
+          <div class="dashboard__panel-item">
+            <div class="dashboard__panel-icon dashboard__panel-icon--red">⚽</div>
+            <div class="dashboard__panel-text">
+              <strong>Training session rescheduled</strong>
+              <span>2 hours ago</span>
+            </div>
+          </div>
+          <div class="dashboard__panel-item">
+            <div class="dashboard__panel-icon dashboard__panel-icon--gold">🏆</div>
+            <div class="dashboard__panel-text">
+              <strong>New achievement unlocked</strong>
+              <span>Yesterday</span>
+            </div>
+          </div>
+          <div class="dashboard__panel-item">
+            <div class="dashboard__panel-icon dashboard__panel-icon--cyan">📋</div>
+            <div class="dashboard__panel-text">
+              <strong>Coach updated your goals</strong>
+              <span>3 days ago</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script src="data/student.js"></script>
+  <script src="data/programs.js"></script>
+  <script src="data/attendance.js"></script>
+  <script src="data/schedule.js"></script>
+  <script src="data/membership.js"></script>
+  <script src="data/messages.js"></script>
+  <script src="data/achievements.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/redirect.js"></script>
+</body>
+</html>

@@ -3,28 +3,438 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Log in to SportAcadem — Access your training dashboard, schedules, and athlete profile.">
+  <meta name="description" content="404 — Page not found. Let's get you back to training at Stackly Sports Academy.">
   <meta name="theme-color" content="#0F172A">
-  <title>Log In — SportAcadem</title>
+  <meta name="robots" content="noindex, follow">
+  <title>404 — Page Not Found | Stackly Sports Academy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== 404 PAGE ===== */
+    .error-page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--primary);
+      overflow: hidden;
+      padding-top: var(--header-h);
+    }
+
+    .error-page__bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .error-page__bg::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(239, 68, 68, 0.08) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+      border-radius: 50%;
+      animation: errorBgFloat 10s ease-in-out infinite alternate;
+    }
+
+    .error-page__bg::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
+      bottom: -150px;
+      left: -150px;
+      border-radius: 50%;
+      animation: errorBgFloat 12s ease-in-out infinite alternate-reverse;
+    }
+
+    .error-page__bg-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .error-page__layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+      padding: 40px 0 80px;
+    }
+
+    /* Left – Visual */
+    .error-page__visual {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 5 / 6;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    .error-page__visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .error-page__visual:hover img {
+      transform: scale(1.05);
+    }
+
+    .error-page__visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.5) 50%, rgba(15, 23, 42, 0.85) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Football animation */
+    .error-page__football {
+      position: absolute;
+      bottom: 120px;
+      z-index: 2;
+      font-size: 2.4rem;
+      animation: footballRoll 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes footballRoll {
+      0% { left: -10%; transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-18px) rotate(120deg); }
+      50% { left: 50%; transform: translateY(-8px) rotate(240deg); }
+      75% { transform: translateY(-18px) rotate(320deg); }
+      100% { left: 105%; transform: translateY(0) rotate(360deg); }
+    }
+
+    /* Stat card */
+    .error-page__stat-card {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      z-index: 3;
+      padding: 20px 24px;
+    }
+
+    .error-page__stat-card h3 {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .error-page__stat-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    .error-page__stat-card li {
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .error-page__stat-card li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Right – Content */
+    .error-page__content {
+      max-width: 540px;
+    }
+
+    .error-page__number {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: clamp(5rem, 12vw, 9rem);
+      font-weight: 900;
+      line-height: 0.85;
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 40%, var(--highlight) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      letter-spacing: -0.04em;
+    }
+
+    .error-page__title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .error-page__desc {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 460px;
+    }
+
+    .error-page__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .error-page__actions .btn .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .error-page__go-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      transition: color var(--transition);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .error-page__go-back:hover {
+      color: var(--white);
+    }
+
+    .error-page__quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 16px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .error-page__quick-links span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .error-page__quick-links a {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      transition: color var(--transition);
+      text-decoration: none;
+    }
+
+    .error-page__quick-links a:hover {
+      color: var(--accent);
+    }
+
+    .error-page__quick-links a:not(:last-of-type)::after {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      margin-left: 16px;
+      vertical-align: middle;
+    }
+
+    @keyframes errorBgFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(60px, 40px) scale(1.15); }
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .error-page__layout {
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .error-page__layout {
+        grid-template-columns: 55fr 45fr;
+        gap: 40px;
+      }
+      .error-page__visual {
+        aspect-ratio: 4 / 5;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .error-page {
+        min-height: auto;
+        padding-top: calc(var(--header-h) + 20px);
+      }
+      .error-page__layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 20px 0 60px;
+      }
+      .error-page__visual {
+        aspect-ratio: 16 / 10;
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .error-page__content {
+        max-width: 100%;
+        text-align: center;
+      }
+      .error-page__desc {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .error-page__actions {
+        justify-content: center;
+      }
+      .error-page__quick-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .error-page__layout {
+        padding: 0 0 40px;
+      }
+      .error-page__stat-card ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .error-page__stat-card {
+        padding: 16px 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .error-page__visual {
+        aspect-ratio: 4 / 3;
+      }
+      .error-page__stat-card li {
+        font-size: 0.78rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .error-page__visual {
+        aspect-ratio: 1 / 1;
+        max-width: 100%;
+      }
+      .error-page__stat-card {
+        bottom: 16px;
+        left: 16px;
+        right: 16px;
+        padding: 14px 16px;
+      }
+      .error-page__stat-card h3 {
+        font-size: 0.72rem;
+        margin-bottom: 10px;
+      }
+      .error-page__stat-card ul {
+        gap: 8px;
+      }
+      .error-page__actions {
+        flex-direction: column;
+      }
+      .error-page__actions .btn {
+        width: 100%;
+      }
+      .error-page__football {
+        font-size: 1.8rem;
+        bottom: 100px;
+      }
+      .error-page__quick-links {
+        gap: 6px 12px;
+      }
+      .error-page__quick-links a:not(:last-of-type)::after {
+        margin-left: 12px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .error-page__number {
+        font-size: 4rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .error-page__layout {
+        gap: 24px;
+      }
+      .error-page__stat-card {
+        padding: 12px;
+      }
+      .error-page__stat-card li {
+        font-size: 0.72rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .error-page__bg::before,
+      .error-page__bg::after {
+        animation: none;
+      }
+      .error-page__football {
+        animation: none;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .error-page__visual img {
+        transition: none;
+      }
+      .error-page__visual:hover img {
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- ===== SVG ICON SPRITE ===== -->
   <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></symbol>
-      <symbol id="icon-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/></symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
       <symbol id="icon-trophy" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6m12 5h1.5a2.5 2.5 0 0 0 0-5H18M6 9v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9M6 9h12m-6 9v3m-4 0h8"/></symbol>
       <symbol id="icon-medal" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 0v6m-4 0h8M8 3l8 9m0-9L8 12"/></symbol>
       <symbol id="icon-users" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2m8-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
       <symbol id="icon-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></symbol>
       <symbol id="icon-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
-      <symbol id="icon-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor"/></symbol>
-      <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></symbol>
-      <symbol id="icon-graduation" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 10l-10-5-10 5 10 5 10-5zM6 12v5l6 3 6-3v-5M2 10v6"/></symbol>
       <symbol id="icon-location" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
       <symbol id="icon-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.56 12.56 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.56 12.56 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
       <symbol id="icon-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
@@ -37,24 +447,26 @@
       <symbol id="icon-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></symbol>
       <symbol id="icon-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18"/></symbol>
       <symbol id="icon-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 6L6 18M6 6l12 12"/></symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></symbol>
       <symbol id="icon-login" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/></symbol>
       <symbol id="icon-user" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-      <symbol id="icon-eye" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-      <symbol id="icon-eye-off" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"/></symbol>
-      <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
-      <symbol id="icon-google" viewBox="0 0 24 24"><path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></symbol>
+      <symbol id="icon-logout" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35"/></symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></symbol>
     </defs>
   </svg>
 
+  <!-- ===== SKIP LINK ===== -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- ===== PRELOADER ===== -->
   <div class="preloader" id="preloader" role="status" aria-label="Loading">
     <div class="preloader__bg" aria-hidden="true"></div>
     <div class="preloader__content">
       <div class="preloader__ring" aria-hidden="true">
         <div class="preloader__ring-circle"></div>
       </div>
-      <img src="assets/logo-stackly.webp" alt="SportAcadem" class="preloader__logo" width="160" height="107">
+      <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="preloader__logo" width="160" height="107">
       <div class="preloader__track" aria-hidden="true">
         <div class="preloader__bar"></div>
       </div>
@@ -62,10 +474,11 @@
     </div>
   </div>
 
+  <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container header__container">
-      <a href="index.html" class="header__logo" aria-label="SportAcadem Home">
-        <img src="assets/logo-stackly.webp" alt="SportAcadem" class="logo-img" width="120" height="80">
+      <a href="index.html" class="header__logo" aria-label="Stackly Sports Academy Home">
+        <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="logo-img" width="120" height="80">
       </a>
       <nav class="header__nav" id="headerNav" aria-label="Main navigation">
         <ul class="header__menu">
@@ -82,7 +495,7 @@
         <div class="mobile-menu" id="mobileMenu">
           <div class="mobile-menu__header">
             <a href="index.html" class="mobile-menu__logo" tabindex="-1">
-              <img src="assets/logo-stackly.webp" alt="SportAcadem" class="mobile-menu__logo-img" width="100" height="67">
+              <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="mobile-menu__logo-img" width="100" height="67">
             </a>
           </div>
           <div class="mobile-menu__body">
@@ -140,108 +553,57 @@
   </header>
 
   <main id="main-content">
-    <section class="section auth-section" aria-labelledby="login-title">
-      <div class="container">
-        <div class="auth-layout">
-          <div class="auth-visual" data-reveal="reveal-left">
-            <img src="assets/hero-athlete.webp" alt="Elite athlete training" loading="eager" decoding="async" width="900" height="1100">
-            <div class="auth-visual-overlay">
-              <p class="auth-visual-overlay__slogan">Train Without Limits.<br>Rise Above.</p>
-              <p class="auth-visual-overlay__desc">Join India's premier sports academy and unlock your full potential with world-class coaching, elite facilities, and a proven pathway to greatness.</p>
-              <div class="auth-visual-overlay__stats">
-                <div class="auth-visual-overlay__stat">
-                  <span class="auth-visual-overlay__stat-num">50+</span>
-                  <span class="auth-visual-overlay__stat-label">Pro Coaches</span>
-                </div>
-                <div class="auth-visual-overlay__stat">
-                  <span class="auth-visual-overlay__stat-num">156</span>
-                  <span class="auth-visual-overlay__stat-label">Championships</span>
-                </div>
-                <div class="auth-visual-overlay__stat">
-                  <span class="auth-visual-overlay__stat-num">3,500+</span>
-                  <span class="auth-visual-overlay__stat-label">Athletes Trained</span>
-                </div>
-              </div>
-              <div class="auth-visual-overlay__badges">
-                <span class="auth-visual-overlay__badge"><svg class="icon" aria-hidden="true"><use href="#icon-medal"/></svg>Professional Coaching</span>
-                <span class="auth-visual-overlay__badge"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg>Championship Winners</span>
-              </div>
-              <div class="auth-visual-overlay__floating">
-                <div class="auth-visual-overlay__float-card">
-                  <div class="auth-visual-overlay__float-icon"><svg class="icon" aria-hidden="true"><use href="#icon-zap"/></svg></div>
-                  <div class="auth-visual-overlay__float-text">
-                    <strong>12+ Years</strong>
-                    <span>Experience</span>
-                  </div>
-                </div>
-                <div class="auth-visual-overlay__float-card">
-                  <div class="auth-visual-overlay__float-icon"><svg class="icon" aria-hidden="true"><use href="#icon-target"/></svg></div>
-                  <div class="auth-visual-overlay__float-text">
-                    <strong>98% Success</strong>
-                    <span>Scholarship Rate</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- ===== 404 HERO ===== -->
+    <section class="error-page" aria-label="Page not found">
+      <div class="error-page__bg" aria-hidden="true">
+        <div class="error-page__bg-lines"></div>
+      </div>
+      <div class="container error-page__layout">
+        <!-- Left — Premium Visual -->
+        <div class="error-page__visual" data-reveal="reveal-left">
+          <img src="assets/hero-athlete.webp" alt="Athlete in motion" loading="eager" decoding="async" width="700" height="840">
+          <div class="error-page__visual-overlay"></div>
+          <div class="error-page__football" aria-hidden="true">⚽</div>
+          <div class="error-page__stat-card glass-card">
+            <h3>Did You Know?</h3>
+            <ul>
+              <li>5000+ Students</li>
+              <li>120+ Coaches</li>
+              <li>85 Championships</li>
+            </ul>
           </div>
-          <div class="auth-card" data-reveal="reveal-right">
-            <a href="index.html" class="auth-back">
-              <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg>
+        </div>
+
+        <!-- Right — 404 Content -->
+        <div class="error-page__content" data-reveal="reveal-right">
+          <span class="error-page__number">404</span>
+          <h1 class="error-page__title">Oops! You're Off the Track</h1>
+          <p class="error-page__desc">Looks like you've taken a wrong turn. Let's get you back on the path to becoming a champion.</p>
+          <div class="error-page__actions">
+            <a href="index.html" class="btn btn--primary btn--lg">
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
               Back to Home
             </a>
-            <div class="auth-card__header">
-              <h2 id="login-title">Welcome Back</h2>
-              <p>Sign in to continue your champion journey.</p>
-            </div>
-            <form class="auth-form" id="loginForm" novalidate>
-              <div class="auth-role-selector" role="radiogroup" aria-label="Select your role">
-                <button type="button" class="auth-role-btn active" data-role="student" role="radio" aria-checked="true">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-graduation"/></svg>
-                  Student
-                </button>
-                <button type="button" class="auth-role-btn" data-role="coach" role="radio" aria-checked="false">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg>
-                  Coach
-                </button>
-              </div>
-              <input type="hidden" name="role" id="loginRole" value="student">
-              <div class="auth-input-wrap">
-                <svg class="icon auth-input__icon" aria-hidden="true"><use href="#icon-mail"/></svg>
-                <input type="email" id="loginEmail" name="email" class="auth-input" placeholder="Email address" required aria-label="Email address">
-              </div>
-              <div class="auth-input-wrap">
-                <svg class="icon auth-input__icon" aria-hidden="true"><use href="#icon-lock"/></svg>
-                <input type="password" id="loginPassword" name="password" class="auth-input auth-input--password" placeholder="Password" required aria-label="Password" minlength="8">
-                <button type="button" class="password-toggle" data-target="loginPassword" aria-label="Show password" aria-pressed="false">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg>
-                </button>
-              </div>
-              <div class="auth-options">
-                <label class="auth-checkbox">
-                  <input type="checkbox" name="remember" id="loginRemember">
-                  <span>Remember me</span>
-                </label>
-                <a href="#" class="forgot-link">Forgot password?</a>
-              </div>
-              <button type="submit" class="btn btn--primary btn--lg">
-                Log In
-                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-              </button>
-              <div class="auth-divider">or continue with</div>
-              <button type="button" class="btn btn--ghost auth-social">
-                <svg class="icon" aria-hidden="true"><use href="#icon-google"/></svg>
-                Continue with Google
-              </button>
-            </form>
-            <div class="auth-footer">
-              <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-            </div>
+            <a href="programs.html" class="btn btn--outline btn--lg">Explore Programs</a>
           </div>
+          <button class="error-page__go-back" onclick="history.back()">
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg>
+            Go Back
+          </button>
+          <nav class="error-page__quick-links" aria-label="Quick navigation">
+            <span>Quick Links:</span>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="programs.html">Programs</a>
+            <a href="coaches.html">Coaches</a>
+            <a href="contact.html">Contact</a>
+          </nav>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer__bg" aria-hidden="true">
       <div class="footer__gradient"></div>
@@ -252,8 +614,8 @@
     <div class="container">
       <div class="footer__top">
         <div class="footer__brand">
-          <a href="index.html" aria-label="SportAcadem Home">
-            <img src="assets/logo-stackly.webp" alt="SportAcadem" class="footer__logo" width="135" height="90">
+          <a href="index.html" aria-label="Stackly Sports Academy Home">
+            <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="footer__logo" width="135" height="90">
           </a>
           <p>Elite performance training for the next generation of champions. Join the academy that produces winners on the field and in life.</p>
           <div class="footer__social">
@@ -271,24 +633,25 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="programs.html">Programs</a></li>
             <li><a href="coaches.html">Coaches</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--card">
           <h4>Programs</h4>
           <ul>
-            <li><a href="programs.html">Football</a></li>
-            <li><a href="programs.html">Basketball</a></li>
-            <li><a href="programs.html">Cricket</a></li>
-            <li><a href="programs.html">Swimming</a></li>
-            <li><a href="programs.html">Athletics</a></li>
-            <li><a href="programs.html">Strength & Conditioning</a></li>
+            <li><a href="#programs">Football</a></li>
+            <li><a href="#programs">Basketball</a></li>
+            <li><a href="#programs">Cricket</a></li>
+            <li><a href="#programs">Swimming</a></li>
+            <li><a href="#programs">Athletics</a></li>
+            <li><a href="#programs">Strength & Conditioning</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--card">
           <h4>Contact</h4>
           <ul class="footer__contact">
-            <li><svg class="icon" aria-hidden="true"><use href="#icon-location"/></svg>123 Sports Avenue, CA 90210</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-location"/></svg>123 Sports Ave, CA 90210</li>
             <li><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>+1 (555) 123-4567</li>
             <li><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>info@sportacadem.com</li>
             <li><svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>Mon-Sat: 6AM - 9PM</li>
@@ -300,7 +663,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 SportAcadem. All rights reserved.</p>
+        <p>&copy; 2026 Stackly Sports Academy. All rights reserved.</p>
         <div class="footer__legal">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
@@ -310,82 +673,15 @@
     </div>
   </footer>
 
+  <!-- ===== BACK TO TOP ===== -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
   </button>
 
+  <!-- ===== SCROLL PROGRESS ===== -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <script src="js/main.js"></script>
-  <script>
-  (function() {
-    document.querySelectorAll('.password-toggle').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var input = document.getElementById(btn.dataset.target);
-        if (!input) return;
-        var show = input.type === 'password';
-        input.type = show ? 'text' : 'password';
-        btn.setAttribute('aria-pressed', show ? 'true' : 'false');
-        btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
-        btn.querySelector('use').setAttribute('href', show ? '#icon-eye-off' : '#icon-eye');
-      });
-    });
-
-    var roleBtns = document.querySelectorAll('.auth-role-btn');
-    var roleInput = document.getElementById('loginRole');
-    roleBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        roleBtns.forEach(function(b) {
-          b.classList.remove('active');
-          b.setAttribute('aria-checked', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-checked', 'true');
-        roleInput.value = btn.dataset.role;
-      });
-    });
-
-    function isValidEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    var loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-      loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var valid = true;
-        var email = document.getElementById('loginEmail');
-        var password = document.getElementById('loginPassword');
-
-        loginForm.querySelectorAll('.auth-input').forEach(function(input) {
-          input.classList.remove('error');
-        });
-
-        if (!email.value || !isValidEmail(email.value)) {
-          email.classList.add('error');
-          valid = false;
-        }
-        if (!password.value || password.value.length < 8) {
-          password.classList.add('error');
-          valid = false;
-        }
-
-        if (valid) {
-          var btn = loginForm.querySelector('button[type="submit"]');
-          var original = btn.innerHTML;
-          btn.innerHTML = '<span>Logging in...</span>';
-          btn.disabled = true;
-          setTimeout(function() {
-            btn.innerHTML = original;
-            btn.disabled = false;
-            loginForm.reset();
-            alert('Welcome back to SportAcadem!');
-          }, 1500);
-        }
-      });
-    }
-  })();
-  </script>
   <script src="js/redirect.js"></script>
 </body>
 </html>

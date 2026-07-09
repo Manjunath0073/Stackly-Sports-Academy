@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sign up for Stackly Sports Academy — Register for elite training programs and start your champion journey.">
+  <meta name="description" content="Sign up for SportAcadem — Register for elite training programs and start your champion journey.">
   <meta name="theme-color" content="#0F172A">
-  <title>Sign Up — Stackly Sports Academy</title>
+  <title>Sign Up — SportAcadem</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,15 +13,19 @@
 </head>
 <body>
 
-  <!-- ===== SVG ICON SPRITE ===== -->
   <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/></symbol>
       <symbol id="icon-trophy" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6m12 5h1.5a2.5 2.5 0 0 0 0-5H18M6 9v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9M6 9h12m-6 9v3m-4 0h8"/></symbol>
       <symbol id="icon-medal" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 0v6m-4 0h8M8 3l8 9m0-9L8 12"/></symbol>
-      <symbol id="icon-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-      <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M2 12h20"/><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2m8-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
       <symbol id="icon-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+      <symbol id="icon-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor"/></symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></symbol>
+      <symbol id="icon-graduation" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 10l-10-5-10 5 10 5 10-5zM6 12v5l6 3 6-3v-5M2 10v6"/></symbol>
+      <symbol id="icon-dumbbell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.5 6.5h11M6.5 17.5h11M6 20v-5M18 20v-5M6 9V4M18 9V4M3 9h18M3 15h18M2 12h20"/></symbol>
       <symbol id="icon-location" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
       <symbol id="icon-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.56 12.56 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.56 12.56 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
       <symbol id="icon-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
@@ -37,26 +41,32 @@
       <symbol id="icon-login" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/></symbol>
       <symbol id="icon-user" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
       <symbol id="icon-eye" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-eye-off" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"/></symbol>
       <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M2 12h20"/><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
     </defs>
   </svg>
 
-  <!-- ===== SKIP LINK ===== -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- ===== PRELOADER ===== -->
   <div class="preloader" id="preloader" role="status" aria-label="Loading">
+    <div class="preloader__bg" aria-hidden="true"></div>
     <div class="preloader__content">
-      <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="preloader__logo" width="108" height="72">
-      <div class="preloader__bar"><span></span></div>
+      <div class="preloader__ring" aria-hidden="true">
+        <div class="preloader__ring-circle"></div>
+      </div>
+      <img src="assets/logo-stackly.webp" alt="SportAcadem" class="preloader__logo" width="160" height="107">
+      <div class="preloader__track" aria-hidden="true">
+        <div class="preloader__bar"></div>
+      </div>
+      <p class="preloader__text">Building Future Champions...</p>
     </div>
   </div>
 
-  <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container header__container">
-      <a href="index.html" class="header__logo" aria-label="Stackly Sports Academy Home">
-        <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="logo-img" width="120" height="80">
+      <a href="index.html" class="header__logo" aria-label="SportAcadem Home">
+        <img src="assets/logo-stackly.webp" alt="SportAcadem" class="logo-img" width="120" height="80">
       </a>
       <nav class="header__nav" id="headerNav" aria-label="Main navigation">
         <ul class="header__menu">
@@ -69,6 +79,53 @@
         <div class="header__actions header__actions--mobile">
           <a href="login.html" class="btn btn--ghost btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
           <a href="signup.html" class="btn btn--primary btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <div class="mobile-menu__header">
+            <a href="index.html" class="mobile-menu__logo" tabindex="-1">
+              <img src="assets/logo-stackly.webp" alt="SportAcadem" class="mobile-menu__logo-img" width="100" height="67">
+            </a>
+          </div>
+          <div class="mobile-menu__body">
+            <a href="index.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">🏠</span>
+              <span class="mobile-menu__link-label">Home</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="about.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">ℹ</span>
+              <span class="mobile-menu__link-label">About</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="programs.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">🏆</span>
+              <span class="mobile-menu__link-label">Programs</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="coaches.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">👨‍🏫</span>
+              <span class="mobile-menu__link-label">Coaches</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="contact.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">📞</span>
+              <span class="mobile-menu__link-label">Contact</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+          </div>
+          <div class="mobile-menu__footer">
+            <div class="mobile-menu__actions">
+              <a href="signup.html" class="btn btn--primary mobile-menu__btn" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+              <a href="login.html" class="btn btn--ghost mobile-menu__btn" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
+            </div>
+            <div class="mobile-menu__social">
+              <a href="#" class="mobile-menu__social-link" aria-label="Facebook" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+              <a href="#" class="mobile-menu__social-link" aria-label="Instagram" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+              <a href="#" class="mobile-menu__social-link" aria-label="LinkedIn" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+              <a href="#" class="mobile-menu__social-link" aria-label="YouTube" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"/></svg></a>
+            </div>
+            <p class="mobile-menu__tagline">Building Future Champions</p>
+          </div>
         </div>
       </nav>
       <div class="header__actions header__actions--desktop">
@@ -84,40 +141,72 @@
   </header>
 
   <main id="main-content">
-    <!-- ===== PREMIUM HERO ===== -->
-    <section class="page-hero" id="signup-hero" aria-label="Sign up for Stackly Sports Academy">
-      <div class="page-hero__bg">
-        <img src="assets/programs-hero.webp" alt="Athletes on the field at Stackly Sports Academy" loading="eager" decoding="async" width="1600" height="580">
-        <div class="page-hero__overlay"></div>
-        <div class="page-hero__gradient"></div>
-      </div>
-      <div class="container page-hero__container">
-        <div class="page-hero__content" data-reveal="fade-up">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <ol>
-              <li><a href="index.html">Home</a></li>
-              <li aria-current="page">Sign Up</li>
-            </ol>
-          </nav>
-          <h1 class="page-hero__title">Start Your <span class="text-gradient">Journey</span></h1>
-          <p class="page-hero__desc">Create your account and take the first step toward becoming a champion.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== REGISTRATION CARD ===== -->
-    <section class="section auth-section" id="signup-card" aria-labelledby="signup-title">
+    <section class="section auth-section" aria-labelledby="signup-title">
       <div class="container">
         <div class="auth-layout">
           <div class="auth-visual" data-reveal="reveal-left">
-            <img src="assets/about-training.webp" alt="Athletes training at Stackly Sports Academy" loading="lazy" decoding="async" width="800" height="560">
+            <img src="assets/about-hero.webp" alt="Athletes training" loading="eager" decoding="async" width="1600" height="900">
+            <div class="auth-visual-overlay">
+              <p class="auth-visual-overlay__slogan">Become a<br>Champion.</p>
+              <p class="auth-visual-overlay__desc">Take the first step toward greatness. Register for elite coaching, modern facilities, and a proven pathway to national championships.</p>
+              <div class="auth-visual-overlay__stats">
+                <div class="auth-visual-overlay__stat">
+                  <span class="auth-visual-overlay__stat-num">50+</span>
+                  <span class="auth-visual-overlay__stat-label">Pro Coaches</span>
+                </div>
+                <div class="auth-visual-overlay__stat">
+                  <span class="auth-visual-overlay__stat-num">98%</span>
+                  <span class="auth-visual-overlay__stat-label">Scholarship Rate</span>
+                </div>
+                <div class="auth-visual-overlay__stat">
+                  <span class="auth-visual-overlay__stat-num">15</span>
+                  <span class="auth-visual-overlay__stat-label">Sports Disciplines</span>
+                </div>
+              </div>
+              <div class="auth-visual-overlay__badges">
+                <span class="auth-visual-overlay__badge"><svg class="icon" aria-hidden="true"><use href="#icon-medal"/></svg>Professional Coaches</span>
+                <span class="auth-visual-overlay__badge"><svg class="icon" aria-hidden="true"><use href="#icon-dumbbell"/></svg>Modern Facilities</span>
+                <span class="auth-visual-overlay__badge"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg>National Championships</span>
+              </div>
+              <div class="auth-visual-overlay__floating">
+                <div class="auth-visual-overlay__float-card">
+                  <div class="auth-visual-overlay__float-icon"><svg class="icon" aria-hidden="true"><use href="#icon-globe"/></svg></div>
+                  <div class="auth-visual-overlay__float-text">
+                    <strong>Elite Campus</strong>
+                    <span>15-Acre Facility</span>
+                  </div>
+                </div>
+                <div class="auth-visual-overlay__float-card">
+                  <div class="auth-visual-overlay__float-icon"><svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg></div>
+                  <div class="auth-visual-overlay__float-text">
+                    <strong>#1 Rated</strong>
+                    <span>Sports Academy</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="auth-card" data-reveal="reveal-right">
+            <a href="index.html" class="auth-back">
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg>
+              Back to Home
+            </a>
             <div class="auth-card__header">
               <h2 id="signup-title">Create Account</h2>
-              <p>Register to join India's premium sports academy.</p>
+              <p>Register to join India's premier sports academy.</p>
             </div>
-            <form class="auth-form" id="signupForm" novalidate data-success="Welcome to Stackly Sports Academy! Your account has been created.">
+            <form class="auth-form" id="signupForm" novalidate>
+              <div class="auth-role-selector" role="radiogroup" aria-label="Select your role">
+                <button type="button" class="auth-role-btn active" data-role="student" role="radio" aria-checked="true">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-graduation"/></svg>
+                  Student
+                </button>
+                <button type="button" class="auth-role-btn" data-role="coach" role="radio" aria-checked="false">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg>
+                  Coach
+                </button>
+              </div>
+              <input type="hidden" name="role" id="signupRole" value="student">
               <div class="auth-input-wrap">
                 <svg class="icon auth-input__icon" aria-hidden="true"><use href="#icon-user"/></svg>
                 <input type="text" id="signupName" name="name" class="auth-input" placeholder="Full name" required aria-label="Full name">
@@ -133,7 +222,7 @@
               <div class="form__row">
                 <div class="auth-input-wrap">
                   <select id="signupSport" name="sport" class="auth-input auth-input--select" required aria-label="Sport selection">
-                    <option value="" selected disabled>Select your sport</option>
+                    <option value="" selected disabled>Select sport</option>
                     <option value="football">Football</option>
                     <option value="basketball">Basketball</option>
                     <option value="cricket">Cricket</option>
@@ -166,7 +255,7 @@
               </div>
               <label class="auth-checkbox">
                 <input type="checkbox" name="terms" id="signupTerms" required>
-                <span>I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a></span>
+                <span>I accept the <a href="#" class="terms-link">Terms & Conditions</a></span>
               </label>
               <button type="submit" class="btn btn--primary btn--lg">
                 Create Account
@@ -180,57 +269,8 @@
         </div>
       </div>
     </section>
-
-    <!-- ===== WHY JOIN US ===== -->
-    <section class="section why-stackly" id="why-join" aria-labelledby="why-join-title">
-      <div class="container">
-        <div class="section__header" data-reveal="fade-up">
-          <span class="section__tag">Why Join Us</span>
-          <h2 id="why-join-title">The Stackly <span class="text-gradient">Advantage</span></h2>
-          <p class="section__desc">Discover what makes India's premium sports academy the right choice for your athletic future.</p>
-        </div>
-        <div class="why-stackly__grid">
-          <article class="why-stackly-card" data-reveal="fade-up">
-            <div class="why-stackly-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg></div>
-            <h3>Olympic Coaches</h3>
-            <p>Learn from coaches who have trained Olympic athletes, national teams, and world champions.</p>
-          </article>
-          <article class="why-stackly-card" data-reveal="fade-up" data-delay="0.05">
-            <div class="why-stackly-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-award"/></svg></div>
-            <h3>Modern Facilities</h3>
-            <p>Train in Olympic pools, indoor arenas, synthetic tracks, and advanced recovery centers.</p>
-          </article>
-          <article class="why-stackly-card" data-reveal="fade-up" data-delay="0.1">
-            <div class="why-stackly-card__icon"><svg class="icon" aria-hidden="true"><use href="#icon-globe"/></svg></div>
-            <h3>National Championships</h3>
-            <p>Compete in national-level tournaments and championship programs across multiple disciplines.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CALL TO ACTION ===== -->
-    <section class="section cta-banner" id="cta" aria-labelledby="cta-title">
-      <div class="cta-banner__bg" aria-hidden="true">
-        <div class="cta-banner__gradient"></div>
-        <div class="cta-banner__shape"></div>
-      </div>
-      <div class="container">
-        <div class="cta-banner__content" data-reveal="fade-up">
-          <h2 id="cta-title" class="cta-banner__title">Already Have an Account?</h2>
-          <p class="cta-banner__desc">Log in to access your training dashboard and continue your champion journey.</p>
-          <div class="cta-banner__actions">
-            <a href="login.html" class="btn btn--primary btn--lg">
-              Log In
-              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer__bg" aria-hidden="true">
       <div class="footer__gradient"></div>
@@ -241,8 +281,8 @@
     <div class="container">
       <div class="footer__top">
         <div class="footer__brand">
-          <a href="index.html" aria-label="Stackly Sports Academy Home">
-            <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="footer__logo" width="135" height="90">
+          <a href="index.html" aria-label="SportAcadem Home">
+            <img src="assets/logo-stackly.webp" alt="SportAcadem" class="footer__logo" width="135" height="90">
           </a>
           <p>Elite performance training for the next generation of champions. Join the academy that produces winners on the field and in life.</p>
           <div class="footer__social">
@@ -277,9 +317,9 @@
         <div class="footer__col footer__col--card">
           <h4>Contact</h4>
           <ul class="footer__contact">
-            <li><svg class="icon" aria-hidden="true"><use href="#icon-location"/></svg>Stackly Sports Academy, Salem, Tamil Nadu, India</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>+91 98765 43210</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>info@stacklysports.com</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-location"/></svg>123 Sports Avenue, CA 90210</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>+1 (555) 123-4567</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>info@sportacadem.com</li>
             <li><svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>Mon-Sat: 6AM - 9PM</li>
           </ul>
           <form class="footer__newsletter" id="newsletterForm" novalidate>
@@ -289,7 +329,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 Stackly Sports Academy. All rights reserved.</p>
+        <p>&copy; 2026 SportAcadem. All rights reserved.</p>
         <div class="footer__legal">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
@@ -299,18 +339,15 @@
     </div>
   </footer>
 
-  <!-- ===== BACK TO TOP ===== -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
   </button>
 
-  <!-- ===== SCROLL PROGRESS ===== -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <script src="js/main.js"></script>
   <script>
   (function() {
-    // Password show/hide toggle
     document.querySelectorAll('.password-toggle').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var input = document.getElementById(btn.dataset.target);
@@ -319,15 +356,28 @@
         input.type = show ? 'text' : 'password';
         btn.setAttribute('aria-pressed', show ? 'true' : 'false');
         btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+        btn.querySelector('use').setAttribute('href', show ? '#icon-eye-off' : '#icon-eye');
       });
     });
 
-    // Email validation helper
+    var roleBtns = document.querySelectorAll('.auth-role-btn');
+    var roleInput = document.getElementById('signupRole');
+    roleBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        roleBtns.forEach(function(b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-checked', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-checked', 'true');
+        roleInput.value = btn.dataset.role;
+      });
+    });
+
     function isValidEmail(email) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    // Password strength indicator
     function updateStrength(password, bar) {
       var score = 0;
       if (password.length >= 8) score++;
@@ -348,7 +398,6 @@
       });
     }
 
-    // Signup form validation
     var signupForm = document.getElementById('signupForm');
     if (signupForm) {
       signupForm.addEventListener('submit', function(e) {
@@ -414,12 +463,13 @@
               strengthBar.style.width = '0';
               strengthBar.style.background = 'transparent';
             }
-            alert(signupForm.dataset.success);
+            alert('Welcome to SportAcadem! Your account has been created.');
           }, 1500);
         }
       });
     }
   })();
   </script>
+  <script src="js/redirect.js"></script>
 </body>
 </html>

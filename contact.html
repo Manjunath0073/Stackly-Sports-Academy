@@ -40,9 +40,16 @@
 
   <!-- ===== PRELOADER ===== -->
   <div class="preloader" id="preloader" role="status" aria-label="Loading">
+    <div class="preloader__bg" aria-hidden="true"></div>
     <div class="preloader__content">
-      <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="preloader__logo" width="108" height="72">
-      <div class="preloader__bar"><span></span></div>
+      <div class="preloader__ring" aria-hidden="true">
+        <div class="preloader__ring-circle"></div>
+      </div>
+      <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" class="preloader__logo" width="160" height="107">
+      <div class="preloader__track" aria-hidden="true">
+        <div class="preloader__bar"></div>
+      </div>
+      <p class="preloader__text">Building Future Champions...</p>
     </div>
   </div>
 
@@ -64,6 +71,53 @@
           <a href="login.html" class="btn btn--ghost btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
           <a href="signup.html" class="btn btn--primary btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
         </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <div class="mobile-menu__header">
+            <a href="index.html" class="mobile-menu__logo" tabindex="-1">
+              <img src="assets/logo-stackly.webp" alt="SportAcadem" class="mobile-menu__logo-img" width="100" height="67">
+            </a>
+          </div>
+          <div class="mobile-menu__body">
+            <a href="index.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">🏠</span>
+              <span class="mobile-menu__link-label">Home</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="about.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">ℹ</span>
+              <span class="mobile-menu__link-label">About</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="programs.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">🏆</span>
+              <span class="mobile-menu__link-label">Programs</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="coaches.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">👨‍🏫</span>
+              <span class="mobile-menu__link-label">Coaches</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="contact.html" class="mobile-menu__link active" tabindex="-1">
+              <span class="mobile-menu__link-icon">📞</span>
+              <span class="mobile-menu__link-label">Contact</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+          </div>
+          <div class="mobile-menu__footer">
+            <div class="mobile-menu__actions">
+              <a href="signup.html" class="btn btn--primary mobile-menu__btn" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+              <a href="login.html" class="btn btn--ghost mobile-menu__btn" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
+            </div>
+            <div class="mobile-menu__social">
+              <a href="#" class="mobile-menu__social-link" aria-label="Facebook" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+              <a href="#" class="mobile-menu__social-link" aria-label="Instagram" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+              <a href="#" class="mobile-menu__social-link" aria-label="LinkedIn" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+              <a href="#" class="mobile-menu__social-link" aria-label="YouTube" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"/></svg></a>
+            </div>
+            <p class="mobile-menu__tagline">Building Future Champions</p>
+          </div>
+        </div>
       </nav>
       <div class="header__actions header__actions--desktop">
         <a href="login.html" class="btn btn--ghost btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
@@ -79,22 +133,52 @@
 
   <main id="main-content">
     <!-- ===== HERO ===== -->
-    <section class="page-hero" id="contact-hero" aria-label="Contact Stackly Sports Academy">
+    <section class="page-hero page-hero--contact" id="contact-hero" aria-label="Contact Stackly Sports Academy">
       <div class="page-hero__bg">
         <img src="assets/contact-hero.webp" alt="Stackly Sports Academy facility" loading="eager" decoding="async" width="1600" height="580">
         <div class="page-hero__overlay"></div>
         <div class="page-hero__gradient"></div>
       </div>
       <div class="container page-hero__container">
-        <div class="page-hero__content" data-reveal="fade-up">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <ol>
-              <li><a href="index.html">Home</a></li>
-              <li aria-current="page">Contact</li>
-            </ol>
-          </nav>
-          <h1 class="page-hero__title">Get In <span class="text-gradient">Touch</span></h1>
-          <p class="page-hero__desc">Visit us in Salem, Tamil Nadu, or reach out to start your champion journey today.</p>
+        <div class="page-hero__two-col">
+          <div class="page-hero__two-col-content" data-reveal="fade-up">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="index.html">Home</a></li>
+                <li aria-current="page">Contact</li>
+              </ol>
+            </nav>
+            <h1 class="page-hero__title">Let's Build <span class="text-gradient">Champions Together</span></h1>
+            <p class="page-hero__desc">Visit us in Salem, Tamil Nadu, or reach out to start your champion journey today.</p>
+            <a href="#contact-form" class="btn btn--primary">Get In Touch <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            <div class="page-hero__quick-cards">
+              <div class="page-hero__quick-card glass-card">
+                <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+                <span>+91 98765 43210</span>
+              </div>
+              <div class="page-hero__quick-card glass-card">
+                <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+                <span>info@stacklysports.com</span>
+              </div>
+            </div>
+          </div>
+          <div class="page-hero__two-col-visual" data-reveal="scale-in">
+            <img src="assets/facility-stadium.webp" alt="Stackly Sports Academy stadium" loading="eager" decoding="async" width="700" height="500">
+            <div class="page-hero__location-card glass-card">
+              <svg class="icon" aria-hidden="true"><use href="#icon-location"/></svg>
+              <div>
+                <strong>Salem, Tamil Nadu</strong>
+                <span>India</span>
+              </div>
+            </div>
+            <div class="page-hero__hours-card glass-card">
+              <svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>
+              <div>
+                <strong>Mon - Sat</strong>
+                <span>5:00 AM - 9:00 PM</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -308,5 +392,6 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <script src="js/main.js"></script>
+  <script src="js/redirect.js"></script>
 </body>
 </html>

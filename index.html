@@ -57,9 +57,16 @@
 
   <!-- ===== PRELOADER ===== -->
   <div class="preloader" id="preloader" role="status" aria-label="Loading">
+    <div class="preloader__bg" aria-hidden="true"></div>
     <div class="preloader__content">
-      <img src="assets/logo-stackly.webp" alt="SportAcadem" class="preloader__logo" width="108" height="72">
-      <div class="preloader__bar"><span></span></div>
+      <div class="preloader__ring" aria-hidden="true">
+        <div class="preloader__ring-circle"></div>
+      </div>
+      <img src="assets/logo-stackly.webp" alt="SportAcadem" class="preloader__logo" width="160" height="107">
+      <div class="preloader__track" aria-hidden="true">
+        <div class="preloader__bar"></div>
+      </div>
+      <p class="preloader__text">Building Future Champions...</p>
     </div>
   </div>
 
@@ -80,6 +87,53 @@
         <div class="header__actions header__actions--mobile">
           <a href="login.html" class="btn btn--ghost btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
           <a href="signup.html" class="btn btn--primary btn--sm"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <div class="mobile-menu__header">
+            <a href="index.html" class="mobile-menu__logo" tabindex="-1">
+              <img src="assets/logo-stackly.webp" alt="SportAcadem" class="mobile-menu__logo-img" width="100" height="67">
+            </a>
+          </div>
+          <div class="mobile-menu__body">
+            <a href="index.html" class="mobile-menu__link active" tabindex="-1">
+              <span class="mobile-menu__link-icon">🏠</span>
+              <span class="mobile-menu__link-label">Home</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="about.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">ℹ</span>
+              <span class="mobile-menu__link-label">About</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="programs.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">🏆</span>
+              <span class="mobile-menu__link-label">Programs</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="coaches.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">👨‍🏫</span>
+              <span class="mobile-menu__link-label">Coaches</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+            <a href="contact.html" class="mobile-menu__link" tabindex="-1">
+              <span class="mobile-menu__link-icon">📞</span>
+              <span class="mobile-menu__link-label">Contact</span>
+              <span class="mobile-menu__link-arrow"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
+            </a>
+          </div>
+          <div class="mobile-menu__footer">
+            <div class="mobile-menu__actions">
+              <a href="signup.html" class="btn btn--primary mobile-menu__btn" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-user"/></svg>Sign Up</a>
+              <a href="login.html" class="btn btn--ghost mobile-menu__btn" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-login"/></svg>Log In</a>
+            </div>
+            <div class="mobile-menu__social">
+              <a href="#" class="mobile-menu__social-link" aria-label="Facebook" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+              <a href="#" class="mobile-menu__social-link" aria-label="Instagram" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+              <a href="#" class="mobile-menu__social-link" aria-label="LinkedIn" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+              <a href="#" class="mobile-menu__social-link" aria-label="YouTube" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"/></svg></a>
+            </div>
+            <p class="mobile-menu__tagline">Building Future Champions</p>
+          </div>
         </div>
       </nav>
       <div class="header__actions header__actions--desktop">
@@ -625,37 +679,61 @@
         </div>
       </div>
       <div class="gallery__masonry">
-        <figure class="gallery__item gallery__item--tall" data-reveal="scale-in">
-          <img src="assets/gallery-3.webp" alt="Training intensity" loading="lazy" decoding="async" width="700" height="900">
-          <figcaption class="gallery__overlay"><span>Intensity</span></figcaption>
-        </figure>
-        <figure class="gallery__item" data-reveal="fade-up">
-          <img src="assets/gallery-1.webp" alt="Team practice" loading="lazy" decoding="async" width="700" height="500">
-          <figcaption class="gallery__overlay"><span>Teamwork</span></figcaption>
-        </figure>
-        <figure class="gallery__item" data-reveal="fade-up" data-delay="0.1">
-          <img src="assets/gallery-2.webp" alt="Athlete focus" loading="lazy" decoding="async" width="700" height="500">
-          <figcaption class="gallery__overlay"><span>Focus</span></figcaption>
+        <figure class="gallery__item" data-reveal="scale-in">
+          <img src="assets/program-football.webp" alt="Training intensity" loading="lazy" decoding="async">
+          <figcaption class="gallery__overlay">
+            <span class="gallery__badge">Training</span>
+            <span class="gallery__label">Intensity</span>
+          </figcaption>
         </figure>
         <figure class="gallery__item gallery__item--wide" data-reveal="fade-up">
-          <img src="assets/gallery-4.webp" alt="Campus training" loading="lazy" decoding="async" width="700" height="500">
-          <figcaption class="gallery__overlay"><span>Discipline</span></figcaption>
+          <img src="assets/hero-athlete.webp" alt="Team practice" loading="lazy" decoding="async">
+          <figcaption class="gallery__overlay">
+            <span class="gallery__badge">Elite</span>
+            <span class="gallery__label">Fitness Hero</span>
+          </figcaption>
         </figure>
         <figure class="gallery__item" data-reveal="fade-up" data-delay="0.1">
-          <img src="assets/gallery-5.webp" alt="Strength session" loading="lazy" decoding="async" width="700" height="500">
-          <figcaption class="gallery__overlay"><span>Power</span></figcaption>
-        </figure>
-        <figure class="gallery__item gallery__item--tall" data-reveal="scale-in" data-delay="0.1">
-          <img src="assets/gallery-6.webp" alt="Gym session" loading="lazy" decoding="async" width="700" height="900">
-          <figcaption class="gallery__overlay"><span>Strength</span></figcaption>
+          <img src="assets/program-swimming.webp" alt="Athlete focus" loading="lazy" decoding="async">
+          <figcaption class="gallery__overlay">
+            <span class="gallery__badge">Aquatics</span>
+            <span class="gallery__label">Swimming</span>
+          </figcaption>
         </figure>
         <figure class="gallery__item" data-reveal="fade-up">
-          <img src="assets/gallery-7.webp" alt="Championship moment" loading="lazy" decoding="async" width="700" height="500">
-          <figcaption class="gallery__overlay"><span>Victory</span></figcaption>
+          <img src="assets/program-gym.webp" alt="Campus training" loading="lazy" decoding="async">
+          <figcaption class="gallery__overlay">
+            <span class="gallery__badge">Strength</span>
+            <span class="gallery__label">Gym</span>
+          </figcaption>
         </figure>
-        <figure class="gallery__item" data-reveal="fade-up" data-delay="0.1">
-          <img src="assets/gallery-8.webp" alt="Competition" loading="lazy" decoding="async" width="700" height="500">
-          <figcaption class="gallery__overlay"><span>Compete</span></figcaption>
+        <figure class="gallery__item" data-reveal="fade-up" data-delay="0.05">
+          <img src="assets/program-basketball.webp" alt="Strength session" loading="lazy" decoding="async">
+          <figcaption class="gallery__overlay">
+            <span class="gallery__badge">Court</span>
+            <span class="gallery__label">Basketball</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--wide" data-reveal="fade-up" data-delay="0.1">
+          <img src="assets/program-athletics.webp" alt="Gym session" loading="lazy" decoding="async">
+          <figcaption class="gallery__overlay">
+            <span class="gallery__badge">Endurance</span>
+            <span class="gallery__label">Cycling</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--wide" data-reveal="scale-in">
+          <img src="assets/program-running.webp" alt="Championship moment" loading="lazy" decoding="async">
+          <figcaption class="gallery__overlay">
+            <span class="gallery__badge">Track</span>
+            <span class="gallery__label">Athletics</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery__item gallery__item--wide" data-reveal="fade-up" data-delay="0.1">
+          <img src="assets/program-volleyball.webp" alt="Competition" loading="lazy" decoding="async">
+          <figcaption class="gallery__overlay">
+            <span class="gallery__badge">Court</span>
+            <span class="gallery__label">Volleyball</span>
+          </figcaption>
         </figure>
       </div>
     </section>
@@ -968,5 +1046,6 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <script src="js/main.js"></script>
+  <script src="js/redirect.js"></script>
 </body>
 </html>
