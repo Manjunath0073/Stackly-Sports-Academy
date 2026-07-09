@@ -35,8 +35,8 @@
     return false;
   }
 
-  function isFooter(el) {
-    return !!el.closest('.footer, .footer__bottom, .footer__col, .footer__social, .footer__legal, .footer__newsletter');
+  function isFooterExcluded(el) {
+    return !!el.closest('.footer__legal, .footer__newsletter, .footer__bottom');
   }
 
   function isHeader(el) {
@@ -45,6 +45,7 @@
 
   document.addEventListener('click', function (e) {
     if (e.defaultPrevented) return;
+    if (window.location.pathname.indexOf('404.html') !== -1) return;
     var target = e.target;
 
     /* ---- Dashboard SPA ---- */
@@ -78,7 +79,7 @@
     /* ---- Public Pages ---- */
     if (isExcluded(target)) return;
     if (isHeader(target)) return;
-    if (isFooter(target)) return;
+    if (isFooterExcluded(target)) return;
 
     var btn = target.closest('.btn, .btn--primary, .btn--ghost, .btn--outline, .btn--play, .program-card__link, .pricing-card__btn, .coach-card__social a, .hero__scroll, .testimonial-btn, .back-to-top, .auth-social');
     if (btn) {
