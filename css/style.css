@@ -4878,6 +4878,9 @@ svg {
     height: 38px;
     font-size: 1rem;
   }
+  .footer__col--card { padding: 20px 16px; }
+  .footer__brand { max-width: 100%; }
+  .footer__top { gap: 24px; }
 }
 
 @media (max-width: 360px) {
@@ -4937,6 +4940,11 @@ svg {
     bottom: 16px;
     left: 16px;
   }
+  .footer__col--card { padding: 16px 14px; }
+  .footer__col h4 { font-size: 0.9rem; }
+  .footer__col ul li a { font-size: 0.82rem; }
+  .footer__logo { height: 64px; }
+  .footer__brand p { font-size: 0.82rem; }
 }
 
 @media (max-width: 375px) {
