@@ -165,22 +165,7 @@
                 <span class="auth-visual-overlay__badge"><svg class="icon" aria-hidden="true"><use href="#icon-medal"/></svg>Professional Coaching</span>
                 <span class="auth-visual-overlay__badge"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg>Championship Winners</span>
               </div>
-              <div class="auth-visual-overlay__floating">
-                <div class="auth-visual-overlay__float-card">
-                  <div class="auth-visual-overlay__float-icon"><svg class="icon" aria-hidden="true"><use href="#icon-zap"/></svg></div>
-                  <div class="auth-visual-overlay__float-text">
-                    <strong>12+ Years</strong>
-                    <span>Experience</span>
-                  </div>
-                </div>
-                <div class="auth-visual-overlay__float-card">
-                  <div class="auth-visual-overlay__float-icon"><svg class="icon" aria-hidden="true"><use href="#icon-target"/></svg></div>
-                  <div class="auth-visual-overlay__float-text">
-                    <strong>98% Success</strong>
-                    <span>Scholarship Rate</span>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
           <div class="auth-card" data-reveal="reveal-right">
@@ -206,14 +191,16 @@
               <input type="hidden" name="role" id="loginRole" value="student">
               <div class="auth-input-wrap">
                 <svg class="icon auth-input__icon" aria-hidden="true"><use href="#icon-mail"/></svg>
-                <input type="email" id="loginEmail" name="email" class="auth-input" placeholder="Email address" required aria-label="Email address">
+                <input type="email" id="loginEmail" name="email" class="auth-input" placeholder="Email address" aria-label="Email address">
+                <span class="form-error">Valid email is required</span>
               </div>
               <div class="auth-input-wrap">
                 <svg class="icon auth-input__icon" aria-hidden="true"><use href="#icon-lock"/></svg>
-                <input type="password" id="loginPassword" name="password" class="auth-input auth-input--password" placeholder="Password" required aria-label="Password" minlength="8">
+                <input type="password" id="loginPassword" name="password" class="auth-input auth-input--password" placeholder="Password" aria-label="Password">
                 <button type="button" class="password-toggle" data-target="loginPassword" aria-label="Show password" aria-pressed="false">
                   <svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg>
                 </button>
+                <span class="form-error">Min 8 chars: uppercase, lowercase, number, special</span>
               </div>
               <div class="auth-options">
                 <label class="auth-checkbox">
@@ -275,12 +262,12 @@
         <div class="footer__col footer__col--card">
           <h4>Programs</h4>
           <ul>
-            <li><a href="programs.html">Football</a></li>
-            <li><a href="programs.html">Basketball</a></li>
-            <li><a href="programs.html">Cricket</a></li>
-            <li><a href="programs.html">Swimming</a></li>
-            <li><a href="programs.html">Athletics</a></li>
-            <li><a href="programs.html">Strength & Conditioning</a></li>
+            <li><a href="404.html">Football</a></li>
+            <li><a href="404.html">Basketball</a></li>
+            <li><a href="404.html">Cricket</a></li>
+            <li><a href="404.html">Swimming</a></li>
+            <li><a href="404.html">Athletics</a></li>
+            <li><a href="404.html">Strength & Conditioning</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--card">
@@ -308,6 +295,9 @@
     </div>
   </footer>
 
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
   </button>
@@ -317,6 +307,32 @@
   <script src="js/main.js"></script>
   <script>
   (function() {
+    function showToast(message, type) {
+      type = type || 'success';
+      var container = document.getElementById('toastContainer');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        container.id = 'toastContainer';
+        container.setAttribute('aria-live', 'polite');
+        document.body.appendChild(container);
+      }
+      var toast = document.createElement('div');
+      toast.className = 'toast toast--' + type;
+      var iconSvg = type === 'success' ? '<svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>' : '<svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>';
+      toast.innerHTML = iconSvg + '<span>' + message + '</span>';
+      container.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('show');
+        setTimeout(function() {
+          if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }, 400);
+      }, 3000);
+    }
+
     document.querySelectorAll('.password-toggle').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var input = document.getElementById(btn.dataset.target);
@@ -347,39 +363,51 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
+    function hasUppercase(s) { return /[A-Z]/.test(s); }
+    function hasLowercase(s) { return /[a-z]/.test(s); }
+    function hasNumber(s) { return /[0-9]/.test(s); }
+    function hasSpecial(s) { return /[^A-Za-z0-9]/.test(s); }
+
+    function validateLogin() {
+      var valid = true;
+      var email = document.getElementById('loginEmail');
+      var password = document.getElementById('loginPassword');
+      [email, password].forEach(function(el) { el.classList.remove('error'); });
+
+      if (!email.value || !isValidEmail(email.value)) {
+        email.classList.add('error');
+        valid = false;
+      }
+      if (!password.value || password.value.length < 8 || !hasUppercase(password.value) || !hasLowercase(password.value) || !hasNumber(password.value) || !hasSpecial(password.value)) {
+        password.classList.add('error');
+        valid = false;
+      }
+      return valid;
+    }
+
     var loginForm = document.getElementById('loginForm');
     if (loginForm) {
+      loginForm.querySelectorAll('.auth-input').forEach(function(el) {
+        el.addEventListener('input', function() { this.classList.remove('error'); });
+      });
       loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        var valid = true;
-        var email = document.getElementById('loginEmail');
-        var password = document.getElementById('loginPassword');
-
-        loginForm.querySelectorAll('.auth-input').forEach(function(input) {
-          input.classList.remove('error');
-        });
-
-        if (!email.value || !isValidEmail(email.value)) {
-          email.classList.add('error');
-          valid = false;
-        }
-        if (!password.value || password.value.length < 8) {
-          password.classList.add('error');
-          valid = false;
-        }
-
-        if (valid) {
-          var btn = loginForm.querySelector('button[type="submit"]');
-          var original = btn.innerHTML;
-          btn.innerHTML = '<span>Logging in...</span>';
-          btn.disabled = true;
-          setTimeout(function() {
-            btn.innerHTML = original;
-            btn.disabled = false;
-            loginForm.reset();
-            alert('Welcome back to SportAcadem!');
-          }, 1500);
-        }
+        if (!validateLogin()) return;
+        var role = document.getElementById('loginRole').value;
+        var email = document.getElementById('loginEmail').value;
+        var btn = loginForm.querySelector('button[type="submit"]');
+        var original = btn.innerHTML;
+        btn.innerHTML = '<span>Logging in...</span>';
+        btn.disabled = true;
+        var userData = { email: email, role: role, loggedIn: true, loginTime: new Date().toISOString() };
+        try { localStorage.setItem('sportacadem_user', JSON.stringify(userData)); } catch(e) {}
+        setTimeout(function() {
+          showToast('Welcome back to SportAcadem!', 'success');
+          btn.innerHTML = original;
+          btn.disabled = false;
+          var target = role === 'coach' ? 'coach-dashboard.html' : 'student-dashboard.html';
+          setTimeout(function() { window.location.href = target; }, 800);
+        }, 1200);
       });
     }
   })();

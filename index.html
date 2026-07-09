@@ -906,17 +906,20 @@
               <div class="form__row">
                 <div class="form__group">
                   <label for="contactName">Full Name</label>
-                  <input type="text" id="contactName" name="name" placeholder="Enter your name" required>
+                  <input type="text" id="contactName" name="name" placeholder="Enter your name">
+                  <span class="form-error">Name is required (letters and spaces only)</span>
                 </div>
                 <div class="form__group">
                   <label for="contactEmail">Email Address</label>
-                  <input type="email" id="contactEmail" name="email" placeholder="Enter your email" required>
+                  <input type="email" id="contactEmail" name="email" placeholder="Enter your email">
+                  <span class="form-error">Valid email is required</span>
                 </div>
               </div>
               <div class="form__row">
                 <div class="form__group">
                   <label for="contactPhone">Phone Number</label>
                   <input type="tel" id="contactPhone" name="phone" placeholder="Enter your phone">
+                  <span class="form-error">Valid phone number required (digits only)</span>
                 </div>
                 <div class="form__group">
                   <label for="contactSport">Sport Interest</label>
@@ -935,6 +938,7 @@
               <div class="form__group">
                 <label for="contactMessage">Message</label>
                 <textarea id="contactMessage" name="message" rows="4" placeholder="Tell us about your athletic background and goals..."></textarea>
+                <span class="form-error">Message is required</span>
               </div>
               <button type="submit" class="btn btn--primary btn--lg">
                 Send Message
@@ -986,12 +990,12 @@
         <div class="footer__col footer__col--card">
           <h4>Programs</h4>
           <ul>
-            <li><a href="#programs">Football</a></li>
-            <li><a href="#programs">Basketball</a></li>
-            <li><a href="#programs">Cricket</a></li>
-            <li><a href="#programs">Swimming</a></li>
-            <li><a href="#programs">Athletics</a></li>
-            <li><a href="#programs">Strength & Conditioning</a></li>
+            <li><a href="404.html">Football</a></li>
+            <li><a href="404.html">Basketball</a></li>
+            <li><a href="404.html">Cricket</a></li>
+            <li><a href="404.html">Swimming</a></li>
+            <li><a href="404.html">Athletics</a></li>
+            <li><a href="404.html">Strength & Conditioning</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--card">
@@ -1024,6 +1028,9 @@
     <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
   </button>
 
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
   <!-- ===== LIGHTBOX ===== -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
     <button class="lightbox__close" id="lightboxClose" aria-label="Close lightbox"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button>
@@ -1031,13 +1038,7 @@
     <span class="lightbox__caption" id="lightboxCaption"></span>
   </div>
 
-  <!-- ===== VIDEO MODAL ===== -->
-  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video player" hidden>
-    <button class="video-modal__close" id="videoClose" aria-label="Close video"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button>
-    <div class="video-modal__wrap">
-      <iframe id="videoFrame" width="100%" height="100%" src="" title="SportAcadem promotional video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
+
 
   <!-- ===== SCROLL PROGRESS ===== -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>

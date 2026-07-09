@@ -397,44 +397,125 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 400);
   }
 
-  if (watchVideo) watchVideo.addEventListener('click', openVideo);
-  if (videoClose) videoClose.addEventListener('click', closeVideo);
-  if (videoModal) {
-    videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) closeVideo();
+  if (watchVideo) watchVideo.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = '404.html';
+  });
+
+  // ===== TOAST SYSTEM =====
+  function showToast(message, type) {
+    type = type || 'success';
+    var container = document.getElementById('toastContainer');
+    if (!container) {
+      container = document.createElement('div');
+      container.className = 'toast-container';
+      container.id = 'toastContainer';
+      container.setAttribute('aria-live', 'polite');
+      document.body.appendChild(container);
+    }
+    var toast = document.createElement('div');
+    toast.className = 'toast toast--' + type;
+    var iconSvg = type === 'success' ? '<svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>' : '<svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>';
+    toast.innerHTML = iconSvg + '<span>' + message + '</span>';
+    container.appendChild(toast);
+    requestAnimationFrame(function() {
+      toast.classList.add('show');
     });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-        closeVideo();
-      }
-    });
+    setTimeout(function() {
+      toast.classList.remove('show');
+      setTimeout(function() {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 400);
+    }, 3000);
   }
 
-  // ===== FORM HANDLING =====
-  function handleFormSubmit(form, message) {
-    if (!form) return;
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      const btn = form.querySelector('button[type="submit"]');
-      const originalText = btn.innerHTML;
-      btn.innerHTML = `<span>Sending...</span>`;
-      btn.disabled = true;
+  // ===== CONTACT FORM VALIDATION =====
+  function validateContactForm(form) {
+    var valid = true;
+    var name = form.querySelector('#contactName');
+    var email = form.querySelector('#contactEmail');
+    var phone = form.querySelector('#contactPhone');
+    var message = form.querySelector('#contactMessage');
 
-      setTimeout(() => {
+    form.querySelectorAll('.form__group input, .form__group textarea').forEach(function(el) {
+      el.classList.remove('error');
+    });
+
+    if (!name || !name.value.trim()) {
+      if (name) name.classList.add('error');
+      valid = false;
+    } else if (!/^[A-Za-z\s]+$/.test(name.value.trim())) {
+      if (name) name.classList.add('error');
+      valid = false;
+    }
+
+    if (!email || !email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      if (email) email.classList.add('error');
+      valid = false;
+    }
+
+    if (phone && phone.value.trim()) {
+      if (!/^\d{6,15}$/.test(phone.value.replace(/[\s\-\(\)]/g, ''))) {
+        phone.classList.add('error');
+        valid = false;
+      }
+    }
+
+    if (!message || !message.value.trim()) {
+      if (message) message.classList.add('error');
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  function handleContactSubmit(form) {
+    if (!form) return;
+    var inputs = form.querySelectorAll('.form__group input, .form__group textarea');
+    inputs.forEach(function(el) {
+      el.addEventListener('input', function() { this.classList.remove('error'); });
+      el.addEventListener('change', function() { this.classList.remove('error'); });
+    });
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!validateContactForm(form)) return;
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn.innerHTML;
+      btn.innerHTML = '<span>Sending...</span>';
+      btn.disabled = true;
+      setTimeout(function() {
         btn.innerHTML = originalText;
         btn.disabled = false;
         form.reset();
-        alert(message);
+        showToast('Thank you for contacting us! We will get back to you soon.', 'success');
       }, 1500);
     });
   }
 
-  handleFormSubmit(contactForm, 'Thank you for contacting SportAcadem! We will get back to you soon.');
-  handleFormSubmit(newsletterForm, 'Thank you for subscribing to our newsletter!');
+  handleContactSubmit(contactForm);
+
+  // ===== NEWSLETTER FORM =====
+  function handleNewsletterSubmit(form) {
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var input = form.querySelector('input[type="email"]');
+      if (!input || !input.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+        if (input) input.classList.add('error');
+        return;
+      }
+      if (input) input.classList.remove('error');
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      setTimeout(function() {
+        btn.disabled = false;
+        form.reset();
+        showToast('Thank you for subscribing to our newsletter!', 'success');
+      }, 800);
+    });
+  }
+
+  handleNewsletterSubmit(newsletterForm);
 
   // ===== BACK TO TOP =====
   const backToTop = document.getElementById('backToTop');

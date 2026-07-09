@@ -167,22 +167,7 @@
                 <span class="auth-visual-overlay__badge"><svg class="icon" aria-hidden="true"><use href="#icon-dumbbell"/></svg>Modern Facilities</span>
                 <span class="auth-visual-overlay__badge"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg>National Championships</span>
               </div>
-              <div class="auth-visual-overlay__floating">
-                <div class="auth-visual-overlay__float-card">
-                  <div class="auth-visual-overlay__float-icon"><svg class="icon" aria-hidden="true"><use href="#icon-globe"/></svg></div>
-                  <div class="auth-visual-overlay__float-text">
-                    <strong>Elite Campus</strong>
-                    <span>15-Acre Facility</span>
-                  </div>
-                </div>
-                <div class="auth-visual-overlay__float-card">
-                  <div class="auth-visual-overlay__float-icon"><svg class="icon" aria-hidden="true"><use href="#icon-star"/></svg></div>
-                  <div class="auth-visual-overlay__float-text">
-                    <strong>#1 Rated</strong>
-                    <span>Sports Academy</span>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
           <div class="auth-card" data-reveal="reveal-right">
@@ -208,15 +193,18 @@
               <input type="hidden" name="role" id="signupRole" value="student">
               <div class="auth-input-wrap">
                 <svg class="icon auth-input__icon" aria-hidden="true"><use href="#icon-user"/></svg>
-                <input type="text" id="signupName" name="name" class="auth-input" placeholder="Full name" required aria-label="Full name">
+                <input type="text" id="signupName" name="name" class="auth-input" placeholder="Full name" aria-label="Full name">
+                <span class="form-error">Name required (letters and spaces, min 3 chars)</span>
               </div>
               <div class="auth-input-wrap">
                 <svg class="icon auth-input__icon" aria-hidden="true"><use href="#icon-mail"/></svg>
-                <input type="email" id="signupEmail" name="email" class="auth-input" placeholder="Email address" required aria-label="Email address">
+                <input type="email" id="signupEmail" name="email" class="auth-input" placeholder="Email address" aria-label="Email address">
+                <span class="form-error">Valid email is required</span>
               </div>
               <div class="auth-input-wrap">
                 <svg class="icon auth-input__icon" aria-hidden="true"><use href="#icon-phone"/></svg>
-                <input type="tel" id="signupPhone" name="phone" class="auth-input" placeholder="Phone number" required aria-label="Phone number" pattern="[0-9+\s\-]{10,}">
+                <input type="tel" id="signupPhone" name="phone" class="auth-input" placeholder="Phone number" aria-label="Phone number">
+                <span class="form-error">Valid phone number required (digits only)</span>
               </div>
               <div class="form__row">
                 <div class="auth-input-wrap">
@@ -237,24 +225,27 @@
               </div>
               <div class="auth-input-wrap">
                 <svg class="icon auth-input__icon" aria-hidden="true"><use href="#icon-lock"/></svg>
-                <input type="password" id="signupPassword" name="password" class="auth-input auth-input--password" placeholder="Password" required aria-label="Password" minlength="8">
+                <input type="password" id="signupPassword" name="password" class="auth-input auth-input--password" placeholder="Password" aria-label="Password">
                 <button type="button" class="password-toggle" data-target="signupPassword" aria-label="Show password" aria-pressed="false">
                   <svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg>
                 </button>
+                <span class="form-error">Min 8 chars: uppercase, lowercase, number, special</span>
               </div>
               <div class="password-strength" aria-hidden="true">
                 <div class="password-strength__bar" id="passwordStrength"></div>
               </div>
               <div class="auth-input-wrap">
                 <svg class="icon auth-input__icon" aria-hidden="true"><use href="#icon-lock"/></svg>
-                <input type="password" id="signupConfirmPassword" name="confirmPassword" class="auth-input auth-input--password" placeholder="Confirm password" required aria-label="Confirm password" minlength="8">
+                <input type="password" id="signupConfirmPassword" name="confirmPassword" class="auth-input auth-input--password" placeholder="Confirm password" aria-label="Confirm password">
                 <button type="button" class="password-toggle" data-target="signupConfirmPassword" aria-label="Show confirm password" aria-pressed="false">
                   <svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg>
                 </button>
+                <span class="form-error">Passwords must match</span>
               </div>
               <label class="auth-checkbox">
-                <input type="checkbox" name="terms" id="signupTerms" required>
+                <input type="checkbox" name="terms" id="signupTerms">
                 <span>I accept the <a href="#" class="terms-link">Terms & Conditions</a></span>
+                <span class="form-error" style="display:block;margin-top:4px">You must accept the terms</span>
               </label>
               <button type="submit" class="btn btn--primary btn--lg">
                 Create Account
@@ -304,12 +295,12 @@
         <div class="footer__col footer__col--card">
           <h4>Programs</h4>
           <ul>
-            <li><a href="programs.html">Football</a></li>
-            <li><a href="programs.html">Basketball</a></li>
-            <li><a href="programs.html">Cricket</a></li>
-            <li><a href="programs.html">Swimming</a></li>
-            <li><a href="programs.html">Athletics</a></li>
-            <li><a href="programs.html">Strength & Conditioning</a></li>
+            <li><a href="404.html">Football</a></li>
+            <li><a href="404.html">Basketball</a></li>
+            <li><a href="404.html">Cricket</a></li>
+            <li><a href="404.html">Swimming</a></li>
+            <li><a href="404.html">Athletics</a></li>
+            <li><a href="404.html">Strength & Conditioning</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--card">
@@ -337,6 +328,9 @@
     </div>
   </footer>
 
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
   </button>
@@ -346,6 +340,32 @@
   <script src="js/main.js"></script>
   <script>
   (function() {
+    function showToast(message, type) {
+      type = type || 'success';
+      var container = document.getElementById('toastContainer');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        container.id = 'toastContainer';
+        container.setAttribute('aria-live', 'polite');
+        document.body.appendChild(container);
+      }
+      var toast = document.createElement('div');
+      toast.className = 'toast toast--' + type;
+      var iconSvg = type === 'success' ? '<svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>' : '<svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>';
+      toast.innerHTML = iconSvg + '<span>' + message + '</span>';
+      container.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('show');
+        setTimeout(function() {
+          if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }, 400);
+      }, 3000);
+    }
+
     document.querySelectorAll('.password-toggle').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var input = document.getElementById(btn.dataset.target);
@@ -376,6 +396,11 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
+    function hasUppercase(s) { return /[A-Z]/.test(s); }
+    function hasLowercase(s) { return /[a-z]/.test(s); }
+    function hasNumber(s) { return /[0-9]/.test(s); }
+    function hasSpecial(s) { return /[^A-Za-z0-9]/.test(s); }
+
     function updateStrength(password, bar) {
       var score = 0;
       if (password.length >= 8) score++;
@@ -396,74 +421,86 @@
       });
     }
 
+    function validateSignup() {
+      var valid = true;
+      var name = document.getElementById('signupName');
+      var email = document.getElementById('signupEmail');
+      var phone = document.getElementById('signupPhone');
+      var sport = document.getElementById('signupSport');
+      var age = document.getElementById('signupAge');
+      var password = document.getElementById('signupPassword');
+      var confirm = document.getElementById('signupConfirmPassword');
+      var terms = document.getElementById('signupTerms');
+
+      var inputs = [name, email, phone, sport, age, password, confirm];
+      inputs.forEach(function(el) { if (el) el.classList.remove('error'); });
+      if (terms) terms.classList.remove('error');
+
+      if (!name || !name.value.trim() || !/^[A-Za-z\s]{3,}$/.test(name.value.trim())) {
+        if (name) name.classList.add('error');
+        valid = false;
+      }
+      if (!email || !email.value.trim() || !isValidEmail(email.value.trim())) {
+        if (email) email.classList.add('error');
+        valid = false;
+      }
+      if (!phone || !phone.value.trim() || !/^\d{6,15}$/.test(phone.value.replace(/[\s\-\(\)]/g, ''))) {
+        if (phone) phone.classList.add('error');
+        valid = false;
+      }
+      if (!sport || !sport.value) {
+        if (sport) sport.classList.add('error');
+        valid = false;
+      }
+      if (!age || !age.value || isNaN(age.value) || age.value < 6 || age.value > 60) {
+        if (age) age.classList.add('error');
+        valid = false;
+      }
+      if (!password || !password.value || password.value.length < 8 || !hasUppercase(password.value) || !hasLowercase(password.value) || !hasNumber(password.value) || !hasSpecial(password.value)) {
+        if (password) password.classList.add('error');
+        valid = false;
+      }
+      if (!confirm || confirm.value !== password.value) {
+        if (confirm) confirm.classList.add('error');
+        valid = false;
+      }
+      if (!terms || !terms.checked) {
+        if (terms) terms.classList.add('error');
+        valid = false;
+      }
+      return valid;
+    }
+
     var signupForm = document.getElementById('signupForm');
     if (signupForm) {
+      signupForm.querySelectorAll('.auth-input, #signupTerms').forEach(function(el) {
+        el.addEventListener('input', function() { this.classList.remove('error'); });
+        el.addEventListener('change', function() { this.classList.remove('error'); });
+      });
       signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        var valid = true;
-        var name = document.getElementById('signupName');
-        var email = document.getElementById('signupEmail');
-        var phone = document.getElementById('signupPhone');
-        var sport = document.getElementById('signupSport');
-        var age = document.getElementById('signupAge');
-        var password = document.getElementById('signupPassword');
-        var confirm = document.getElementById('signupConfirmPassword');
-        var terms = document.getElementById('signupTerms');
-
-        signupForm.querySelectorAll('.auth-input').forEach(function(input) {
-          input.classList.remove('error');
-        });
-        if (terms) terms.classList.remove('error');
-
-        if (!name.value.trim()) {
-          name.classList.add('error');
-          valid = false;
-        }
-        if (!email.value || !isValidEmail(email.value)) {
-          email.classList.add('error');
-          valid = false;
-        }
-        if (!phone.value || !/^[0-9+\s\-]{10,}$/.test(phone.value)) {
-          phone.classList.add('error');
-          valid = false;
-        }
-        if (!sport.value) {
-          sport.classList.add('error');
-          valid = false;
-        }
-        if (!age.value || age.value < 6 || age.value > 60) {
-          age.classList.add('error');
-          valid = false;
-        }
-        if (!password.value || password.value.length < 8) {
-          password.classList.add('error');
-          valid = false;
-        }
-        if (confirm.value !== password.value) {
-          confirm.classList.add('error');
-          valid = false;
-        }
-        if (!terms.checked) {
-          terms.classList.add('error');
-          valid = false;
-        }
-
-        if (valid) {
-          var btn = signupForm.querySelector('button[type="submit"]');
-          var original = btn.innerHTML;
-          btn.innerHTML = '<span>Creating account...</span>';
-          btn.disabled = true;
-          setTimeout(function() {
-            btn.innerHTML = original;
-            btn.disabled = false;
-            signupForm.reset();
-            if (strengthBar) {
-              strengthBar.style.width = '0';
-              strengthBar.style.background = 'transparent';
-            }
-            alert('Welcome to SportAcadem! Your account has been created.');
-          }, 1500);
-        }
+        if (!validateSignup()) return;
+        var role = document.getElementById('signupRole').value;
+        var name = document.getElementById('signupName').value.trim();
+        var email = document.getElementById('signupEmail').value.trim();
+        var btn = signupForm.querySelector('button[type="submit"]');
+        var original = btn.innerHTML;
+        btn.innerHTML = '<span>Creating account...</span>';
+        btn.disabled = true;
+        var userData = { name: name, email: email, role: role, loggedIn: true, created: new Date().toISOString() };
+        try { localStorage.setItem('sportacadem_user', JSON.stringify(userData)); } catch(e) {}
+        setTimeout(function() {
+          showToast('Welcome to SportAcadem! Your account has been created.', 'success');
+          btn.innerHTML = original;
+          btn.disabled = false;
+          signupForm.reset();
+          if (strengthBar) {
+            strengthBar.style.width = '0';
+            strengthBar.style.background = 'transparent';
+          }
+          var target = role === 'coach' ? 'coach-dashboard.html' : 'student-dashboard.html';
+          setTimeout(function() { window.location.href = target; }, 800);
+        }, 1500);
       });
     }
   })();

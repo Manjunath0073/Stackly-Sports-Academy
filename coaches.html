@@ -441,19 +441,23 @@
             <form class="join-team__form" id="joinTeamForm" novalidate>
               <div class="form__group">
                 <label for="coachName">Full Name</label>
-                <input type="text" id="coachName" name="name" placeholder="Enter your name" required>
+                <input type="text" id="coachName" name="name" placeholder="Enter your name">
+                <span class="form-error">Name is required</span>
               </div>
               <div class="form__group">
                 <label for="coachEmail">Email Address</label>
-                <input type="email" id="coachEmail" name="email" placeholder="Enter your email" required>
+                <input type="email" id="coachEmail" name="email" placeholder="Enter your email">
+                <span class="form-error">Valid email is required</span>
               </div>
               <div class="form__group">
                 <label for="coachSport">Sport / Specialization</label>
-                <input type="text" id="coachSport" name="sport" placeholder="e.g. Football, S&C, Nutrition" required>
+                <input type="text" id="coachSport" name="sport" placeholder="e.g. Football, S&C, Nutrition">
+                <span class="form-error">Sport is required</span>
               </div>
               <div class="form__group">
                 <label for="coachMessage">Tell Us About Yourself</label>
                 <textarea id="coachMessage" name="message" rows="4" placeholder="Share your experience and coaching philosophy..."></textarea>
+                <span class="form-error">Message is required</span>
               </div>
               <button type="submit" class="btn btn--primary btn--lg">
                 Apply Now
@@ -526,12 +530,12 @@
         <div class="footer__col footer__col--card">
           <h4>Programs</h4>
           <ul>
-            <li><a href="programs.html">Football</a></li>
-            <li><a href="programs.html">Basketball</a></li>
-            <li><a href="programs.html">Cricket</a></li>
-            <li><a href="programs.html">Swimming</a></li>
-            <li><a href="programs.html">Athletics</a></li>
-            <li><a href="programs.html">Strength & Conditioning</a></li>
+            <li><a href="404.html">Football</a></li>
+            <li><a href="404.html">Basketball</a></li>
+            <li><a href="404.html">Cricket</a></li>
+            <li><a href="404.html">Swimming</a></li>
+            <li><a href="404.html">Athletics</a></li>
+            <li><a href="404.html">Strength & Conditioning</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--card">
@@ -559,6 +563,9 @@
     </div>
   </footer>
 
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
   <!-- ===== BACK TO TOP ===== -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
@@ -568,6 +575,62 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <script src="js/main.js"></script>
+  <script>
+  (function() {
+    function showToast(message, type) {
+      type = type || 'success';
+      var container = document.getElementById('toastContainer');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        container.id = 'toastContainer';
+        container.setAttribute('aria-live', 'polite');
+        document.body.appendChild(container);
+      }
+      var toast = document.createElement('div');
+      toast.className = 'toast toast--' + type;
+      var iconSvg = type === 'success' ? '<svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg>' : '<svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>';
+      toast.innerHTML = iconSvg + '<span>' + message + '</span>';
+      container.appendChild(toast);
+      requestAnimationFrame(function() { toast.classList.add('show'); });
+      setTimeout(function() {
+        toast.classList.remove('show');
+        setTimeout(function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 400);
+      }, 3000);
+    }
+
+    var form = document.getElementById('joinTeamForm');
+    if (form) {
+      form.querySelectorAll('input, textarea').forEach(function(el) {
+        el.addEventListener('input', function() { this.classList.remove('error'); });
+      });
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var name = document.getElementById('coachName');
+        var email = document.getElementById('coachEmail');
+        var sport = document.getElementById('coachSport');
+        var message = document.getElementById('coachMessage');
+        var valid = true;
+        [name, email, sport, message].forEach(function(el) { if (el) el.classList.remove('error'); });
+        if (!name || !name.value.trim()) { if (name) name.classList.add('error'); valid = false; }
+        if (!email || !email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { if (email) email.classList.add('error'); valid = false; }
+        if (!sport || !sport.value.trim()) { if (sport) sport.classList.add('error'); valid = false; }
+        if (!message || !message.value.trim()) { if (message) message.classList.add('error'); valid = false; }
+        if (!valid) return;
+        var btn = form.querySelector('button[type="submit"]');
+        var orig = btn.innerHTML;
+        btn.innerHTML = '<span>Sending...</span>';
+        btn.disabled = true;
+        setTimeout(function() {
+          btn.innerHTML = orig;
+          btn.disabled = false;
+          form.reset();
+          showToast('Thank you for applying! We will be in touch soon.', 'success');
+        }, 1500);
+      });
+    }
+  })();
+  </script>
   <script src="js/redirect.js"></script>
 </body>
 </html>

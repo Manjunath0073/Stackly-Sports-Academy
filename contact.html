@@ -232,17 +232,20 @@
               <div class="form__row">
                 <div class="form__group">
                   <label for="contactName">Full Name</label>
-                  <input type="text" id="contactName" name="name" placeholder="Enter your name" required>
+                  <input type="text" id="contactName" name="name" placeholder="Enter your name">
+                  <span class="form-error">Name is required (letters and spaces only)</span>
                 </div>
                 <div class="form__group">
                   <label for="contactEmail">Email Address</label>
-                  <input type="email" id="contactEmail" name="email" placeholder="Enter your email" required>
+                  <input type="email" id="contactEmail" name="email" placeholder="Enter your email">
+                  <span class="form-error">Valid email is required</span>
                 </div>
               </div>
               <div class="form__row">
                 <div class="form__group">
                   <label for="contactPhone">Phone Number</label>
                   <input type="tel" id="contactPhone" name="phone" placeholder="Enter your phone">
+                  <span class="form-error">Valid phone number required (digits only)</span>
                 </div>
                 <div class="form__group">
                   <label for="contactSport">Sport Interest</label>
@@ -261,6 +264,7 @@
               <div class="form__group">
                 <label for="contactMessage">Message</label>
                 <textarea id="contactMessage" name="message" rows="4" placeholder="Tell us about your athletic background and goals..."></textarea>
+                <span class="form-error">Message is required</span>
               </div>
               <button type="submit" class="btn btn--primary btn--lg">
                 Send Message
@@ -347,12 +351,12 @@
         <div class="footer__col footer__col--card">
           <h4>Programs</h4>
           <ul>
-            <li><a href="programs.html">Football</a></li>
-            <li><a href="programs.html">Basketball</a></li>
-            <li><a href="programs.html">Cricket</a></li>
-            <li><a href="programs.html">Swimming</a></li>
-            <li><a href="programs.html">Athletics</a></li>
-            <li><a href="programs.html">Strength & Conditioning</a></li>
+            <li><a href="404.html">Football</a></li>
+            <li><a href="404.html">Basketball</a></li>
+            <li><a href="404.html">Cricket</a></li>
+            <li><a href="404.html">Swimming</a></li>
+            <li><a href="404.html">Athletics</a></li>
+            <li><a href="404.html">Strength & Conditioning</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--card">
@@ -379,6 +383,9 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
   <!-- ===== BACK TO TOP ===== -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">

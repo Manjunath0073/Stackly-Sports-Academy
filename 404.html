@@ -339,6 +339,9 @@
       .error-page__stat-card {
         padding: 16px 20px;
       }
+      .error-page__football {
+        display: none;
+      }
     }
 
     @media (max-width: 576px) {
@@ -347,6 +350,18 @@
       }
       .error-page__stat-card li {
         font-size: 0.78rem;
+      }
+      .error-page__actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      .error-page__actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .error-page__go-back {
+        justify-content: center;
+        width: 100%;
       }
     }
 
@@ -429,6 +444,7 @@
   <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 19l-7-7 7-7"/></symbol>
       <symbol id="icon-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
       <symbol id="icon-trophy" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6m12 5h1.5a2.5 2.5 0 0 0 0-5H18M6 9v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9M6 9h12m-6 9v3m-4 0h8"/></symbol>
       <symbol id="icon-medal" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 0v6m-4 0h8M8 3l8 9m0-9L8 12"/></symbol>
@@ -580,13 +596,13 @@
           <p class="error-page__desc">Looks like you've taken a wrong turn. Let's get you back on the path to becoming a champion.</p>
           <div class="error-page__actions">
             <a href="index.html" class="btn btn--primary btn--lg">
-              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-left"/></svg>
               Back to Home
             </a>
             <a href="programs.html" class="btn btn--outline btn--lg">Explore Programs</a>
           </div>
           <button class="error-page__go-back" onclick="history.back()">
-            <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg>
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow-left"/></svg>
             Go Back
           </button>
           <nav class="error-page__quick-links" aria-label="Quick navigation">
@@ -638,12 +654,12 @@
         <div class="footer__col footer__col--card">
           <h4>Programs</h4>
           <ul>
-            <li><a href="#programs">Football</a></li>
-            <li><a href="#programs">Basketball</a></li>
-            <li><a href="#programs">Cricket</a></li>
-            <li><a href="#programs">Swimming</a></li>
-            <li><a href="#programs">Athletics</a></li>
-            <li><a href="#programs">Strength & Conditioning</a></li>
+            <li><a href="404.html">Football</a></li>
+            <li><a href="404.html">Basketball</a></li>
+            <li><a href="404.html">Cricket</a></li>
+            <li><a href="404.html">Swimming</a></li>
+            <li><a href="404.html">Athletics</a></li>
+            <li><a href="404.html">Strength & Conditioning</a></li>
           </ul>
         </div>
         <div class="footer__col footer__col--card">
@@ -670,6 +686,9 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
   <!-- ===== BACK TO TOP ===== -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
