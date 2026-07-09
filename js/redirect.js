@@ -40,10 +40,14 @@
     if (shouldIgnore(e.target.closest('.dashboard__search'))) return;
     if (shouldIgnore(e.target.closest('.dashboard__panel'))) return;
 
-    var btn = e.target.closest('.d-btn--primary, .d-btn--ghost, .d-btn, .qaction, .p-action, .btn--primary, .btn--ghost, .btn');
+    var btn = e.target.closest('.d-btn--primary, .d-btn--ghost, .d-btn, .qaction, .p-action, .btn--primary, .btn--ghost, .btn, .program-card__link');
     if (btn) {
       if (btn.hasAttribute('onclick')) return;
       if (btn.getAttribute('type') === 'submit' || btn.closest('form')) return;
+      if (btn.classList.contains('program-card__link')) {
+        var phref = btn.getAttribute('href') || '';
+        if (!phref || phref === '#' || (phref.startsWith('#') && !phref.startsWith('#/'))) { go404(e); return; }
+      }
       var link = btn.tagName === 'A' ? btn : btn.querySelector('a');
       if (link) {
         if (isRealHref(link)) return;
