@@ -33,11 +33,7 @@
 }
 
 .dashboard--panel-open {
-  grid-template-columns: var(--sidebar-width) 1fr var(--dash-panel-width);
-}
-
-.dashboard--collapsed.dashboard--panel-open {
-  grid-template-columns: var(--sidebar-collapsed) 1fr var(--dash-panel-width);
+  /* panel is now floating overlay — no grid column needed */
 }
 
 /* ===== OVERLAY ===== */
@@ -512,10 +508,6 @@
   transition: grid-template-columns 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dashboard--panel-open .dashboard__body {
-  grid-template-columns: 1fr var(--dash-panel-width);
-}
-
 .dashboard__main {
   padding: 28px;
   overflow-x: hidden;
@@ -556,14 +548,36 @@
 
 /* ===== NOTIFICATION PANEL ===== */
 .dashboard__panel {
-  background: var(--white);
-  border-left: 1px solid rgba(0, 0, 0, 0.04);
+  position: fixed;
+  top: calc(var(--dash-header-h) + 12px);
+  right: 100px;
+  width: 360px;
+  max-width: calc(100vw - 24px);
+  max-height: 70vh;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 56px rgba(15, 23, 42, 0.14);
   overflow-y: auto;
-  display: none;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.dashboard__panel--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: all;
 }
 
 .dashboard--panel-open .dashboard__panel {
-  display: block;
+  /* override: use class-based toggle instead */
 }
 
 .dashboard__panel-header {
@@ -701,8 +715,8 @@
 }
 
 .dashboard--dark .dashboard__panel {
-  background: #0f172a;
-  border-left-color: rgba(255, 255, 255, 0.04);
+  background: rgba(15, 23, 42, 0.92);
+  border-color: rgba(255, 255, 255, 0.06);
 }
 
 .dashboard--dark .dashboard__panel-item:hover {
@@ -822,9 +836,6 @@
     max-width: 240px;
     margin: 0 16px;
   }
-  .dashboard--panel-open {
-    grid-template-columns: var(--sidebar-collapsed) 1fr var(--dash-panel-width);
-  }
 }
 
 @media (max-width: 992px) {
@@ -832,20 +843,7 @@
     display: none;
   }
   .dashboard__panel {
-    position: fixed;
-    top: var(--dash-header-h);
-    right: 0;
-    bottom: 0;
-    width: var(--dash-panel-width);
-    z-index: 50;
-    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.08);
-    display: none;
-  }
-  .dashboard--panel-open .dashboard__body {
-    grid-template-columns: 1fr;
-  }
-  .dashboard--panel-open .dashboard__panel {
-    display: block;
+    right: 16px;
   }
 }
 
@@ -916,7 +914,10 @@
     min-height: 300px;
   }
   .dashboard__panel {
-    width: 100%;
+    right: 8px;
+    left: auto;
+    width: calc(100vw - 24px);
+    max-width: 360px;
   }
 }
 
@@ -935,7 +936,6 @@
 @media (max-width: 420px) {
   .dashboard__header-title { font-size: 0.88rem; }
   .dashboard__main { padding: 12px; }
-  .dashboard__panel { width: 100%; }
 }
 
 @media (max-width: 375px) {
@@ -981,6 +981,7 @@
   .dashboard__body,
   .dashboard__sidebar-nav a,
   .dashboard__main,
+  .dashboard__panel,
   .dashboard__header-badge,
   .stat-card,
   .stat-card__inner,
@@ -988,7 +989,7 @@
   .stat-card__num,
   .perf-bar__fill,
   .training-card,
-  .u-timeline__card,
+  .tl__card,
   .achiev-card,
   .achiev-card__icon,
   .event-card,
@@ -998,7 +999,7 @@
   .d-widget,
   .rc-feat,
   .rc-vid,
-  .s-tl__dot,
+  .tl__dot,
   .ms-contact,
   .ms-chat__dot,
   .a-hero__stat,

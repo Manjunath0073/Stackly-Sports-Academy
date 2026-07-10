@@ -121,6 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
       link.addEventListener('click', closeMenu);
     });
+
+    headerNav.addEventListener('click', function(e) {
+      if (e.target === headerNav) {
+        closeMenu();
+      }
+    });
   }
 
   // Close mobile menu on nav link click
@@ -373,6 +379,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && lightbox.classList.contains('active')) {
         closeLightbox();
+      }
+      if (e.key === 'Escape' && headerNav && headerNav.classList.contains('open')) {
+        closeMenu();
       }
     });
   }

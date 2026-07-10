@@ -60,16 +60,47 @@
   handleResize();
 
   // ===== NOTIFICATION PANEL =====
-  function togglePanel() {
-    dash.classList.toggle('dashboard--panel-open');
+  function openPanel() {
+    if (!panel || !panelToggle) return;
+    var rect = panelToggle.getBoundingClientRect();
+    panel.style.top = (rect.bottom + 8) + 'px';
+    panel.style.right = (window.innerWidth - rect.right) + 'px';
+    panel.classList.add('dashboard__panel--open');
   }
 
   function closePanel() {
-    dash.classList.remove('dashboard--panel-open');
+    if (!panel) return;
+    panel.classList.remove('dashboard__panel--open');
+  }
+
+  function togglePanel(e) {
+    e.stopPropagation();
+    if (panel.classList.contains('dashboard__panel--open')) {
+      closePanel();
+    } else {
+      openPanel();
+    }
   }
 
   if (panelToggle) panelToggle.addEventListener('click', togglePanel);
-  if (panelClose) panelClose.addEventListener('click', closePanel);
+  if (panelClose) panelClose.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closePanel();
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!panel || !panelToggle) return;
+    if (panel.classList.contains('dashboard__panel--open') &&
+        !panel.contains(e.target) && !panelToggle.contains(e.target)) {
+      closePanel();
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    if (panel && panel.classList.contains('dashboard__panel--open')) {
+      openPanel();
+    }
+  });
 
   // ===== PROFILE DROPDOWN =====
   function toggleDropdown(e) {

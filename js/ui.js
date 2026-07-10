@@ -64,12 +64,12 @@ const UI = (function () {
 
   /* ===== Timeline ===== */
   function timelineItem(dotColor, title, detail, time) {
-    return '<div class="act-item">' +
-      '<div class="act-item__dot act-item__dot--' + Utils.escapeHtml(dotColor) + '"></div>' +
-      '<div class="act-item__body">' +
-      '<strong>' + Utils.escapeHtml(title) + '</strong>' +
-      (detail ? '<span>' + Utils.escapeHtml(detail) + '</span>' : '') +
-      (time ? '<time>' + Utils.escapeHtml(time) + '</time>' : '') +
+    return '<div class="tl__item">' +
+      '<div class="tl__track"><div class="tl__dot tl__dot--sm tl__dot--' + Utils.escapeHtml(dotColor) + '"></div><div class="tl__line"></div></div>' +
+      '<div class="tl__content">' +
+      '<strong class="tl__title">' + Utils.escapeHtml(title) + '</strong>' +
+      (detail ? '<span class="tl__meta">' + Utils.escapeHtml(detail) + '</span>' : '') +
+      (time ? '<time class="tl__time">' + Utils.escapeHtml(time) + '</time>' : '') +
       '</div></div>';
   }
 

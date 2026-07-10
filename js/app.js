@@ -62,23 +62,22 @@ const App = (function () {
 
       /* Upcoming Timeline */
       UI.section('Upcoming Training', (function () {
-        var dots = ['red', 'gold', 'cyan', ''];
+        var dots = ['red', 'gold', 'cyan', 'cyan'];
         var statuses = ['Live', 'Upcoming', 'Upcoming', 'Tomorrow'];
         var items = '';
         upcoming.slice(0, 4).forEach(function (s, i) {
-          var dotClass = dots[i] ? ' u-timeline__dot--' + dots[i] : '';
-          var statusClass = statuses[i] === 'Live' ? ' u-timeline__status--live' : ' u-timeline__status--up';
-          items += '<div class="u-timeline__item">' +
-            '<div class="u-timeline__dot' + dotClass + '"></div>' +
-            '<div class="u-timeline__card">' +
-            '<div class="u-timeline__top"><span class="u-timeline__sport">' + Utils.escapeHtml(s.sport) + '</span><span class="u-timeline__status' + statusClass + '">' + statuses[i] + '</span></div>' +
-            '<div class="u-timeline__info">' +
+          var statusClass = statuses[i] === 'Live' ? ' tl__status--live' : ' tl__status--up';
+          items += '<div class="tl__item">' +
+            '<div class="tl__track"><div class="tl__dot tl__dot--sm tl__dot--' + dots[i] + '"></div><div class="tl__line tl__line--gradient"></div></div>' +
+            '<div class="tl__content"><div class="tl__card">' +
+            '<div class="tl__card-top"><span class="tl__card-sport">' + Utils.escapeHtml(s.sport) + '</span><span class="tl__status' + statusClass + '">' + statuses[i] + '</span></div>' +
+            '<div class="tl__card-info">' +
             '<span><svg aria-hidden="true"><use href="#dash-user"/></svg> ' + Utils.escapeHtml(s.coach) + '</span>' +
             '<span><svg aria-hidden="true"><use href="#dash-clock"/></svg> ' + Utils.escapeHtml(s.time) + '</span>' +
             '<span><svg aria-hidden="true"><use href="#dash-map"/></svg> ' + Utils.escapeHtml(s.venue) + '</span>' +
-            '</div></div></div>';
+            '</div></div></div></div>';
         });
-        return '<div class="u-timeline">' + items + '</div>';
+        return '<div class="tl">' + items + '</div>';
       })(), 'View Schedule', '#/schedule') +
 
       /* Performance */
@@ -107,7 +106,7 @@ const App = (function () {
 
       /* Activities */
       UI.section('Recent Activities',
-        '<div class="act-timeline">' +
+        '<div class="tl">' +
         activities.map(function (a) { return UI.timelineItem(a.dot, a.text, a.detail, a.time); }).join('') +
         '</div>', 'View All', '#/achievements') +
 
@@ -198,7 +197,7 @@ const App = (function () {
     }
 
     function timelineItem(icon, title, desc, date, color) {
-      return '<div class="p-timeline__item"><div class="p-timeline__dot p-timeline__dot--' + color + '"><svg aria-hidden="true"><use href="#' + icon + '"/></svg></div><div class="p-timeline__body"><strong>' + Utils.escapeHtml(title) + '</strong><span>' + Utils.escapeHtml(desc) + '</span><time>' + Utils.escapeHtml(date) + '</time></div></div>';
+      return '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--' + color + '"><svg aria-hidden="true"><use href="#' + icon + '"/></svg></div><div class="tl__line tl__line--gradient"></div></div><div class="tl__content"><strong class="tl__title">' + Utils.escapeHtml(title) + '</strong><span class="tl__meta">' + Utils.escapeHtml(desc) + '</span><time class="tl__time">' + Utils.escapeHtml(date) + '</time></div></div>';
     }
 
     return '' +
@@ -274,7 +273,7 @@ const App = (function () {
 
       /* ===== SECTION 7: Timeline ===== */
       UI.section('My Journey',
-        '<div class="p-timeline">' +
+        '<div class="tl">' +
         timelineItem('dash-calendar', 'Joined Academy', 'Enrolled as Student Athlete', 'Jan 2024', 'cyan') +
         timelineItem('dash-check', 'Completed Foundation Program', 'Finished Level 1 training', 'Jun 2024', 'green') +
         timelineItem('dash-trophy', 'Won Regional Competition', 'First place in Football', 'Mar 2025', 'gold') +
@@ -399,7 +398,7 @@ const App = (function () {
       /* ===== SECTION 6: Activities + Milestones ===== */
       '<div class="t-grid t-grid--2col">' +
       UI.section('Recent Activities',
-        '<div class="act-timeline">' +
+        '<div class="tl">' +
         activities.map(function (a) { return UI.timelineItem(a.dot, a.text, a.detail, a.time); }).join('') +
         '</div>') +
       UI.section('Upcoming Milestones',
@@ -437,7 +436,7 @@ const App = (function () {
     }
 
     function timelineItem(icon, label, time, color) {
-      return '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--' + color + '"><svg aria-hidden="true"><use href="#' + icon + '"/></svg></div><div class="s-tl__body"><strong>' + Utils.escapeHtml(label) + '</strong><span>' + Utils.escapeHtml(time) + '</span></div></div>';
+      return '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--' + color + '"><svg aria-hidden="true"><use href="#' + icon + '"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">' + Utils.escapeHtml(label) + '</strong><span class="tl__meta">' + Utils.escapeHtml(time) + '</span></div></div>';
     }
 
     var weekDays = [
@@ -535,7 +534,7 @@ const App = (function () {
         '<div class="s-heatmap__legend"><span>Less</span><div class="s-heatmap__cell s-heatmap__cell--l0"></div><div class="s-heatmap__cell s-heatmap__cell--l1"></div><div class="s-heatmap__cell s-heatmap__cell--l2"></div><div class="s-heatmap__cell s-heatmap__cell--l3"></div><span>More</span></div>' +
         '</div>') +
       UI.section('Training Timeline',
-        '<div class="s-tl">' +
+        '<div class="tl">' +
         timelineItem('dash-check', 'Morning Football Drill', 'Completed · Today 06:00', 'green') +
         timelineItem('dash-play', 'Basketball Practice', 'Upcoming · 08:00', 'cyan') +
         timelineItem('dash-play', 'Swimming Session', 'Upcoming · 10:00', 'cyan') +
@@ -638,7 +637,7 @@ const App = (function () {
       /* ===== SECTION 6: Goal Timeline + Coach Feedback ===== */
       '<div class="t-grid t-grid--2col">' +
       UI.section('Goal Timeline',
-        '<div class="s-tl">' +
+        '<div class="tl">' +
         (function () {
           var items = '';
           var tlData = [
@@ -648,7 +647,7 @@ const App = (function () {
             { i: 'dash-award', l: 'Complete All Levels', t: 'Due Jun 2027', c: 'green' }
           ];
           tlData.forEach(function (t) {
-            items += '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--' + t.c + '"><svg aria-hidden="true"><use href="#' + t.i + '"/></svg></div><div class="s-tl__body"><strong>' + Utils.escapeHtml(t.l) + '</strong><span>' + Utils.escapeHtml(t.t) + '</span></div></div>';
+            items += '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--' + t.c + '"><svg aria-hidden="true"><use href="#' + t.i + '"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">' + Utils.escapeHtml(t.l) + '</strong><span class="tl__meta">' + Utils.escapeHtml(t.t) + '</span></div></div>';
           });
           return items;
         })() +
@@ -763,10 +762,10 @@ const App = (function () {
       /* Timeline + Competition Performance */
       '<div class="t-grid t-grid--2col">' +
       UI.section('Achievement Timeline',
-        '<div class="s-tl">' +
+        '<div class="tl">' +
         unlocked.slice(0, 5).map(function (a) {
           var dotColor = a.color === 'gold' ? 'gold' : a.color === 'silver' ? 'cyan' : a.color === 'bronze' ? 'green' : a.color === 'red' ? 'red' : 'cyan';
-          return '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--' + dotColor + '"><svg aria-hidden="true"><use href="#' + a.icon + '"/></svg></div><div class="s-tl__body"><strong>' + Utils.escapeHtml(a.name) + '</strong><span>' + Utils.escapeHtml(a.desc) + ' · ' + (a.unlockedDate || '') + '</span></div></div>';
+          return '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--' + dotColor + '"><svg aria-hidden="true"><use href="#' + a.icon + '"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">' + Utils.escapeHtml(a.name) + '</strong><span class="tl__meta">' + Utils.escapeHtml(a.desc) + ' · ' + (a.unlockedDate || '') + '</span></div></div>';
         }).join('') +
         '</div>') +
       UI.section('Competition Performance', '<div class="a-chart"><canvas id="achievCompChart"></canvas></div>') +
@@ -844,9 +843,9 @@ const App = (function () {
       /* Renewal Timeline + Support */
       '<div class="t-grid t-grid--2col">' +
       UI.section('Renewal Timeline',
-        '<div class="s-tl">' +
+        '<div class="tl">' +
         renewalTimeline.map(function (t) {
-          return '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--' + t.color + '"><svg aria-hidden="true"><use href="#' + t.icon + '"/></svg></div><div class="s-tl__body"><strong>' + Utils.escapeHtml(t.label) + '</strong><span>' + Utils.escapeHtml(t.date) + '</span></div></div>';
+          return '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--' + t.color + '"><svg aria-hidden="true"><use href="#' + t.icon + '"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">' + Utils.escapeHtml(t.label) + '</strong><span class="tl__meta">' + Utils.escapeHtml(t.date) + '</span></div></div>';
         }).join('') +
         '</div>') +
       UI.section('Support',
@@ -941,11 +940,11 @@ const App = (function () {
         }).join('') +
         '</div>') +
       UI.section('Recent Downloads',
-        '<div class="s-tl">' +
-        '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--green"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><div class="s-tl__body"><strong>Training Manual 2026</strong><span>Downloaded 2 hours ago</span></div></div>' +
-        '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--gold"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><div class="s-tl__body"><strong>Nutrition Guide</strong><span>Downloaded yesterday</span></div></div>' +
-        '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--cyan"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><div class="s-tl__body"><strong>Workout Planner</strong><span>Downloaded 3 days ago</span></div></div>' +
-        '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--red"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><div class="s-tl__body"><strong>Injury Prevention Guide</strong><span>Downloaded 5 days ago</span></div></div>' +
+        '<div class="tl">' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--green"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Training Manual 2026</strong><span class="tl__meta">Downloaded 2 hours ago</span></div></div>' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--gold"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Nutrition Guide</strong><span class="tl__meta">Downloaded yesterday</span></div></div>' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--cyan"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Workout Planner</strong><span class="tl__meta">Downloaded 3 days ago</span></div></div>' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--red"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Injury Prevention Guide</strong><span class="tl__meta">Downloaded 5 days ago</span></div></div>' +
         '</div>') +
       '</div>' +
 
@@ -1033,10 +1032,10 @@ const App = (function () {
         '<div class="ms-file"><div class="ms-file__icon ms-file__icon--cyan"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><strong>Nutrition Plan.docx</strong><span>0.8 MB · Shared 3d ago</span></div>' +
         '</div>') +
       UI.section('Notifications',
-        '<div class="s-tl">' +
-        '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--green"><svg aria-hidden="true"><use href="#dash-message"/></svg></div><div class="s-tl__body"><strong>New message from Coach David</strong><span>2 hours ago</span></div></div>' +
-        '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--gold"><svg aria-hidden="true"><use href="#dash-check"/></svg></div><div class="s-tl__body"><strong>Feedback received on your performance</strong><span>Yesterday</span></div></div>' +
-        '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--cyan"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><div class="s-tl__body"><strong>New file shared in Basketball chat</strong><span>3 days ago</span></div></div>' +
+        '<div class="tl">' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--green"><svg aria-hidden="true"><use href="#dash-message"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">New message from Coach David</strong><span class="tl__meta">2 hours ago</span></div></div>' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--gold"><svg aria-hidden="true"><use href="#dash-check"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Feedback received on your performance</strong><span class="tl__meta">Yesterday</span></div></div>' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--cyan"><svg aria-hidden="true"><use href="#dash-download"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">New file shared in Basketball chat</strong><span>3 days ago</span></div></div>' +
         '</div>') +
       '</div>' +
 

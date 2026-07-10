@@ -12,7 +12,7 @@ const CoachApp = (function () {
   }
 
   function timelineItem(icon, title, detail, time, color) {
-    return '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--' + color + '"><svg aria-hidden="true"><use href="#' + icon + '"/></svg></div><div class="s-tl__body"><strong>' + Utils.escapeHtml(title) + '</strong><span>' + Utils.escapeHtml(detail) + ' · ' + Utils.escapeHtml(time) + '</span></div></div>';
+    return '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--' + color + '"><svg aria-hidden="true"><use href="#' + icon + '"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">' + Utils.escapeHtml(title) + '</strong><span class="tl__meta">' + Utils.escapeHtml(detail) + ' · ' + Utils.escapeHtml(time) + '</span></div></div>';
   }
 
   /* ===== OVERVIEW ===== */
@@ -67,7 +67,7 @@ const CoachApp = (function () {
 
       '<div class="t-grid t-grid--2col">' +
       UI.section('Recent Activities',
-        '<div class="s-tl">' +
+        '<div class="tl">' +
         timelineItem('dash-check', 'Football Drills Completed', 'Session finished with 12 students', 'Today 07:30', 'green') +
         timelineItem('dash-play', 'Basketball Skills Session', 'Coach Emma conducted skills training', 'Today 09:30', 'cyan') +
         timelineItem('dash-star', 'New Student Enrolled', 'Emma Garcia joined Football program', 'Yesterday', 'gold') +
@@ -115,11 +115,11 @@ const CoachApp = (function () {
         '</div>') +
 
       UI.section('My Journey',
-        '<div class="p-timeline">' +
-        '<div class="p-timeline__item"><div class="p-timeline__dot p-timeline__dot--cyan"><svg aria-hidden="true"><use href="#dash-calendar"/></svg></div><div class="p-timeline__body"><strong>Joined Stackly Academy</strong><span>Started as Assistant Coach</span><time>Sep 2020</time></div></div>' +
-        '<div class="p-timeline__item"><div class="p-timeline__dot p-timeline__dot--green"><svg aria-hidden="true"><use href="#dash-check"/></svg></div><div class="p-timeline__body"><strong>Promoted to Head Coach</strong><span>Football & Athletics Lead</span><time>Jan 2022</time></div></div>' +
-        '<div class="p-timeline__item"><div class="p-timeline__dot p-timeline__dot--gold"><svg aria-hidden="true"><use href="#dash-trophy"/></svg></div><div class="p-timeline__body"><strong>UEFA B License Certified</strong><span>Advanced coaching license</span><time>Mar 2023</time></div></div>' +
-        '<div class="p-timeline__item"><div class="p-timeline__dot p-timeline__dot--red"><svg aria-hidden="true"><use href="#dash-award"/></svg></div><div class="p-timeline__body"><strong>Coach of the Year</strong><span>Awarded for outstanding performance</span><time>Dec 2025</time></div></div>' +
+        '<div class="tl">' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--cyan"><svg aria-hidden="true"><use href="#dash-calendar"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Joined Stackly Academy</strong><span class="tl__meta">Started as Assistant Coach</span><time class="tl__time">Sep 2020</time></div></div>' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--green"><svg aria-hidden="true"><use href="#dash-check"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Promoted to Head Coach</strong><span class="tl__meta">Football & Athletics Lead</span><time class="tl__time">Jan 2022</time></div></div>' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--gold"><svg aria-hidden="true"><use href="#dash-trophy"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">UEFA B License Certified</strong><span class="tl__meta">Advanced coaching license</span><time class="tl__time">Mar 2023</time></div></div>' +
+        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--red"><svg aria-hidden="true"><use href="#dash-award"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Coach of the Year</strong><span class="tl__meta">Awarded for outstanding performance</span><time class="tl__time">Dec 2025</time></div></div>' +
         '</div>') +
 
       UI.section('Training Hours', '<div class="g-chart"><canvas id="coachProfileHours"></canvas></div>') +
@@ -252,11 +252,11 @@ const CoachApp = (function () {
 
       '<div class="t-grid t-grid--2col">' +
       UI.section('Training Timeline',
-        '<div class="s-tl">' +
+        '<div class="tl">' +
         timeline.map(function (t) {
           var dotColor = t.status === 'completed' ? 'green' : t.status === 'upcoming' ? 'cyan' : 'red';
           var icon = t.status === 'completed' ? 'dash-check' : 'dash-play';
-          return '<div class="s-tl__item"><div class="s-tl__dot s-tl__dot--' + dotColor + '"><svg aria-hidden="true"><use href="#' + icon + '"/></svg></div><div class="s-tl__body"><strong>' + Utils.escapeHtml(t.title) + '</strong><span>' + Utils.escapeHtml(t.time) + '</span></div></div>';
+          return '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--' + dotColor + '"><svg aria-hidden="true"><use href="#' + icon + '"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">' + Utils.escapeHtml(t.title) + '</strong><span class="tl__meta">' + Utils.escapeHtml(t.time) + '</span></div></div>';
         }).join('') +
         '</div>') +
       UI.section('Training Plans',
@@ -268,9 +268,9 @@ const CoachApp = (function () {
       '</div>' +
 
       UI.section('Upcoming Sessions',
-        '<div class="u-timeline">' +
+        '<div class="tl">' +
         upcoming.map(function (s) {
-          return '<div class="u-timeline__item"><div class="u-timeline__dot u-timeline__dot--cyan"></div><div class="u-timeline__card"><div class="u-timeline__top"><span class="u-timeline__sport">' + Utils.escapeHtml(s.sport) + '</span><span class="u-timeline__status u-timeline__status--up">' + Utils.escapeHtml(s.date) + '</span></div><div class="u-timeline__info"><span><svg aria-hidden="true"><use href="#dash-user"/></svg> ' + Utils.escapeHtml(s.coach) + '</span><span><svg aria-hidden="true"><use href="#dash-clock"/></svg> ' + Utils.escapeHtml(s.time) + '</span><span><svg aria-hidden="true"><use href="#dash-map"/></svg> ' + Utils.escapeHtml(s.venue) + '</span></div></div></div>';
+          return '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--cyan"></div><div class="tl__line tl__line--gradient"></div></div><div class="tl__content"><div class="tl__card"><div class="tl__card-top"><span class="tl__card-sport">' + Utils.escapeHtml(s.sport) + '</span><span class="tl__status tl__status--up">' + Utils.escapeHtml(s.date) + '</span></div><div class="tl__card-info"><span><svg aria-hidden="true"><use href="#dash-user"/></svg> ' + Utils.escapeHtml(s.coach) + '</span><span><svg aria-hidden="true"><use href="#dash-clock"/></svg> ' + Utils.escapeHtml(s.time) + '</span><span><svg aria-hidden="true"><use href="#dash-map"/></svg> ' + Utils.escapeHtml(s.venue) + '</span></div></div></div></div>';
         }).join('') +
         '</div>') +
 
