@@ -27,8 +27,8 @@ const App = (function () {
       '<div class="s-hero__grid" aria-hidden="true"></div>' +
       '<div class="s-hero__content">' +
       '<div class="s-hero__top">' +
-      '<span class="s-hero__date" id="currentDate"></span>' +
-      '<span class="s-badge s-badge--gold">Premium Athlete</span>' +
+      '<span class="s-hero__date" id="currentDate">' + Utils.formatDate(new Date()) + '</span>' +
+      '<span class="s-badge s-badge--gold">' + Utils.escapeHtml(student.membership) + '</span>' +
       '</div>' +
       '<h1 class="s-hero__title" id="heroTitle">' +
       Utils.getGreeting() + ',<br>' +
@@ -1400,18 +1400,13 @@ const App = (function () {
 
     function performLogout(e) {
       if (e) e.preventDefault();
-      var authKeys = ['sportAcademUser', 'userEmail', 'userName', 'userRole', 'userPhone', 'profileImage', 'loginTime', 'studentEmail', 'studentName', 'studentProfileImage', 'userToken', 'auth_token', 'sessionId'];
-      authKeys.forEach(function (key) { Storage.remove(key); });
+      var authKeys = ['currentUser', 'sportAcademUser', 'sportacadem_user', 'userEmail', 'userName', 'userRole', 'userPhone', 'profileImage', 'loginTime', 'studentEmail', 'studentName', 'studentProfileImage', 'userToken', 'auth_token', 'sessionId'];
+      authKeys.forEach(function (key) { try { localStorage.removeItem(key); } catch(ex) {} });
       window.location.href = 'login.html';
     }
 
-    var logoutLink = document.querySelector('.dashboard__sidebar-footer a');
-    if (logoutLink) {
-      logoutLink.addEventListener('click', performLogout);
-    }
-
     document.addEventListener('click', function (e) {
-      var btn = e.target.closest('#settingsLogoutBtn');
+      var btn = e.target.closest('[data-logout], #settingsLogoutBtn');
       if (btn) performLogout(e);
     });
   }

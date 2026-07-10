@@ -126,7 +126,12 @@
     <div class="dashboard__overlay" id="dashboardOverlay"></div>
     <aside class="dashboard__sidebar" id="dashboardSidebar">
       <div class="dashboard__sidebar-brand">
-        <img src="assets/logo-stackly.webp" alt="Stackly Sports Academy">
+        <a href="index.html"><img src="assets/logo-stackly.webp" alt="Stackly Sports Academy" width="120" height="80"></a>
+      </div>
+      <div class="dashboard__sidebar-user" id="sidebarUserInfo">
+        <img src="assets/coach-david.webp" alt="" class="dashboard__sidebar-userimg" id="sidebarUserImg" style="width:38px;height:38px;border-radius:50%;object-fit:cover;margin:0 auto 6px">
+        <strong class="dashboard__sidebar-username" id="sidebarUserName" style="display:block;font-size:0.85rem;text-align:center">User</strong>
+        <span class="dashboard__sidebar-userrole" id="sidebarUserRole" style="display:block;font-size:0.72rem;text-align:center;color:var(--text-light);margin-bottom:12px">Role</span>
       </div>
       <nav class="dashboard__sidebar-nav" aria-label="Coach dashboard navigation">
         <span class="dashboard__sidebar-label">Main Menu</span>
@@ -166,7 +171,7 @@
         </a>
       </nav>
       <div class="dashboard__sidebar-footer">
-        <a href="login.html" class="dashboard__sidebar-link" id="coachLogout">
+        <a href="login.html" class="dashboard__sidebar-link" id="coachLogout" data-logout>
           <svg aria-hidden="true"><use href="#dash-logout"/></svg>
           <span>Logout</span>
         </a>
@@ -216,7 +221,7 @@
                 Settings
               </a>
               <div class="dashboard__dropdown-divider"></div>
-              <a href="login.html" class="dashboard__dropdown-link dashboard__dropdown-link--danger">
+              <a href="login.html" class="dashboard__dropdown-link dashboard__dropdown-link--danger" data-logout>
                 <svg aria-hidden="true"><use href="#dash-logout"/></svg>
                 Logout
               </a>
@@ -264,14 +269,15 @@
   </div>
 
   <script src="js/dashboard.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
   <script src="data/coach.js"></script>
   <script src="data/students.js"></script>
   <script src="data/sessions.js"></script>
   <script src="data/coach-attendance.js"></script>
   <script src="data/performance.js"></script>
   <script src="data/messages.js"></script>
-  <script src="js/storage.js"></script>
-  <script src="js/utils.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/charts.js"></script>
   <script src="js/coach-app.js"></script>

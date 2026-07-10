@@ -2,19 +2,24 @@ const CoachData = (function () {
   'use strict';
 
   function get() {
-    const stored = Storage.get('sportAcademUser');
+    var user = Auth.getCurrentUser();
+    var stored = user || {};
+    var nameParts = (stored.name || '').split(' ');
+    var firstName = nameParts[0] || 'David';
+    var lastName = nameParts.slice(1).join(' ') || 'Johnson';
+
     return {
-      name: stored?.name || 'Coach David',
-      firstName: stored?.firstName || 'David',
-      lastName: stored?.lastName || 'Johnson',
-      email: stored?.email || 'david.johnson@sportsacademy.com',
+      name: stored.name || 'Coach David',
+      firstName: firstName,
+      lastName: lastName,
+      email: stored.email || 'david.johnson@sportsacademy.com',
       role: 'Head Coach',
-      phone: stored?.phone || '+1 (555) 111-2233',
-      profileImage: stored?.profileImage || 'assets/coach-david.webp',
-      loginTime: stored?.loginTime || Storage.get('loginTime') || new Date().toISOString(),
+      phone: stored.phone || '+1 (555) 111-2233',
+      profileImage: stored.profileImage || '',
+      loginTime: stored.loginTime || new Date().toISOString(),
       memberSince: 'September 2020',
       coachId: 'CH-2020-001',
-      specialization: 'Football, Athletics',
+      specialization: stored.sport || 'Football, Athletics',
       experience: '12 Years',
       rating: 4.9,
       certifications: ['UEFA B License', 'NSCA Certified', 'First Aid Certified'],
@@ -25,16 +30,16 @@ const CoachData = (function () {
   }
 
   function update(data) {
-    const existing = get();
-    const merged = Object.assign({}, existing, data);
-    Storage.set('sportAcademUser', JSON.stringify(merged));
+    var existing = get();
+    var merged = Object.assign({}, existing, data);
+    Auth.saveCurrentUser(merged);
     return merged;
   }
 
   function getInitials(name) {
     if (!name) return 'CD';
-    return name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+    return name.split(' ').map(function (w) { return w[0]; }).join('').substring(0, 2).toUpperCase();
   }
 
-  return { get, update, getInitials };
+  return { get: get, update: update, getInitials: getInitials };
 })();

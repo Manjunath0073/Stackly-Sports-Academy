@@ -83,7 +83,7 @@
 }
 
 .dashboard__sidebar-brand img {
-  height: 48px;
+  height: 100px;
   width: auto;
   flex-shrink: 0;
   object-fit: contain;
@@ -803,7 +803,7 @@
     grid-template-columns: var(--sidebar-collapsed) 1fr;
   }
   .dashboard__sidebar-brand img {
-    height: 40px;
+    height: 60px;
   }
   .dashboard__sidebar-label {
     opacity: 0;

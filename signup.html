@@ -338,6 +338,7 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
   <script>
   (function() {
     function showToast(message, type) {
@@ -483,12 +484,24 @@
         var role = document.getElementById('signupRole').value;
         var name = document.getElementById('signupName').value.trim();
         var email = document.getElementById('signupEmail').value.trim();
+        var phone = document.getElementById('signupPhone').value.trim();
+        var sport = document.getElementById('signupSport').value;
         var btn = signupForm.querySelector('button[type="submit"]');
         var original = btn.innerHTML;
         btn.innerHTML = '<span>Creating account...</span>';
         btn.disabled = true;
-        var userData = { name: name, email: email, role: role, loggedIn: true, created: new Date().toISOString() };
-        try { localStorage.setItem('sportacadem_user', JSON.stringify(userData)); } catch(e) {}
+        var userData = {
+          id: Date.now().toString(36) + Math.random().toString(36).substr(2, 5),
+          name: name,
+          email: email,
+          phone: phone,
+          role: role,
+          sport: sport,
+          membership: role === 'coach' ? 'Head Coach' : 'Premium Athlete',
+          profileImage: '',
+          loginTime: new Date().toISOString()
+        };
+        Auth.saveCurrentUser(userData);
         setTimeout(function() {
           showToast('Welcome to SportAcadem! Your account has been created.', 'success');
           btn.innerHTML = original;

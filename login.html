@@ -305,6 +305,7 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
   <script>
   (function() {
     function showToast(message, type) {
@@ -399,8 +400,19 @@
         var original = btn.innerHTML;
         btn.innerHTML = '<span>Logging in...</span>';
         btn.disabled = true;
-        var userData = { email: email, role: role, loggedIn: true, loginTime: new Date().toISOString() };
-        try { localStorage.setItem('sportacadem_user', JSON.stringify(userData)); } catch(e) {}
+        var derivedName = email.split('@')[0].replace(/[._]/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+        var userData = {
+          id: Date.now().toString(36) + Math.random().toString(36).substr(2, 5),
+          name: derivedName,
+          email: email,
+          phone: '',
+          role: role,
+          sport: '',
+          membership: role === 'coach' ? 'Head Coach' : 'Premium Athlete',
+          profileImage: '',
+          loginTime: new Date().toISOString()
+        };
+        Auth.saveCurrentUser(userData);
         setTimeout(function() {
           showToast('Welcome back to SportAcadem!', 'success');
           btn.innerHTML = original;
