@@ -128,7 +128,7 @@
 }
 
 /* ===== Section Headers ===== */
-.d-section { animation: dashFadeIn 0.5s ease both; overflow-x: hidden; }
+.d-section { animation: dashFadeIn 0.5s ease both; }
 
 .d-section__head {
   display: flex;
@@ -2079,7 +2079,7 @@
 .t-kpi__label { font-size: 0.75rem; color: var(--text-light); font-weight: 600; }
 
 /* Two-column grid */
-.t-grid { display: grid; gap: 24px; margin-bottom: 24px; }
+.t-grid { display: grid; gap: 24px; margin-bottom: 16px; }
 .t-grid--2col { grid-template-columns: 1fr 1fr; }
 
 /* Chart */
@@ -2169,6 +2169,17 @@
 
 .t-coach__tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
+/* Compact Contact Coach button */
+.t-coach__body .d-btn--sm {
+  padding: 4px 10px;
+  font-size: 0.65rem;
+  gap: 4px;
+}
+.t-coach__body .d-btn--sm svg {
+  width: 12px;
+  height: 12px;
+}
+
 .t-coach__tags span {
   font-size: 0.7rem; font-weight: 600; padding: 4px 12px;
   border-radius: var(--radius-full); background: var(--bg); color: var(--text-light);
@@ -2178,7 +2189,7 @@
 .t-sched {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
+  gap: 6px;
 }
 
 .t-sched__day {
@@ -2269,7 +2280,7 @@
 .sch-hero__stat-sport { font-size: 0.78rem; color: rgba(255,255,255,0.7); }
 
 /* Weekly Calendar */
-.s-week { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.s-week { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
 .s-day { background: var(--white); border-radius: var(--radius-sm); padding: 16px 12px; text-align: center; box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.04); transition: all var(--transition-fast); }
 .s-day--active { border-color: var(--secondary); }
 .s-day--active:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
