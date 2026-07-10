@@ -114,13 +114,42 @@ const CoachApp = (function () {
         }).join('') +
         '</div>') +
 
-      UI.section('My Journey',
-        '<div class="tl">' +
-        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--cyan"><svg aria-hidden="true"><use href="#dash-calendar"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Joined Stackly Academy</strong><span class="tl__meta">Started as Assistant Coach</span><time class="tl__time">Sep 2020</time></div></div>' +
-        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--green"><svg aria-hidden="true"><use href="#dash-check"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Promoted to Head Coach</strong><span class="tl__meta">Football & Athletics Lead</span><time class="tl__time">Jan 2022</time></div></div>' +
-        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--gold"><svg aria-hidden="true"><use href="#dash-trophy"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">UEFA B License Certified</strong><span class="tl__meta">Advanced coaching license</span><time class="tl__time">Mar 2023</time></div></div>' +
-        '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--red"><svg aria-hidden="true"><use href="#dash-award"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Coach of the Year</strong><span class="tl__meta">Awarded for outstanding performance</span><time class="tl__time">Dec 2025</time></div></div>' +
-        '</div>') +
+      (function () {
+        var teams = ['Football', 'Basketball', 'Swimming', 'Athletics'];
+        var upcomingSessions = SessionsData.getUpcoming();
+        var allStudents = StudentsData.getAll();
+        var upcomingHtml = upcomingSessions.slice(0, 2).map(function (s) {
+          return '<div class="j-ev"><div class="j-ev__dot j-ev__dot--gold"></div><div class="j-ev__body"><strong>' + Utils.escapeHtml(s.sport) + '</strong><span>' + Utils.escapeHtml(s.date) + ' · ' + Utils.escapeHtml(s.time) + '</span></div></div>';
+        }).join('');
+        var teamsHtml = teams.map(function (t) {
+          var cnt = StudentsData.getByCoach('Coach ' + (t === 'Football' || t === 'Athletics' ? 'David' : t === 'Basketball' ? 'Emma' : t === 'Swimming' ? 'Priya' : 'Mike')).length;
+          return '<div class="j-tag"><span class="j-tag__dot"></span>' + Utils.escapeHtml(t) + ' <em>' + cnt + '</em></div>';
+        }).join('');
+        var certHtml = c.certifications.map(function (cert) {
+          return '<div class="j-tag"><span class="j-tag__dot j-tag__dot--gold"></span>' + Utils.escapeHtml(cert) + '</div>';
+        }).join('');
+        return UI.section('My Journey',
+          '<div class="t-grid t-grid--2col">' +
+          '<div class="tl">' +
+          '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--cyan"><svg aria-hidden="true"><use href="#dash-calendar"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Joined Stackly Academy</strong><span class="tl__meta">Started as Assistant Coach</span><time class="tl__time">Sep 2020</time></div></div>' +
+          '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--green"><svg aria-hidden="true"><use href="#dash-check"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Promoted to Head Coach</strong><span class="tl__meta">Football & Athletics Lead</span><time class="tl__time">Jan 2022</time></div></div>' +
+          '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--gold"><svg aria-hidden="true"><use href="#dash-trophy"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">UEFA B License Certified</strong><span class="tl__meta">Advanced coaching license</span><time class="tl__time">Mar 2023</time></div></div>' +
+          '<div class="tl__item"><div class="tl__track"><div class="tl__dot tl__dot--red"><svg aria-hidden="true"><use href="#dash-award"/></svg></div><div class="tl__line"></div></div><div class="tl__content"><strong class="tl__title">Coach of the Year</strong><span class="tl__meta">Awarded for outstanding performance</span><time class="tl__time">Dec 2025</time></div></div>' +
+          '</div>' +
+          '<div class="p-journey-side">' +
+          (teamsHtml ? '<div class="d-section__subhead">Teams</div><div class="j-tags">' + teamsHtml + '</div>' : '') +
+          (upcomingHtml ? '<div class="d-section__subhead" style="margin-top:12px">Upcoming Sessions</div>' + upcomingHtml : '') +
+          '<div class="d-section__subhead" style="margin-top:12px">Certifications</div><div class="j-tags">' + certHtml + '</div>' +
+          '<div class="d-section__subhead" style="margin-top:12px">Stats</div>' +
+          '<div class="j-stats">' +
+          '<div class="j-stat"><span class="j-stat__num">' + c.studentsCount + '</span><span class="j-stat__label">Students</span></div>' +
+          '<div class="j-stat"><span class="j-stat__num">' + c.totalSessions + '</span><span class="j-stat__label">Sessions</span></div>' +
+          '<div class="j-stat"><span class="j-stat__num">' + c.avgAttendance + '%</span><span class="j-stat__label">Attendance</span></div>' +
+          '<div class="j-stat"><span class="j-stat__num">' + c.rating + '</span><span class="j-stat__label">Rating</span></div>' +
+          '</div>' +
+          '</div>' +
+          '</div>');
+      })() +
 
       UI.section('Training Hours', '<div class="g-chart"><canvas id="coachProfileHours"></canvas></div>') +
 
@@ -206,11 +235,12 @@ const CoachApp = (function () {
     var plans = SessionsData.getPlans();
     var timeline = SessionsData.getTimeline();
     var upcoming = SessionsData.getUpcoming();
+    var weekPlan = SessionsData.getWeekPlan();
+    var weeklyHours = SessionsData.getWeeklyHours();
+    var completion = SessionsData.getCompletion();
 
-    var weekDays = [
-      { day: 'Mon', active: true }, { day: 'Tue', active: true }, { day: 'Wed', active: true },
-      { day: 'Thu', active: true }, { day: 'Fri', active: true }, { day: 'Sat', active: false }
-    ];
+    var totalWeekSessions = weekPlan.reduce(function (acc, d) { return acc + d.sessions.length; }, 0);
+    var avgDaily = (totalWeekSessions / weekPlan.length).toFixed(1);
 
     return '' +
       '<div class="c-hero"><div class="c-hero__bg"></div><div class="c-hero__content">' +
@@ -231,7 +261,7 @@ const CoachApp = (function () {
       kpi('dash-play', today.length, 'Today\'s Sessions', 'red') +
       kpi('dash-calendar', upcoming.length, 'Upcoming', 'gold') +
       kpi('dash-check', plans.length, 'Active Plans', 'green') +
-      kpi('dash-clock', '80h', 'Monthly Hours', 'cyan') +
+      kpi('dash-clock', weeklyHours.reduce(function (s, w) { return s + w.hours; }, 0) + 'h', 'Monthly Hours', 'cyan') +
       '</div>' +
 
       '<div class="t-grid t-grid--2col">' +
@@ -242,11 +272,21 @@ const CoachApp = (function () {
           return '<div class="t-prog"><div class="t-prog__img" style="width:56px;height:56px;border-radius:10px;background:var(--hover-gradient);display:flex;align-items:center;justify-content:center;color:var(--white)"><svg aria-hidden="true" style="width:22px;height:22px"><use href="#dash-zap"/></svg></div><div class="t-prog__body"><div class="t-prog__top"><strong class="t-prog__name">' + Utils.escapeHtml(s.sport) + '</strong><span class="t-prog__status ' + statusClass + '">' + Utils.escapeHtml(s.status) + '</span></div><span class="t-prog__coach"><svg aria-hidden="true"><use href="#dash-user"/></svg> ' + Utils.escapeHtml(s.coach) + '</span><span class="t-prog__schedule"><svg aria-hidden="true"><use href="#dash-clock"/></svg> ' + Utils.escapeHtml(s.time) + ' · ' + Utils.escapeHtml(s.venue) + ' · ' + s.students + ' students</span></div></div>';
         }).join('') +
         '</div>') +
+      '<div style="display:flex;flex-direction:column;gap:24px">' +
       UI.section('Weekly Calendar',
         '<div class="s-week">' +
-        weekDays.map(function (d) {
-          return '<div class="s-day' + (d.active ? ' s-day--active' : '') + '"><span class="s-day__name">' + d.day + '</span>' + (d.active ? '<span class="s-day__sport">2 sessions</span><span class="s-day__time">06:00-15:30</span>' : '<span class="s-day__empty">Off</span>') + '</div>';
+        weekPlan.map(function (d) {
+          var cnt = d.sessions.length;
+          var times = d.sessions.map(function (s) { return s.split(' ').pop(); }).join(', ');
+          return '<div class="s-day' + (cnt ? ' s-day--active' : '') + '"><span class="s-day__name">' + d.day + '</span>' + (cnt ? '<span class="s-day__sport">' + cnt + ' session' + (cnt > 1 ? 's' : '') + '</span><span class="s-day__time">' + times + '</span>' : '<span class="s-day__empty">Off</span>') + '</div>';
         }).join('') +
+        '</div>') +
+      UI.section('Weekly Summary',
+        '<div class="j-stats" style="margin-top:0">' +
+        '<div class="j-stat"><span class="j-stat__num">' + totalWeekSessions + '</span><span class="j-stat__label">Weekly Sessions</span></div>' +
+        '<div class="j-stat"><span class="j-stat__num">' + avgDaily + '</span><span class="j-stat__label">Avg / Day</span></div>' +
+        '<div class="j-stat"><span class="j-stat__num">' + weeklyHours.reduce(function (s, w) { return s + w.hours; }, 0) + 'h</span><span class="j-stat__label">This Month</span></div>' +
+        '<div class="j-stat"><span class="j-stat__num">' + completion.reduce(function (s, c) { return s + c.rate; }, 0) / completion.length + '%</span><span class="j-stat__label">Completion</span></div>' +
         '</div>') +
       '</div>' +
 

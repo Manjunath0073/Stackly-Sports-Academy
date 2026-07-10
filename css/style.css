@@ -2672,6 +2672,7 @@ svg {
 
 .footer__col--card .footer__newsletter input {
   flex: 1;
+  min-width: 0;
   padding: 12px 18px;
   background: transparent;
   border: none;
@@ -4734,6 +4735,12 @@ svg {
     transform: none;
   }
   .about__exp {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 16px;
+    width: 100%;
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
     padding: 20px 24px;
   }
   .about__exp-num {
@@ -4825,12 +4832,12 @@ svg {
   }
   .footer__brand {
     max-width: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .footer__brand p {
     max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
   }
   .footer__social {
     justify-content: center;
@@ -4955,13 +4962,6 @@ svg {
   }
   .about__img--main {
     grid-column: span 1;
-  }
-  .about__exp {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin-top: 16px;
-    width: 100%;
   }
   .why__timeline::before {
     display: none;
@@ -5111,6 +5111,7 @@ svg {
     bottom: 16px;
     left: 16px;
   }
+  .footer__shape { display: none; }
   .footer__col--card { padding: 16px 14px; }
   .footer__col h4 { font-size: 0.9rem; }
   .footer__col ul li a { font-size: 0.82rem; }
@@ -5118,6 +5119,8 @@ svg {
   .footer__brand p { font-size: 0.82rem; }
   .footer__top { gap: 20px; padding-bottom: 32px; }
   .footer__bottom { padding: 20px 0; }
+  .footer__col--card .footer__newsletter input { padding: 12px 14px; }
+  .footer__col--card .footer__newsletter button { padding: 12px 14px; }
 }
 
 @media (max-width: 375px) {
@@ -5170,7 +5173,7 @@ svg {
   .container { padding: 0 12px; }
   .btn--lg { padding: 14px 24px; font-size: 0.85rem; }
   .section__header { margin-bottom: 28px; }
-  .card, .glass-card, .pricing-card, .coach-card, .program-card, .achievement-card, .facility, .contact__form-wrap { overflow: hidden; }
+  .card, .pricing-card, .coach-card, .program-card, .achievement-card, .facility, .contact__form-wrap { overflow: hidden; }
   .page-hero { min-height: auto; padding-top: calc(var(--header-h) + 8px); }
   .page-hero__content { padding: 8px 0; }
   .hero__actions { flex-direction: column; align-items: stretch; }
@@ -5180,16 +5183,17 @@ svg {
   .program-card__desc { font-size: 0.8rem; }
   .coach-card__info { padding: 16px; }
   .coach-card__name { font-size: 0.95rem; }
-  .footer { overflow-x: hidden; }
+  .footer__shape { display: none; }
   .footer__col--card { padding: 14px 12px; }
   .footer__logo { height: 70px; }
   .footer__col h4 { font-size: 0.85rem; }
   .footer__col ul li a { font-size: 0.78rem; }
-  .footer__top { gap: 16px; padding-bottom: 24px; gap: 12px; }
+  .footer__top { gap: 12px; padding-bottom: 24px; }
   .footer__bottom { flex-direction: column; gap: 10px; text-align: center; }
   .footer__bottom p { display: block; }
   .footer__legal { justify-content: center; flex-wrap: wrap; gap: 12px; }
   .footer__contact li { font-size: 0.82rem; }
+  .footer__col--card .footer__newsletter input { padding: 12px 14px; }
   .footer__col--card .footer__newsletter button { padding: 12px 14px; }
   .footer__social a { width: 36px; height: 36px; }
   .auth-card { padding: 20px 16px; }

@@ -271,14 +271,27 @@ const App = (function () {
         '<div class="p-card">' + field('Blood Group', s.bloodGroup) + field('Emergency Contact', s.emergencyContact) + '</div>' +
         '</div>') +
 
-      /* ===== SECTION 7: Timeline ===== */
-      UI.section('My Journey',
-        '<div class="tl">' +
-        timelineItem('dash-calendar', 'Joined Academy', 'Enrolled as Student Athlete', 'Jan 2024', 'cyan') +
-        timelineItem('dash-check', 'Completed Foundation Program', 'Finished Level 1 training', 'Jun 2024', 'green') +
-        timelineItem('dash-trophy', 'Won Regional Competition', 'First place in Football', 'Mar 2025', 'gold') +
-        timelineItem('dash-award', 'Unlocked Golden Goal Badge', 'Scored 50 goals milestone', 'Jun 2026', 'red') +
-        '</div>') +
+      /* ===== SECTION 7: My Journey — Two-column ===== */
+      (function () {
+        var upcoming = ScheduleData.getUpcoming();
+        var upcomingCards = upcoming.slice(0, 2).map(function (u) {
+          return '<div class="j-ev"><div class="j-ev__dot"></div><div class="j-ev__body"><strong>' + Utils.escapeHtml(u.sport) + '</strong><span>' + Utils.escapeHtml(u.time) + ' · ' + Utils.escapeHtml(u.venue) + '</span></div></div>';
+        }).join('');
+        var coachCard = '<div class="j-card"><div class="j-card__head"><div class="j-card__icon j-card__icon--cyan"><svg aria-hidden="true"><use href="#dash-user"/></svg></div><div><strong class="j-card__title">' + Utils.escapeHtml(s.coach) + '</strong><span class="j-card__sub">' + Utils.escapeHtml(s.primarySport) + ' Coach</span></div></div></div>';
+        return UI.section('My Journey',
+          '<div class="t-grid t-grid--2col">' +
+          '<div class="tl">' +
+          timelineItem('dash-calendar', 'Joined Academy', 'Enrolled as Student Athlete', 'Jan 2024', 'cyan') +
+          timelineItem('dash-check', 'Completed Foundation Program', 'Finished Level 1 training', 'Jun 2024', 'green') +
+          timelineItem('dash-trophy', 'Won Regional Competition', 'First place in Football', 'Mar 2025', 'gold') +
+          timelineItem('dash-award', 'Unlocked Golden Goal Badge', 'Scored 50 goals milestone', 'Jun 2026', 'red') +
+          '</div>' +
+          '<div class="p-journey-side">' +
+          (upcoming.length ? '<div class="d-section__subhead">Upcoming</div>' + upcomingCards : '') +
+          '<div class="d-section__subhead" style="margin-top:12px">Coach</div>' + coachCard +
+          '</div>' +
+          '</div>');
+      })() +
 
       /* ===== SECTION 8: Quick Actions ===== */
       UI.section('Quick Actions',
@@ -507,11 +520,22 @@ const App = (function () {
 
       /* ===== SECTION 4: Monthly Calendar + Upcoming Sessions Table ===== */
       '<div class="t-grid t-grid--2col">' +
-      '<div class="d-section"><div class="d-section__head"><h2 class="d-section__title">Monthly Calendar</h2><span style="font-size:0.82rem;color:var(--text-light)">July 2026</span></div><div class="s-cal">' +
+      '<div class="d-section"><div class="d-section__head"><h2 class="d-section__title">Monthly Calendar</h2><span style="font-size:0.82rem;color:var(--text-light)">July 2026</span></div>' +
+      '<div class="s-cal">' +
       '<div class="s-cal__header"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>' +
       '<div class="s-cal__grid">' + monthDays.join('') + '</div>' +
       '<div class="s-cal__legend"><span><span class="s-cal__dot s-cal__dot--today"></span> Today</span><span><span class="s-cal__dot s-cal__dot--training"></span> Training</span><span><span class="s-cal__dot s-cal__dot--comp"></span> Competition</span></div>' +
-      '</div></div>' +
+      '</div>' +
+      '<div style="margin-top:16px;display:flex;flex-direction:column;gap:10px">' +
+      '<div class="j-stats">' +
+      '<div class="j-stat"><span class="j-stat__num">' + upcoming.length + '</span><span class="j-stat__label">Upcoming</span></div>' +
+      '<div class="j-stat"><span class="j-stat__num">' + perf.attendance + '%</span><span class="j-stat__label">Attendance</span></div>' +
+      '<div class="j-stat"><span class="j-stat__num">' + (perf.overallProgress || '—') + '%</span><span class="j-stat__label">Progress</span></div>' +
+      '<div class="j-stat"><span class="j-stat__num">' + upcoming[0].time.split(' - ')[0] + '</span><span class="j-stat__label">Next Session</span></div>' +
+      '</div>' +
+      '<div class="j-ev"><div class="j-ev__dot j-ev__dot--red"></div><div class="j-ev__body"><strong>Today\'s Session</strong><span>' + Utils.escapeHtml(today.sport) + ' · ' + Utils.escapeHtml(today.time) + ' · ' + Utils.escapeHtml(today.venue) + '</span></div></div>' +
+      '</div>' +
+      '</div>' +
       UI.section('Upcoming Sessions',
         '<div class="d-toolbar"><input type="search" class="d-search-input" placeholder="Search..." style="max-width:220px"><button class="d-btn d-btn--ghost d-btn--sm">Filter</button></div>' +
         UI.table(['Sport', 'Coach', 'Date', 'Time', 'Venue', 'Status', 'Action'], tableRows) +
